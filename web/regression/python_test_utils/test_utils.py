@@ -639,6 +639,38 @@ def set_preference(default_binary_path):
             )
 
     conn.commit()
+    conn.close()
+
+
+def disable_tree_state_save():
+    conn = sqlite3.connect(config.TEST_SQLITE_PATH)
+    cur = conn.cursor()
+    pref = Preferences.module('browser')\
+        .preference('browser_tree_state_save_interval')
+
+    cur.execute(
+        'INSERT INTO user_preferences(pid, uid, value)'
+        ' VALUES (?,?,?)', (pref.pid, 1, -1)
+    )
+    conn.commit()
+    conn.close()
+
+
+def reset_layout_db(user_id=None):
+    conn = sqlite3.connect(config.TEST_SQLITE_PATH)
+    cur = conn.cursor()
+
+    if user_id is None:
+        cur.execute(
+            'DELETE FROM SETTING WHERE SETTING="Browser/Layout"'
+        )
+    else:
+        cur.execute(
+            'DELETE FROM SETTING WHERE SETTING="Browser/Layout"'
+            ' AND USER_ID=?', user_id
+        )
+    conn.commit()
+    conn.close()
 
 
 def remove_db_file():
