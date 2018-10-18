@@ -22,12 +22,12 @@ define([
   // HTML markup global class names. More can be added by individual controls
   // using _.extend. Look at RadioControl as an example.
   _.extend(Backform, {
-    controlLabelClassName: 'control-label pg-el-sm-3 pg-el-xs-12',
-    controlsClassName: 'pgadmin-controls pg-el-sm-9 pg-el-xs-12',
-    groupClassName: 'pgadmin-control-group form-group pg-el-xs-12',
-    setGroupClassName: 'set-group pg-el-xs-12',
-    tabClassName: 'backform-tab pg-el-xs-12',
-    setGroupContentClassName: 'fieldset-content pg-el-xs-12',
+    controlLabelClassName: 'control-label pg-el-sm-3 pg-el-12',
+    controlsClassName: 'pgadmin-controls pg-el-sm-9 pg-el-12',
+    groupClassName: 'pgadmin-control-group form-group row pg-el-12',
+    setGroupClassName: 'set-group pg-el-12',
+    tabClassName: 'backform-tab pg-el-12',
+    setGroupContentClassName: 'fieldset-content pg-el-12',
     hiddenClassName: 'd-none',
   });
 
