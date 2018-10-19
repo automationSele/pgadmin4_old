@@ -3,10 +3,13 @@ $enable-flex: true !default;
 $color-bg: #fff !default;
 $color-fg: #000 !default;
 
+$color-bg-theme: #fff !default;
+$color-fg-theme: #000 !default;
+
 $color-bg-inverse: $color-fg;
 $color-fg-inverse: $color-bg;
 
-$color-primary: #2c76b4 !default;
+$color-primary: #326690 !default;
 $color-primary-fg: #fff !default;
 
 $color-danger: #d63a35 !default;
@@ -18,7 +21,7 @@ $color-success-fg: $color-fg !default;
 $color-warning: #eea236 !default;
 $color-warning-fg: $color-fg !default;
 
-$color-brand: #009dcf !default;
+$color-brand: #fff !default;
 $color-editor-bg: $color-bg !default;
 $color-editor-keyword: #908 !default;
 $color-editor-number: #964 !default;
@@ -27,12 +30,12 @@ $color-editor-activeline: #50B0F0 !default;
 
 $gray-base: #000 !default;
 
-$color-gray-darker: #333333;
-$color-gray-dark: #555555;
-$color-gray: #888888;
-$color-gray-light: #cccccc;
-$color-gray-lighter: #e8e8e8;
-$color-gray-white: #f9f9f9;
+$color-gray-darker: #848ea0;
+$color-gray-dark: #848ea0;
+$color-gray: #bac1cd;
+$color-gray-light: #f3f5f9;
+$color-gray-lighter: #f3f5f9;
+$color-gray-white: #f3f5f9;
 
 $color-primary-light: lighten($color-primary, 25%);
 $color-primary-lighter: lighten($color-primary, 50%);
@@ -56,4 +59,22 @@ $color-warning-darker: darken($color-warning, 40%);
 
 /* Typography */
 $font-family-primary: "Open Sans" !default;
+$font-family-semibold: "Open Sans Semibold" !default;
 $font-family-editor: 'Source Code Pro' !default;
+
+/** Bootstrap **/
+$font-size-base-value: 0.815;
+$font-size-base: 0.815rem;
+$navbar-padding-y: 0rem;
+$form-group-margin-bottom:  0.5rem;
+$btn-active-box-shadow: none;
+/***************/
+
+$active-border-bottom-width: 3px;
+$panel-border-width: 1px;
+$tabs-padding-top: 5px-$panel-border-width;
+$tabs-padding: $tabs-padding-top 10px 0px;
+
+$title-height: 33px * $font-size-base-value;
+$panel-border-color: $color-gray;
+$navbar-font-size: 0.875rem;

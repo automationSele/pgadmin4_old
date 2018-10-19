@@ -1,0 +1,215 @@
+.wcDocker {
+  background-color: $color-bg-theme;
+}
+
+.wcModalBlocker {
+  background-color: $color-bg-theme;
+}
+
+.wcPanelBackground {
+  background-color: $color-bg-theme;
+}
+
+.wcPanelBackground .wcCenter {
+  background-color: $color-bg-theme;
+}
+
+.wcFrameFlasher {
+  background-color: $color-bg-theme;
+}
+
+.wcFrameShadower {
+  background-color: $color-bg-theme;
+}
+
+.wcFrameTitleBar {
+  height: $title-height;
+  background-color: $color-bg-theme;
+  border-bottom: $panel-border-width solid $panel-border-color;
+}
+
+.wcFrameButton {
+  width: 25px;
+  height: 20px;
+  color: $color-primary;
+  padding: $tabs-padding-top 3px 0px;
+}
+
+// .wcFrameButton:hover, .wcFrameButtonHover {
+//   background-color: $color-bg-theme;
+// }
+
+.wcFrameButton.disabled {
+  pointer-events: none;
+  color: $color-gray;
+}
+
+.wcFrameButton .fa {
+  display: inherit;
+}
+
+.wcFrameButtonBar {
+  height: $title-height;
+  background-color: $color-bg-theme;
+  padding: $tabs-padding-top 3px 0px;
+  border-bottom: $panel-border-width solid $panel-border-color;
+}
+
+
+.wcLayoutGrid, .wcLayoutGrid tr, .wcLayoutGrid td {
+  border: 1px solid #555555;
+}
+
+.wcFrameCenter {
+  top: $title-height;
+}
+
+.wcLayoutGrid, .wcLayoutGrid tr, .wcLayoutGrid td {
+  border: 1px solid $panel-border-color;
+}
+
+.wcPanelTab, .wcFrameTitle{
+  color: $color-primary;
+  padding: $tabs-padding;
+  margin: 0px;
+  @extend .text-semibold;
+}
+
+.wcTabIcon {
+  display: none;
+}
+
+.wcFloating .wcPanelTabActive {
+  border-bottom: $active-border-bottom-width solid $color-primary;
+}
+
+.wcFloating .wcPanelTabActive:hover {
+  background-color: $color-primary-light;
+}
+
+.wcFloating .wcFrameTitleBar {
+  height: $title-height;
+  background-color: $color-bg-theme;
+  border-bottom: $panel-border-width solid $panel-border-color;
+}
+
+.wcFloating .wcPanelTab .wcTabIcon {
+  color: $color-primary;
+  padding: $tabs-padding;
+  margin: 0px;
+  @extend .text-semibold;
+}
+
+.wcPanelTabActive {
+  border-bottom: $active-border-bottom-width solid $color-primary;
+}
+
+.wcFrameEdge {
+  background-color: $panel-border-color;
+  border: none;
+}
+
+.wcFrameEdgeH {
+  height: $panel-border-width;
+}
+
+.wcFrameEdgeV {
+  width: $panel-border-width;
+}
+
+.wcFrameCornerNW,
+.wcFrameCornerNE,
+.wcFrameCornerSW,
+.wcFrameCornerSE {
+  height: $panel-border-width;
+  width: $panel-border-width;
+}
+
+
+.wcSplitterBar {
+  background-color: $panel-border-color;
+  border: none;
+}
+
+.wcSplitterBarV {
+  width: $panel-border-width;
+}
+
+.wcSplitterBarH {
+  height: $panel-border-width;
+}
+
+.wcSplitterBarV.wcSplitterBarStatic {
+  width: 0px;
+}
+.wcSplitterBarH.wcSplitterBarStatic {
+  height: 0px;
+}
+
+
+.wcGhost {
+  background-color: $color-primary-light;
+  border-radius: 6px;
+}
+
+.wcMenuList, .context-menu-list {
+  border: 1px solid $color-gray-lighter;
+  z-index: 999 !important;
+  background: $color-gray-lighter;
+}
+
+.wcMenuItem, .context-menu-item {
+  background-color: $color-gray-lighter;
+}
+
+.wcMenuItemHover, .wcMenuItem:hover, .context-menu-item.hover, .context-menu-item:hover {
+  background-color: $color-primary !important;
+}
+
+.wcMenuItem.disabled, .context-menu-item.disabled {
+  color: $color-gray-dark;
+  background-color:  $color-gray;
+}
+
+.wcMenuSeparator, .context-menu-separator {
+  border: 2px solid $color-gray-light;
+  background-color: $color-gray-lighter;
+}
+
+.wcLoadingBackground {
+  background: $color-bg-inverse;
+  opacity: 0.6 !important;
+}
+
+.wcLoadingIcon.fa-spinner {
+  position: absolute;
+  top: 34%;
+  left: 48%;
+  font-size: 50px;
+  color: $color-gray-light;
+  height: 49px !important;
+}
+
+.wcLoadingLabel {
+  top: 40%;
+  left: 0;
+  color: $color-fg-inverse;
+  width: 100%;
+  font-size: 20px;
+  position: absolute;
+  text-align: center;
+}
+
+.wcPanelTab > div {
+  // display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 125px;
+}
+
+.wcPanelTabActive > div {
+  width: auto !important;
+  max-width: 100%;
+}
+
