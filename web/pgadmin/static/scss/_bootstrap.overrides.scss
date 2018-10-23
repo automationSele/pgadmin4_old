@@ -1,9 +1,6 @@
 .dropdown-menu > .dropdown-item > span {
 	padding-left: 3px;
 }
-.dropdown-menu > .dropdown-item > .has-icon {
-	padding-left: 0px;
-}
 
 /* Ensure simple forms don't hit the top of the screen */
 body {
@@ -44,10 +41,6 @@ iframe {
 	color: $color-gray !important;
 }
 
-
-.dropdown-divider {
-  margin: 0px;
-}
 /*
  * Bootstrap 3 remove submenus as they don't work overly well on Mobile. The
  * following CSS adds them back in - for our purposes they actually work fine
@@ -57,41 +50,38 @@ iframe {
 	position: relative;
 }
 .dropdown-submenu>.dropdown-menu {
-	-moz-border-radius: 0 6px 6px 6px;
-	-webkit-border-radius: 0 6px 6px 6px;
-	border-radius: 0 6px 6px 6px;
+	-moz-border-radius: $dropdown-border-radius;
+	-webkit-border-radius:$dropdown-border-radius;
+	border-radius: $dropdown-border-radius;
 	left: 100%;
 	margin-left: -1px;
-	top: 2px;
+	top: $dropdown-submenu-top;
 }
-.dropdown-submenu:hover>.dropdown-menu {
-	display: block;
+.dropdown-submenu .dropdown-menu.show {
+	background-color: $dropdown-bg;
 }
 .dropdown-submenu>a:after {
-	border-color: transparent;
-	border-left-color: $color-gray-light;
-	border-style: solid;
-	border-width: 5px 0 5px 5px;
-	content: " ";
-	display: block;
+	content: "▸";
 	float: right;
-	height: 0;
 	margin-right: -10px;
-	margin-top: 5px;
-	width: 0;
 }
 .dropdown-submenu:hover>a:after {
-	border-left-color: $color-bg;
+	border-left-color: $dropdown-link-hover-color;
 }
 .dropdown-submenu.pull-left {
 	float: none;
 }
 .dropdown-submenu.pull-left>.dropdown-menu {
-	-moz-border-radius: 6px 0 6px 6px;
-	-webkit-border-radius: 6px 0 6px 6px;
-	border-radius: 6px 0 6px 6px;
+	-moz-border-radius: $dropdown-border-radius;
+	-webkit-border-radius: $dropdown-border-radius;
+	border-radius: $dropdown-border-radius;
 	left: -100%;
 	margin-left: 10px;
+}
+
+.dropdown-submenu-visible>.dropdown-item {
+	background-color: $dropdown-link-hover-bg;
+	color: $dropdown-link-hover-color;
 }
 
 .form-group fieldset {
@@ -144,19 +134,11 @@ iframe {
 	color: $color-gray-dark;
 }
 
-
-
-
 /* Override default bootstrap popover fonts & size */
 .popover-content {
 	font-family: $font-family-primary;
 	font-size: 13px;
 }
-
-.navbar .dropdown-menu {
-	padding-top: 0;
-}
-
 
 
 /* Remove default left padding from checkbox for bootstrap-switch */
@@ -187,37 +169,8 @@ td.switch-cell > div.bootstrap-switch {
 	margin: auto;
 }
 
-.dropdown-menu > hr {
-	margin-bottom: 0;
-	margin-top: 0;
-}
-.dropdown-menu > li > a > i {
-	margin-left: -17px;
-	width: 13px;
-}
-.dropdown-menu > li > a > span {
-	cursor: pointer;
-	padding-left: 3px;
-}
-.dropdown-menu > li > a > .has-icon {
-	padding-left: 0px;
-}
-.dropdown-menu > li > a:not(.disabled):hover, .dropdown-menu > li > a:not(.disabled):focus {
-	background: $color-gray-dark none;
-	color: $color-fg-inverse;
-}
-
-.navbar-nav .nav-item .dropdown-menu {
-  @extend .bg-dark;
-  margin-top: -0.2rem;
-
-  & .dropdown-item {
-    @extend .text-white;
-
-    &.disabled {
-      @extend .text-muted;
-    }
-  }
+.navbar-nav .nav-item > .dropdown-menu {
+	top: $navbar-dropdown-top;
 }
 
 .nav-tabs>.nav-item>.nav-link.active {

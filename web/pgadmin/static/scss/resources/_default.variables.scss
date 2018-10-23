@@ -1,4 +1,9 @@
+/** Dividing a pixel var with 1px or rem var with 1rem removes the unit px/rem **/
 $enable-flex: true !default;
+
+
+$white: #fff;
+$black: #000;
 
 $color-bg: #fff !default;
 $color-fg: #000 !default;
@@ -37,7 +42,7 @@ $color-gray-light: #f3f5f9;
 $color-gray-lighter: #f3f5f9;
 $color-gray-white: #f3f5f9;
 
-$color-primary-light: lighten($color-primary, 25%);
+$color-primary-light: #e8f3f9;
 $color-primary-lighter: lighten($color-primary, 50%);
 $color-primary-dark: darken($color-primary, 10%);
 $color-primary-darker: darken($color-primary, 25%);
@@ -62,19 +67,41 @@ $font-family-primary: "Open Sans" !default;
 $font-family-semibold: "Open Sans Semibold" !default;
 $font-family-editor: 'Source Code Pro' !default;
 
+$border-color: rgba($color-gray, .5);
+
 /** Bootstrap **/
-$font-size-base-value: 0.815;
 $font-size-base: 0.815rem;
-$navbar-padding-y: 0rem;
+$navbar-dark-color: #fff;
+$navbar-dark-hover-color: #fff;
+$navbar-dark-active-color: #fff;
+$navbar-dark-disabled-color: $color-gray;
+
+$navbar-toggler-padding-y: 0.25rem; //no-change
+
 $form-group-margin-bottom:  0.5rem;
 $btn-active-box-shadow: none;
+
+$text-muted: $color-gray-dark;
+$dropdown-bg: $color-gray-light;
+$dropdown-link-hover-color: $white;
+$dropdown-link-hover-bg: $color-primary;
+$dropdown-link-color: $black;
+$dropdown-border-color: $border-color;
+$dropdown-box-shadow: 0 0.125rem 0.5rem rgba($color-gray-dark, .175);
+$dropdown-divider-bg: $dropdown-border-color;
+$dropdown-padding-y: 0.25rem;
+$dropdown-spacer: .125rem; //no-change
+$nav-divider-margin-y: .25rem;
 /***************/
 
-$active-border-bottom-width: 3px;
+$active-border: 3px solid $color-primary;
 $panel-border-width: 1px;
 $tabs-padding-top: 5px-$panel-border-width;
 $tabs-padding: $tabs-padding-top 10px 0px;
 
-$title-height: 33px * $font-size-base-value;
-$panel-border-color: $color-gray;
+$title-height: 33px * $font-size-base/1rem;
+$panel-border-color: $border-color;
 $navbar-font-size: 0.875rem;
+
+$navbar-dropdown-top: $title-height + $navbar-toggler-padding-y*16/1rem;
+$dropdown-submenu-top: -$dropdown-spacer;

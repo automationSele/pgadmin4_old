@@ -320,13 +320,14 @@ define('pgadmin.browser', [
         // Create a dummy 'no object seleted' menu
         var create_submenu = pgAdmin.Browser.MenuGroup(
           obj.menu_categories['create'], [{
-            $el: $('<li><a class="dropdown-item text-white disabled" href="#">' + gettext('No object selected') + '</a></li>'),
+            $el: $('<li><a class="dropdown-item disabled" href="#">' + gettext('No object selected') + '</a></li>'),
             priority: 1,
             category: 'create',
             update: function() {},
           }], false);
         $obj_mnu.append(create_submenu.$el);
       }
+      pgAdmin.Browser.SubmenuEvents($obj_mnu);
     },
     save_current_layout: function(obj) {
       if(obj.docker) {

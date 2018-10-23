@@ -9475,9 +9475,9 @@ watchpack@^1.4.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
-"webcabin-docker@git+https://github.com/EnterpriseDB/wcDocker/#5fbdf05a6757464d2fa2c2b017322c97688b2105":
+"webcabin-docker@git+https://github.com/EnterpriseDB/wcDocker/#1816ea50a51ba4685bdcf097ea5dab2c05730fb2":
   version "2.2.4-dev"
-  resolved "git+https://github.com/EnterpriseDB/wcDocker/#5fbdf05a6757464d2fa2c2b017322c97688b2105"
+  resolved "git+https://github.com/EnterpriseDB/wcDocker/#1816ea50a51ba4685bdcf097ea5dab2c05730fb2"
   dependencies:
     FileSaver "^0.10.0"
     font-awesome "^4.7.0"

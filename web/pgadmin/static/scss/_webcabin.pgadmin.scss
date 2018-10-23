@@ -72,7 +72,6 @@
   color: $color-primary;
   padding: $tabs-padding;
   margin: 0px;
-  @extend .text-semibold;
 }
 
 .wcTabIcon {
@@ -80,7 +79,7 @@
 }
 
 .wcFloating .wcPanelTabActive {
-  border-bottom: $active-border-bottom-width solid $color-primary;
+  border-bottom: $active-border;
 }
 
 .wcFloating .wcPanelTabActive:hover {
@@ -97,11 +96,10 @@
   color: $color-primary;
   padding: $tabs-padding;
   margin: 0px;
-  @extend .text-semibold;
 }
 
 .wcPanelTabActive {
-  border-bottom: $active-border-bottom-width solid $color-primary;
+  border-bottom: $active-border;
 }
 
 .wcFrameEdge {
@@ -153,27 +151,29 @@
 }
 
 .wcMenuList, .context-menu-list {
-  border: 1px solid $color-gray-lighter;
+  border: 1px solid $dropdown-border-color;
   z-index: 999 !important;
-  background: $color-gray-lighter;
+  background-color: $dropdown-bg;
+  box-shadow: $dropdown-box-shadow;
 }
 
 .wcMenuItem, .context-menu-item {
-  background-color: $color-gray-lighter;
+  color: $dropdown-link-color;
+  background-color: $dropdown-bg;
 }
 
 .wcMenuItemHover, .wcMenuItem:hover, .context-menu-item.hover, .context-menu-item:hover {
-  background-color: $color-primary !important;
+  color: $dropdown-link-hover-color;
+  background-color: $dropdown-link-hover-bg !important;
 }
 
 .wcMenuItem.disabled, .context-menu-item.disabled {
-  color: $color-gray-dark;
-  background-color:  $color-gray;
+  color: $text-muted;
+  background-color: $dropdown-bg;
 }
 
 .wcMenuSeparator, .context-menu-separator {
-  border: 2px solid $color-gray-light;
-  background-color: $color-gray-lighter;
+  border: 0.5px solid $dropdown-border-color;
 }
 
 .wcLoadingBackground {
@@ -213,3 +213,8 @@
   max-width: 100%;
 }
 
+
+.context-menu-item.context-menu-disabled {
+  color: $text-muted;
+  background-color: $dropdown-bg;
+}
