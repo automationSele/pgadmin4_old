@@ -99,9 +99,11 @@ $panel-border-width: 1px;
 $tabs-padding-top: 5px-$panel-border-width;
 $tabs-padding: $tabs-padding-top 10px 0px;
 
-$title-height: 33px * $font-size-base/1rem;
+$title-height-base: 33px;
+$title-height: $title-height-base * $font-size-base/1rem;
 $panel-border-color: $border-color;
 $navbar-font-size: 0.875rem;
+$navbar-user-font-size: 0.815rem;
 
-$navbar-dropdown-top: $title-height + $navbar-toggler-padding-y*16/1rem;
+$navbar-dropdown-top: $title-height-base;
 $dropdown-submenu-top: -$dropdown-spacer;

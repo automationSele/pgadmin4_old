@@ -155,6 +155,7 @@
   z-index: 999 !important;
   background-color: $dropdown-bg;
   box-shadow: $dropdown-box-shadow;
+  border-radius: $dropdown-border-radius;
 }
 
 .wcMenuItem, .context-menu-item {

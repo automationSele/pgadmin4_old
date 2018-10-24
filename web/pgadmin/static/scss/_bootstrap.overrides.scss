@@ -1,7 +1,3 @@
-.dropdown-menu > .dropdown-item > span {
-	padding-left: 3px;
-}
-
 /* Ensure simple forms don't hit the top of the screen */
 body {
 	font-family: $font-family-primary;
@@ -14,31 +10,28 @@ body {
 	vertical-align: middle;
 }
 
-
-
 /* Use the full width of the screen */
 .container {
 	width: 100% !important;
 }
-
 
 /* iFrames should have no border */
 iframe {
 	border-width: 0;
 }
 
-
-
 /* Padding for the treeview */
 .browser-browser-pane {
 	padding-left: 0;
 }
 
-
-
 /* Disabled menu items */
 .mnu-disabled {
 	color: $color-gray !important;
+}
+
+.dropdown-menu {
+	box-shadow: $dropdown-box-shadow;
 }
 
 /*
@@ -160,8 +153,6 @@ iframe {
 	height: 0px;
 	width: 0px;
 }
-
-
 
 /* Center align the switch in backgrid */
 td.switch-cell > div.bootstrap-switch {
