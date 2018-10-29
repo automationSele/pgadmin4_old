@@ -25,11 +25,6 @@
 }
 
 #editor-panel {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top : 65px;
-  bottom: 0;
   z-index: 0;
 }
 
@@ -88,7 +83,6 @@
 .sql-editor-history-container {
   height: 100%;
   overflow: auto;
-  border-top: 1px solid #cccccc;
 }
 
 .sql-status-cell {
@@ -330,14 +324,8 @@ input.editor-checkbox:focus {
   right: 0;
 }
 
-.slick-cell, .slick-headerrow-column {
-  border-right: 1px solid #ccc;
-  z-index: 0;
-}
-
 /* Style for text editor */
 .pg_textarea {
-  backround:#fff;
   width:250px;
   height:80px;
   border:0;
@@ -352,32 +340,11 @@ input.editor-checkbox:focus {
 }
 
 /* CSS for connection status icon */
-#output-panel .CodeMirror {
-  border-top: 1px solid #ddd;
-}
-
-.editor-title {
-  padding: 4px 5px;
-  font-size: 13px;
-  display: inline-block;
-}
-
 .connection_status {
-  width: 11px;
-  position: relative;
-  display: inline-block;
-  margin-top: 2px;
-  margin-left: 12px;
-  margin-right: 16px;
-}
-
-.connection_status .fa {
-  font-size: 16px;
-  margin-left: 2px;
+  width: 42px;
 }
 
 .connection_status .fa-custom {
-  margin-bottom: -4px;
   height: 18px;
   width: 18px;
   display: block;
@@ -391,11 +358,6 @@ input.editor-checkbox:focus {
 
 .connection_status .fa-query-tool-disconnected {
   background-image: url('../img/disconnect.svg');
-}
-
-.sql-editor .dropdown-toggle:focus,
-.sql-editor .copy-all:focus {
-  outline: 5px auto -webkit-focus-ring-color;
 }
 
 .ajs-body .warn-header {
@@ -441,7 +403,7 @@ input.editor-checkbox:focus {
 }
 
 .connection-status-show {
-  display: inline-block;
+  display: block;
 }
 
 .connection-status-hide {

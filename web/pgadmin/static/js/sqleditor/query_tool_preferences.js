@@ -76,14 +76,13 @@ function updateUIPreferences(sqlEditor) {
     .attr('title',
       shortcut_title('Execute/Refresh',preferences.execute_query));
 
-  $el.find('#btn-flash-menu span')
-    .text(shortcut_title('Execute/Refresh',preferences.execute_query));
+  $el.find('#btn-explain')
+    .attr('title',
+      shortcut_title('Explain',preferences.explain_query));
 
-  $el.find('#btn-explain span')
-    .text(shortcut_title('Explain',preferences.explain_query));
-
-  $el.find('#btn-explain-analyze span')
-    .text(shortcut_title('Explain Analyze',preferences.explain_analyze_query));
+  $el.find('#btn-explain-analyze')
+    .attr('title',
+      shortcut_title('Explain Analyze',preferences.explain_analyze_query));
 
   $el.find('#btn-download')
     .attr('title',

@@ -25,7 +25,7 @@
 .wcFrameTitleBar {
   height: $title-height;
   background-color: $color-bg-theme;
-  border-bottom: $panel-border-width solid $panel-border-color;
+  border-bottom: $panel-border;
 }
 
 .wcFrameButton {
@@ -52,7 +52,7 @@
   height: $title-height;
   background-color: $color-bg-theme;
   padding: $tabs-padding-top 3px 0px;
-  border-bottom: $panel-border-width solid $panel-border-color;
+  border-bottom: $panel-border;
 }
 
 
@@ -89,7 +89,7 @@
 .wcFloating .wcFrameTitleBar {
   height: $title-height;
   background-color: $color-bg-theme;
-  border-bottom: $panel-border-width solid $panel-border-color;
+  border-bottom: $panel-border;
 }
 
 .wcFloating .wcPanelTab .wcTabIcon {

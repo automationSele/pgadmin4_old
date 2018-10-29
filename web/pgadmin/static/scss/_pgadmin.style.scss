@@ -219,49 +219,12 @@
   padding: 2px;
 }
 
-.pg-prop-btn-group button {
-  padding: 5px;
-}
-
 .pg-prop-btn-group-below {
     text-align: right;
     border-color: $color-gray-light;
     border-width: 2px 1px 0px;
     border-style: inset;
     border-left-style: solid
-}
-
-.pg-prop-btn-group > button {
-  margin: 2px 3px 2px 0px;
-}
-
-.pg-prop-btn-group > button:first-child {
-    margin-left: 3px;
-}
-
-.pg-prop-btn-group > button:last-child {
-    margin-right: 3px;
-}
-.btn-group-sm>.btn, .btn-sm{
-  font-size: 11px;
-  padding: 3px 3px;
-}
-
-.pg-prop-btn-group > .btn {
-  min-width: 40px;
-}
-
-.pg-prop-btn-group > .btn-group > .btn {
-  min-width: 40px;
-}
-
-.pg-prop-btn-group > .btn-group > .btn + .dropdown-toggle {
-  min-width: 20px;
-}
-
-.pg-prop-btn-group button.dropdown-toggle {
-  padding-left: 5px !important;
-  padding-right: 5px !important;
 }
 
 .pg-prop-btn-group .dropdown-menu {
