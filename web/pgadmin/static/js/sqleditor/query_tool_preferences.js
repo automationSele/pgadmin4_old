@@ -143,7 +143,6 @@ function updateUIPreferences(sqlEditor) {
     $conn_status.popover();
 
     $conn_status.removeClass('connection-status-hide');
-    $el.find('.editor-title').addClass('editor-title-connection');
 
     // To set initial connection
     SqlEditorUtils.fetchConnectionStatus(sqlEditor.handler, $conn_status, $status_el);
@@ -156,7 +155,6 @@ function updateUIPreferences(sqlEditor) {
   }
   else {
     $el.find('#btn-conn-status').addClass('connection-status-hide');
-    $el.find('.editor-title').removeClass('editor-title-connection');
   }
 
   /* Code Mirror Preferences */

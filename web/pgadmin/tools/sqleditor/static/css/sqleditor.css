@@ -340,10 +340,6 @@ input.editor-checkbox:focus {
 }
 
 /* CSS for connection status icon */
-.connection_status {
-  width: 42px;
-}
-
 .connection_status .fa-custom {
   height: 18px;
   width: 18px;
@@ -402,12 +398,8 @@ input.editor-checkbox:focus {
   width:100%;
 }
 
-.connection-status-show {
-  display: block;
-}
-
 .connection-status-hide {
-  display: none;
+  display: none !important;
 }
 
 /* For geometry data viewer panel */

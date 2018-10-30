@@ -23,6 +23,12 @@
   background: $color-primary-lighter;
 }
 
+.connection_status {
+  width: 42px;
+  border-right: $panel-border;
+}
+
+
 .ajs-body .warn-icon {
   color: $color-warning;
   font-size: 2em;
@@ -219,11 +225,6 @@ li.CodeMirror-hint-active {
   border:2px solid  $color-gray;
   -moz-border-radius:10px;
   border-radius:10px;
-}
-
-.editor-title-connection {
-  color: $color-primary-fg;
-  background-color: $color-primary;
 }
 
 .editor-title {
