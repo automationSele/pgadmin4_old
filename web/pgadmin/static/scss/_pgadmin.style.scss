@@ -638,11 +638,6 @@ fieldset.inline-fieldset > div {
 
 /* Sub-Node */
 
-.table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
-    border-bottom-width: 1px;
-    padding: 3px;
-}
-
 .edit-cell, .delete-cell {
     text-align:center !important;
     width:25px;
@@ -702,10 +697,6 @@ fieldset.inline-fieldset > div {
     padding: 0px;
 }
 
-.sub-node-form > .nav-tabs {
-    background-color: $color-gray-lighter;
-}
-
 .sub-node-form > ul.tab-content{
     background-color: $color-bg;
     padding-left: 15px;
@@ -751,23 +742,37 @@ fieldset.inline-fieldset > div {
     color: $color-danger;
 }
 
-.obj_properties .nav>li>a {
-    font-size: 13px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 4px;
-    padding-bottom:0px;
-    margin-top:3px;
-}
-
-.obj_properties .backform-tab > .nav-tabs {
-	background-color: $color-gray-lighter;
-}
 
 .sql_field_layout {
     border: 1px solid rgba($color-gray-light, 1) !important;
     border-radius: 4px;
     padding: 0px;
+}
+
+.navtab-inline-controls {
+  
+  height: $title-height;
+  display: flex;
+  text-align: right !important;
+  border-bottom: $panel-border;
+
+  & .input-group-text,
+  & .form-control,
+  & .btn {
+    border: none;
+    border-radius: 0px;
+    border-left: $panel-border;
+    height: inherit;
+  }
+
+  & .input-group {
+    & .input-group-text {
+      background: $color-bg-theme;
+    }
+    & .form-control {
+      border-left: none !important;
+    }
+  }
 }
 
 /* This rule will stop Chrome apply highlighting to elements such as DIV's used as modals */
@@ -828,9 +833,22 @@ div.inline-tab-panel > ul.tab-content > div.tab-pane > *:last-child {
   margin-bottom: 5px;
 }
 
-td.edit-cell.editable.sortable.renderable.editor {
+table td.sortable.renderable.editor {
   outline: 0px;
 }
+
+table tr th {
+  & button {
+    background: none;
+    border: none;
+    color: $color-fg-theme;
+    padding: 0;
+  }
+  & button:focus {
+    outline: none;
+  }
+}
+
 
 .privilege_label{
   font-size: 10px!important;

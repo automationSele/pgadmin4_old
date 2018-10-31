@@ -1,6 +1,15 @@
-.backgrid > th, .backgrid > td {
-  padding: 2px;
+.backgrid th, .backgrid td {
   font-weight: normal!important;
+  text-align: left;
+}
+
+.backgrid.backgrid-striped tbody {
+  & tr:nth-child(even) {
+    background: $table-bg-even;
+  }
+  & tr:nth-child(odd) {
+    background: $table-bg-odd;
+  }  
 }
 
 .subnode > table.backgrid > thead > tr > th:first-child{
@@ -59,41 +68,47 @@
     margin-bottom: 15px;
 }
 
-.backgrid > thead th{
-    background-color: $color-primary;
-}
-
-.backgrid > thead > th, .backgrid > tbody > td {
-  line-height: 18px;
-}
-
 .backgrid > thead > th {
-    letter-spacing:0.5px
+    background: $color-bg-theme;
+    text-align: left;
 }
 
-.backgrid > tbody > td {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 2px;
-    padding-right: 2px;
+.backgrid thead td,
+.backgrid thead th { 
+  background-color: $color-bg-theme !important;
 }
 
-.backgrid > thead th a {
-    color: $color-fg-inverse;
-    font-size: 12px;
-}
+// .backgrid > thead > th, .backgrid > tbody > td {
+//   line-height: 18px;
+// }
 
-.backgrid > th.object {
-    width: 30px;
-}
+// .backgrid > thead > th {
+//     letter-spacing:0.5px
+// }
+
+// .backgrid > tbody > td {
+//     padding-top: 0px;
+//     padding-bottom: 0px;
+//     padding-left: 2px;
+//     padding-right: 2px;
+// }
+
+// .backgrid > thead th a {
+//     color: $color-fg-inverse;
+//     font-size: 12px;
+// }
+
+// .backgrid > th.object {
+//     width: 30px;
+// }
 
 .backgrid.presentation {
-    background-color: $color-gray-lighter;
+    background-color: $color-gray-light;
 }
 
 .backgrid.presentation td.renderable {
     padding: 6px 3px 3px 3px;
-    font-size: 12px;
+    // font-size: 12px;
 }
 
 .backgrid:not(.presentation) td.renderable:not(.editable):not(.delete-cell) {
@@ -116,18 +131,9 @@ table.backgrid tr.new {
   outline-offset: -1px;
 }
 
-.pg-panel-depends-container >table.backgrid.table-bordered {
-  border: 0px;
-}
-
 .alertify_tools_dialog_backgrid_properties {
   top: 43px !important;
 }
-
-.pg-panel-statistics-container >table.backgrid.table-bordered {
-  border: 0px;
-}
-
 table.backgrid {
   overflow: auto;
 }
@@ -160,13 +166,6 @@ table.backgrid {
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
-}
-
-.backgrid tr th button {
-  background: none;
-  border: none;
-  color: $color-fg-inverse;
-  padding: 0;
 }
 
 /* Latest backgrid adds column name like `label` to td element, override color*/

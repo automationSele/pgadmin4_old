@@ -136,6 +136,22 @@ iframe {
 	color: $color-gray-dark;
 }
 
+.card-header {
+	padding: 0.25rem 0.5rem;
+}
+
+.table-borderless {
+	& thead {
+		border-bottom: $panel-border;
+	}
+	& th, & td {
+		border-left: $panel-border;
+		&:first-of-type {
+			border-left: none !important;
+		}
+  	}
+}
+
 /* Override default bootstrap popover fonts & size */
 .popover-content {
 	font-family: $font-family-primary;
@@ -169,12 +185,20 @@ td.switch-cell > div.bootstrap-switch {
 	margin: auto;
 }
 
-.navbar-nav .nav-item > .dropdown-menu {
-	top: $navbar-dropdown-top;
+.nav-tabs {
+	height: $title-height;
 }
 
-.nav-tabs>.nav-item>.nav-link.active {
-	color: $color-fg;
+.nav-link {
+	border: none !important;
+	padding: $tabs-padding;
+	&.active {
+		border-bottom: $active-border !important;
+	}
+}
+
+.navbar-nav .nav-item > .dropdown-menu {
+	top: $navbar-dropdown-top;
 }
 
 .bootstrap-datetimepicker-widget td, .bootstrap-datetimepicker-widget th {
