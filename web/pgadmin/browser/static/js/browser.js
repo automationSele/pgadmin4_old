@@ -146,7 +146,7 @@ define('pgadmin.browser', [
         width: 500,
         isCloseable: false,
         isPrivate: true,
-        content: '<div><div class="alert alert-info pg-panel-message pg-panel-statistics-message">' + select_object_msg + '</div><div class="pg-panel-statistics-container d-none"></div></div>',
+        content: '<div class="negative-space"><div class="alert alert-info pg-panel-message pg-panel-statistics-message">' + select_object_msg + '</div><div class="pg-panel-statistics-container d-none"></div></div>',
         events: panelEvents,
       }),
       // Reversed engineered SQL for the object

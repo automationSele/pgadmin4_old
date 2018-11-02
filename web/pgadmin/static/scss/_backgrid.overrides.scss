@@ -6,10 +6,25 @@
 .backgrid.backgrid-striped tbody {
   & tr:nth-child(even) {
     background: $table-bg-even;
+
+    & td.editor {
+      background: $table-bg-odd;
+      outline: none;
+    }
   }
   & tr:nth-child(odd) {
     background: $table-bg-odd;
+    & td.editor {
+      background: $table-bg-even;
+      outline: none;
+    }
   }  
+}
+
+.backgrid tbody tr.empty td {
+  display: table-cell;
+  font-style: normal;
+  color: $text-muted;
 }
 
 .subnode > table.backgrid > thead > tr > th:first-child{
@@ -76,6 +91,16 @@
 .backgrid thead td,
 .backgrid thead th { 
   background-color: $color-bg-theme !important;
+}
+
+
+.backgrid,
+.backgrid.backgrid-striped {
+  & tbody tr:not(.nohover):not(.empty):hover {
+    border-top: $table-hover-border;
+    border-bottom: $table-hover-border;
+    background-color: $table-hover-bg-color;
+  }
 }
 
 // .backgrid > thead > th, .backgrid > tbody > td {

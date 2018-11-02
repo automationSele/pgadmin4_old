@@ -141,8 +141,16 @@ iframe {
 }
 
 .table-borderless {
-	& thead {
-		border-bottom: $panel-border;
+	& tbody tr {
+		border-top: $table-border-width solid transparent;
+
+		&:first-of-type {
+			border-top: $panel-border;
+		}
+
+		&:last-of-type {
+			border-top: $table-border-width solid transparent;
+		}
 	}
 	& th, & td {
 		border-left: $panel-border;

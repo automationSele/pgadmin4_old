@@ -38,7 +38,7 @@ define('pgadmin.dashboard', [
         );
       } else {
         this.$el.html(
-          '<i class=\'fa fa-times-circle\' data-toggle=\'tooltip\' ' +
+          '<i class=\'fa fa-times-circle text-danger\' data-toggle=\'tooltip\' ' +
           'title=\'' + gettext('Terminate the session') +
           '\'></i>'
         );
@@ -589,6 +589,7 @@ define('pgadmin.dashboard', [
 
       // Set up the grid
       var grid = new Backgrid.Grid({
+        emptyText: 'No data found',
         columns: columns,
         collection: data,
         className: 'backgrid table-borderless presentation table backgrid-striped',
@@ -1115,6 +1116,12 @@ define('pgadmin.dashboard', [
       var div_database_locks = document.getElementById('database_locks');
       var div_database_prepared = document.getElementById('database_prepared');
 
+      var tab_grid_map = {
+        'tab_database_activity': div_database_activity,
+        'tab_database_locks': div_database_locks,
+        'tab_database_prepared': div_database_prepared,
+      };
+
       // Display server activity
       if (self.preferences.show_activity) {
         var database_activity_columns = [{
@@ -1316,39 +1323,18 @@ define('pgadmin.dashboard', [
         pgAdmin.Dashboard.render_grid_data(div_database_activity);
 
         // (Re)render the appropriate tab
-        $('a[data-toggle="tab"]').off('shown.bs.tab').on('shown.bs.tab', function(e) {
-          switch ($(e.target).attr('aria-controls')) {
-          case 'tab_database_activity':
-            pgAdmin.Dashboard.render_grid_data(div_database_activity);
-            break;
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+          let prevGrid = tab_grid_map[$(e.relatedTarget).attr('aria-controls')];
+          $(prevGrid).data('filtertext', $('#txtGridSearch').val());
 
-          case 'tab_database_locks':
-            pgAdmin.Dashboard.render_grid_data(div_database_locks);
-            break;
-
-          case 'tab_database_prepared':
-            pgAdmin.Dashboard.render_grid_data(div_database_prepared);
-            break;
-          }
+          let currGrid = tab_grid_map[$(e.target).attr('aria-controls')];
+          $('#txtGridSearch').val($(currGrid).data('filtertext'));
+          pgAdmin.Dashboard.render_grid_data(currGrid);
         });
 
-        // Handle button clicks
-        $('button').off('click').on('click', (e) => {
-          let $this = $(e.currentTarget);
-          let targetID = $this.length ? $this[0].id : undefined;
-          switch (targetID) {
-          case 'btn_database_activity_refresh':
-            pgAdmin.Dashboard.render_grid_data(div_database_activity);
-            break;
-
-          case 'btn_database_locks_refresh':
-            pgAdmin.Dashboard.render_grid_data(div_database_locks);
-            break;
-
-          case 'btn_database_prepared_refresh':
-            pgAdmin.Dashboard.render_grid_data(div_database_prepared);
-            break;
-          }
+        $('#btn_refresh').off('click').on('click', () => {
+          let currGrid = tab_grid_map[$('#dashboard-activity .nav-tabs .active').attr('aria-controls')];
+          pgAdmin.Dashboard.render_grid_data(currGrid);
         });
       }
     },

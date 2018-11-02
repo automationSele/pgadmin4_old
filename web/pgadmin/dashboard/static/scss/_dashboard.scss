@@ -1,12 +1,11 @@
 .dashboard-icon {
-    color: $color-fg;
+    color: $color-primary;
 }
 
 .dashboard-container {
     padding-top: $grid-gutter-width/2;
     padding-bottom: $grid-gutter-width/2;
-    background: $dashboard-bg;
-    height: 100%;
+    min-height: 100%;
 }
 
 .dashboard-graph-body {
