@@ -141,7 +141,8 @@
 }
 
 .alertify-notifier .ajs-message {
-  border-radius: 4px;
+  border-radius: $card-border-radius;
+  width: 100%;
 }
 
 button.pg-alertify-button {
@@ -161,20 +162,20 @@ button.pg-alertify-button {
 }
 
 .ajs-message.ajs-error.ajs-visible {
-  @extend .bg-danger-lighter;
-  @extend .border-danger;
+  background: $color-danger-light;
+  border: $border-width solid $color-danger;
   @extend .ajs-text-smoothing;
 }
 
 .ajs-message.ajs-success.ajs-visible {
-  @extend .bg-success-lighter;
-  @extend .border-success;
+  background: $color-success-light;
+  border: $border-width solid $color-success;
   @extend .ajs-text-smoothing;
 }
 
 .ajs-message.ajs-visible {
-  @extend .bg-primary-lighter;
-  @extend .border-primary;
+  background: $color-primary-light;
+  border: $border-width solid $color-primary;
   @extend .ajs-text-smoothing;
 }
 

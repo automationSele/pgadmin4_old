@@ -376,39 +376,33 @@ define([
 
   _.extend(alertify, {
     success: function(message, timeout, callback) {
-      var alertMessage = '\
-      <div class="media text-success text-14">\
-        <div class="media-body media-middle">\
-          <div class="alert-icon success-icon">\
-            <i class="fa fa-check" aria-hidden="true"></i>\
-          </div>\
-            <div class="alert-text">' + message + '</div>\
-        </div>\
-      </div>';
+      var alertMessage =
+      `<div class="d-flex px-3 py-2">
+        <div class="pr-2">
+          <i class="fa fa-check text-success" aria-hidden="true"></i>
+        </div>
+        <div class="text-body">${message}</div>
+      </div>`;
       return alertify.orig_success(alertMessage, timeout, callback);
     },
     error: function(message, timeout, callback) {
-      var alertMessage = '\
-      <div class="media text-danger text-14">\
-        <div class="media-body media-middle">\
-          <div class="alert-icon error-icon">\
-            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>\
-          </div>\
-            <div class="alert-text">' + message + '</div>\
-        </div>\
-      </div>';
+      var alertMessage =
+      `<div class="d-flex px-3 py-2">
+        <div class="pr-2">
+          <i class="fa fa-exclamation-triangle text-danger" aria-hidden="true"></i>
+        </div>
+        <div class="text-body">${message}</div>
+      </div>`;
       return alertify.orig_error(alertMessage, timeout, callback);
     },
     info: function(message, timeout) {
-      var alertMessage = '\
-      <div class="media alert-info font-blue text-14">\
-        <div class="media-body media-middle">\
-          <div class="alert-icon info-icon">\
-            <i class="fa fa-info" aria-hidden="true"></i>\
-          </div>\
-            <div class="alert-text">' + message + '</div>\
-        </div>\
-      </div>';
+      var alertMessage =
+      `<div class="d-flex px-3 py-2">
+        <div class="mr-3">
+          <i class="fa fa-info text-primary" aria-hidden="true"></i>
+        </div>
+        <div class="text-body">${message}</div>
+      </div>`;
       var alert = alertify.notify(alertMessage, timeout);
       return alert;
     },

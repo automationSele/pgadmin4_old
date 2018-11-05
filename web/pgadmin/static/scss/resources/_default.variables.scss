@@ -22,7 +22,7 @@ $color-secondary: $white !default;
 $color-danger: #e53935 !default;
 $color-danger-fg: #fff !default;
 
-$color-success: #3a773a !default;
+$color-success: #43a047 !default;
 $color-success-fg: $color-fg !default;
 
 $color-warning: #eea236 !default;
@@ -50,13 +50,13 @@ $color-primary-dark: #295c85;
 $color-primary-lighter: lighten($color-primary, 50%);
 $color-primary-darker: darken($color-primary, 25%);
 
-$color-danger-light: rgba($color-danger, 0.15);
+$color-danger-light: #FBE1E1;
 
 $color-danger-lighter: lighten($color-danger, 40%);
 $color-danger-dark: darken($color-danger, 10%);
 $color-danger-darker: darken($color-danger, 25%);
 
-$color-success-light: lighten($color-success, 30%);
+$color-success-light: #DDF1DE;
 $color-success-lighter: lighten($color-success, 50%);
 $color-success-dark: darken($color-success, 10%);
 $color-success-darker: darken($color-success, 25%);
@@ -112,7 +112,7 @@ $card-spacer-x: 0rem;
 $card-border-radius: 6px;
 $card-border-color: $border-color;
 $card-cap-bg: $color-bg-theme;
-$card-bg: $color-bg-theme; 
+$card-bg: $color-bg-theme;
 
 $nav-tabs-border-color: $border-color;
 $nav-tabs-border-width: 1px;
