@@ -200,6 +200,7 @@ td.switch-cell > div.bootstrap-switch {
 .nav-link {
 	border: none !important;
 	padding: $tabs-padding;
+	color: $color-fg-theme;
 	&.active {
 		border-bottom: $active-border !important;
 	}

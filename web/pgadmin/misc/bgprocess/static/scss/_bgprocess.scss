@@ -94,16 +94,10 @@ $bgproc-container-pad: 2px;
 }
 
 .pg-panel-content .bg-process-footer {
-  border-top: $panel-border-width solid $color-gray-light;
   position: absolute;
   bottom: 0;
-  background-color: $color-gray-lighter;
   right: 0px;
   left: 0px;
-}
-
-.pg-panel-content .bg-process-footer b, .bg-process-stats span b {
-  color:  $color-gray-dark;
 }
 
 .pg-bg-bgprocess .bg-close {
