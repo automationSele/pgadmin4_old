@@ -24,6 +24,27 @@ define('misc.bgprocess', [
 
   _.extend(
     BGProcess.prototype, {
+      success_status_tpl: _.template(`
+      <div class="d-flex px-2 py-1 bg-success-light border border-success rounded">
+        <div class="pr-2">
+          <i class="fa fa-check fa-lg text-success pg-bg-status-icon" aria-hidden="true"></i>
+        </div>
+        <div class="text-body mx-auto pg-bg-status-text"><%-status_text%></div>
+      </div>`),
+      failed_status_tpl: _.template(`
+      <div class="d-flex px-2 py-1 bg-danger-light border border-danger rounded">
+        <div class="pr-2">
+          <i class="fa fa-close fa-lg text-danger pg-bg-status-icon" aria-hidden="true"></i>
+        </div>
+        <div class="text-body mx-auto pg-bg-status-text"><%-status_text%></div>
+      </div>`),
+      other_status_tpl: _.template(`
+      <div class="d-flex px-2 py-1 bg-primary-light border border-primary rounded">
+        <div class="pr-2">
+          <i class="fa fa-info fa-lg text-primary pg-bg-status-icon" aria-hidden="true"></i>
+        </div>
+        <div class="text-body mx-auto pg-bg-status-text"<%-status_text%>></div>
+      </div>`),
       initialize: function(info, notify) {
         _.extend(this, {
           details: false,
@@ -172,19 +193,19 @@ define('misc.bgprocess', [
         }
 
         if (self.stime) {
-          self.curr_status = gettext('Started');
+          self.curr_status = self.other_status_tpl({status_text:gettext('Started')});
 
           if (self.execution_time >= 2) {
-            self.curr_status = gettext['Running...'];
+            self.curr_status = self.other_status_tpl({status_text:gettext('Running...')});
           }
 
           if (!_.isNull(self.exit_code)) {
             if (self.exit_code == 0) {
-              self.curr_status = gettext('Successfully completed.');
+              self.curr_status = self.success_status_tpl({status_text:gettext('Successfully completed.')});
             } else {
-              self.curr_status = S(
-                gettext('Failed (exit code: %s).')
-              ).sprintf(String(self.exit_code)).value();
+              self.curr_status = self.failed_status_tpl(
+                {status_text:S(gettext('Failed (exit code: %s).')).sprintf(String(self.exit_code)).value()}
+              );
             }
           }
 
@@ -246,40 +267,33 @@ define('misc.bgprocess', [
 
         if (self.notify && !self.details) {
           if (!self.notifier) {
-            var header = $('<div></div>', {
-                class: 'pg-bg-notify-header',
-              }).append($('<span></span>').text(_.unescape(self.desc))),
-              content = $('<div class="pg-bg-bgprocess"></div>').append(
-                header
-              ).append(
-                $('<div></div>', {
-                  class: 'pg-bg-notify-body',
-                }).append(
-                  $('<div></div>', {
-                    class: 'pg-bg-start',
-                  }).append(
-                    $('<div></div>').text(self.stime.toString())
-                  ).append(
-                    $('<div class="pg-bg-etime"></div>')
-                  )
-                )
-              ),
-              for_details = $('<div></div>', {
-                class: 'text-center pg-bg-click',
-              }).append(
-                $('<span></span>').text(gettext('Click here for details.'))
-              ).appendTo(content),
-              close_me = $(
-                '<div class="bg-close"><i class="fa fa-close"></i></div>'
-              ).appendTo(header);
+            let content = $(`
+            <div class="card">
+              <div class="card-header bg-primary d-flex">
+                <div>${_.unescape(self.desc)}</div>
+                <div class="ml-auto">
+                  <button class="btn btn-sm-sq btn-primary pg-bg-close"><i class="fa fa-lg fa-close"></i></button>
+                </div>
+              </div>
+              <div class="card-body px-2">
+                <div class="py-1">${self.stime.toString()}</div>
+                <div class="d-flex py-1">
+                  <div class="my-auto mr-2">
+                    <span class="fa fa-clock-o fa-2x"></span>
+                  </div>
+                  <div class="pg-bg-etime my-auto"></div>
+                  <div class="ml-auto">
+                    <button class="btn btn-secondary pg-bg-more-details">More details...</button>
+                  </div>
+                </div>
+                <div class="pg-bg-status py-1">
+                </div>
+              </div>
+            </div>
+            `);
 
-            $('<div></div>', {
-              class: 'pg-bg-status ' + ((self.exit_code === 0) ?
-                'bg-success' : (self.exit_code == 1) ?
-                'bg-failed' : ''),
-            }).appendTo(content);
-
-            $('<div></div>').appendTo(content);
+            let for_details = content.find('.pg-bg-more-details');
+            let close_me = content.find('.pg-bg-close');
 
             self.container = content;
             self.notifier = Alertify.notify(
@@ -306,7 +320,7 @@ define('misc.bgprocess', [
 
             // Do not close the notifier, when clicked on the container, which
             // is a default behaviour.
-            content.on('click', function(ev) {
+            self.container.on('click', function(ev) {
               ev = ev || window.event;
               ev.cancelBubble = true;
               ev.stopPropagation();
@@ -314,6 +328,7 @@ define('misc.bgprocess', [
               return;
             });
           }
+
           // TODO:: Formatted execution time
           self.container.find('.pg-bg-etime').empty().append(
             $('<span></span>').text(
@@ -322,16 +337,9 @@ define('misc.bgprocess', [
           ).append(
             $('<span></span>').text(' ' + gettext('seconds'))
           );
-          var $status_bar = $(self.container.find('.pg-bg-status'));
-          $status_bar.empty().append(
-            self.curr_status
-          );
 
-          if (self.exit_code === 0) {
-            $status_bar.addClass('bg-success');
-          } else if (self.exit_code == 1) {
-            $status_bar.addClass('bg-failed');
-          }
+          var $status_bar = $(self.container.find('.pg-bg-status'));
+          $status_bar.html(self.curr_status);
         } else {
           self.show_detailed_view.apply(self);
         }
@@ -352,11 +360,6 @@ define('misc.bgprocess', [
         }
 
         var container = panel.$container,
-          status_class = (
-            (self.exit_code === 0) ?
-            'bg-bgprocess-success' : (self.exit_code == 1) ?
-            'bg-bgprocess-failed' : ''
-          ),
           $logs = container.find('.bg-process-watcher'),
           $header = container.find('.bg-process-details'),
           $footer = container.find('.bg-process-footer');
@@ -377,9 +380,7 @@ define('misc.bgprocess', [
         );
 
         // set status
-        $footer.find('.bg-process-status p').removeClass().addClass(
-          status_class
-        ).html(self.curr_status);
+        $footer.find('.bg-process-status').html(self.curr_status);
 
         // set bgprocess execution time
         $footer.find('.bg-process-exec-time p').empty().append(
@@ -537,26 +538,30 @@ define('misc.bgprocess', [
           isCloseable: true,
           isPrivate: true,
           content: '<div class="bg-process-details">' +
-            '<p class="bg-detailed-desc"></p>' +
-            '<div class="bg-process-stats">' +
-            '<span><b>' + gettext('Start time') + ': </b>' +
-            '<span class="bgprocess-start-time"></span>' +
-            '</span></div>' +
+              '<div class="bg-detailed-desc"></div>' +
+              '<div class="bg-process-stats d-flex py-1">' +
+                '<div class="my-auto mr-2">' +
+                  '<span class="fa fa-clock-o fa-2x"></span>' +
+                '</div>' +
+                '<div class="pg-bg-etime my-auto">'+
+                  '<span>' + gettext('Start time') + ': <span class="bgprocess-start-time"></span>' +
+                  '</span>'+
+                '</div>' +
+              '</div>' +
             '</div>' +
             '<div class="bg-process-watcher">' +
             '</div>' +
-            '<div class="bg-process-footer row">' +
-              '<div class="bg-process-status col-6">' +
-              '<span><b>' + gettext('Status') + ':</b></span><p></p>' +
+            '<div class="bg-process-footer p-2 d-flex">' +
+              '<div class="bg-process-status">' +
               '</div>' +
-              '<div class="bg-process-exec-time col-6">' +
-              '<div class="exec-div pull-right">' +
-              '<span><b>' + gettext('Execution time') + ':</b></span><p></p>' +
+              '<div class="bg-process-exec-time ml-auto my-auto">' +
+                '<div class="exec-div">' +
+                  '<span>' + gettext('Execution time') + ':</span><p></p>' +
+                '</div>' +
               '</div>' +
-            '</div>' +
             '</div>',
           onCreate: function(myPanel, $container) {
-            $container.addClass('pg-no-overflow');
+            $container.addClass('pg-no-overflow p-2');
           },
         });
         p.load(pgBrowser.docker);

@@ -69,7 +69,7 @@
 }
 
 .wcPanelTab, .wcFrameTitle{
-  color: $color-primary;
+  color: $color-fg-theme;
   padding: $tabs-padding;
   margin: 0px;
 }
@@ -80,6 +80,7 @@
 
 .wcFloating .wcPanelTabActive {
   border-bottom: $active-border;
+  color: $color-primary;
 }
 
 .wcFloating .wcPanelTabActive:hover {
@@ -100,6 +101,7 @@
 
 .wcPanelTabActive {
   border-bottom: $active-border;
+  color: $color-primary;
 }
 
 .wcFrameEdge {

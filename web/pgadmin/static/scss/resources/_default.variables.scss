@@ -76,11 +76,13 @@ $border-color: rgba($color-gray, .5);
 $border-color-dark: $color-gray;
 
 /** Bootstrap **/
+$gray-400: #ced4da; //no change
 $gray-600: $color-gray-dark;
 $gray-900: $color-fg-theme;
 $body-color: $color-fg-theme;
 $font-size-base: 0.815rem;
 $grid-gutter-width: 15px;
+$border-radius: 0.25rem; //no change
 
 $text-muted: $color-gray-dark;
 $navbar-dark-color: #fff;
@@ -129,6 +131,10 @@ $table-border-width: $border-width !default;
 $table-border-color: $border-color !default;
 $table-head-bg: $color-primary !default;
 $table-head-color: $color-primary-fg !default;
+
+$input-border-color: $gray-400; //no change
+$input-border-radius: $border-radius; //no change
+$input-disabled-bg: $color-gray-lighter;
 /***************/
 
 $active-border: 3px solid $color-primary;
