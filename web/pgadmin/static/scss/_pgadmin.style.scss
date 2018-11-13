@@ -221,10 +221,6 @@
 
 .pg-prop-btn-group-below {
     text-align: right;
-    border-color: $color-gray-light;
-    border-width: 2px 1px 0px;
-    border-style: inset;
-    border-left-style: solid
 }
 
 .pg-prop-btn-group .dropdown-menu {
@@ -295,6 +291,7 @@
     overflow-y: auto;
     min-height: 100%;
     max-height: 100%;
+    background-color: $color-gray-light;
 }
 
 .obj_properties {
@@ -645,11 +642,8 @@ fieldset.inline-fieldset > div {
 }
 
 .subnode-header {
-    background-color: $color-primary;
-    height: 35px;
-    color: $color-fg-inverse;
-    border-radius: 3px 3px 0px 0px;
-    padding-top: 3px;
+    background-color: $color-bg-theme;
+    color: $color-bg-inverse;
 }
 
 .subnode-header .control-label {
@@ -676,14 +670,15 @@ fieldset.inline-fieldset > div {
     right: 0;
     height: auto;
     margin-left: 23px;
-    background-color: $color-gray-lighter;
     margin-top: 0px;
-    border: 1px solid $color-gray-lighter;
 }
 .subnode-body {
     height: auto;
     overflow: inherit;
     background-color: $color-bg;
+    margin: 15px;
+    border: 1px solid $border-color;
+    border-radius: 3px;
 }
 .subnode-footer {
     height: 38px;
@@ -793,6 +788,9 @@ div.rolmembership {
 
 div.inline-tab-panel {
     float: left; width: 100%;
+    background-color: $color-primary-fg;
+    border: 1px solid $border-color;
+    border-radius: 3px;
 }
 
 div.inline-tab-panel > ul.nav-tabs > li {
@@ -826,6 +824,18 @@ div.inline-tab-panel > ul.tab-content {
   border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
   border-width: 0px 1px 1px 1px; border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px; border-style: solid solid;
+}
+
+div.inline-tab-panel > .tab-content {
+  padding: 0px;
+  margin: 0px;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+div.inline-tab-panel > .tab-content > div.tab-pane {
+  padding: 0px;
 }
 
 div.inline-tab-panel > ul.tab-content > div.tab-pane {
@@ -990,3 +1000,8 @@ body {
 .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
 	background: $color-gray-dark none;
 }*/
+
+
+.table-bordered th, .table-bordered td {
+  border: none;
+}

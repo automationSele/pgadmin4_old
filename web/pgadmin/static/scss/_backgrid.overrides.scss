@@ -3,19 +3,23 @@
   text-align: left;
 }
 
+.backgrid thead th {
+  border-left: 1px solid $border-color
+}
+
 .backgrid.backgrid-striped tbody {
   & tr:nth-child(even) {
     background: $table-bg-even;
 
     & td.editor {
-      background: $table-bg-odd;
+      background: $table-bg-even;
       outline: none;
     }
   }
   & tr:nth-child(odd) {
     background: $table-bg-odd;
     & td.editor {
-      background: $table-bg-even;
+      background: $table-bg-odd;
       outline: none;
     }
   }  
@@ -27,11 +31,7 @@
   color: $text-muted;
 }
 
-.subnode > table.backgrid > thead > tr > th:first-child{
-  border-left-color: $color-primary;
-}
-
-.subnode > table.backgrid > thead > tr > th:last-child{
+.subnode > table.backgrid > thead > tr > th:last-child {
   border-right-color: $color-primary;
 }
 
@@ -80,7 +80,6 @@
     width: 100%;
     margin: 0px;
     padding: 0;
-    margin-bottom: 15px;
 }
 
 .backgrid > thead > th {
@@ -103,45 +102,12 @@
   }
 }
 
-// .backgrid > thead > th, .backgrid > tbody > td {
-//   line-height: 18px;
-// }
-
-// .backgrid > thead > th {
-//     letter-spacing:0.5px
-// }
-
-// .backgrid > tbody > td {
-//     padding-top: 0px;
-//     padding-bottom: 0px;
-//     padding-left: 2px;
-//     padding-right: 2px;
-// }
-
-// .backgrid > thead th a {
-//     color: $color-fg-inverse;
-//     font-size: 12px;
-// }
-
-// .backgrid > th.object {
-//     width: 30px;
-// }
-
 .backgrid.presentation {
     background-color: $color-gray-light;
 }
 
-.backgrid.presentation td.renderable {
+.backgrid td.renderable {
     padding: 6px 3px 3px 3px;
-    // font-size: 12px;
-}
-
-.backgrid:not(.presentation) td.renderable:not(.editable):not(.delete-cell) {
-    background-color: $color-gray-lighter;
-}
-
-.backgrid tr.header td.renderable:not(.editable):not(.delete-cell) {
-    background-color: $color-gray-light;
 }
 
 .sql-editor-grid-container .backgrid > thead > th.renderable,
@@ -149,16 +115,10 @@
     white-space: pre-wrap;
 }
 
-table.backgrid tr.new {
-  background-color: rgba($color-primary, 0.1) !important;
-  box-sizing: border-box;
-  outline: 1px solid rgba($color-primary, 0.8);
-  outline-offset: -1px;
-}
-
 .alertify_tools_dialog_backgrid_properties {
   top: 43px !important;
 }
+
 table.backgrid {
   overflow: auto;
 }

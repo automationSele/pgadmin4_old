@@ -60,3 +60,8 @@
 div.backform_control_notes label.control-label {
 	min-width: 0px;
 }
+
+.subnode-header label {
+  max-width: 93% !important;
+  border-right: 1px solid $border-color;
+}

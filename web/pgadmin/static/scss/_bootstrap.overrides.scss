@@ -141,7 +141,7 @@ iframe {
 }
 
 .table-borderless {
-	& tbody tr {
+	& thead tr, & tbody tr {
 		border-top: $table-border-width solid transparent;
 
 		&:first-of-type {
@@ -152,12 +152,15 @@ iframe {
 			border-top: $table-border-width solid transparent;
 		}
 	}
-	& th, & td {
-		border-left: $panel-border;
-		&:first-of-type {
-			border-left: none !important;
+	& td {
+		border-left: none !important;
+  }
+  & th {
+    border-left: $panel-border;
+    &:first-of-type {
+	  border-left: none !important;
 		}
-  	}
+  }
 }
 
 /* Override default bootstrap popover fonts & size */

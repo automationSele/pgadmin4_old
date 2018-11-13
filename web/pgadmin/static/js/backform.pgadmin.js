@@ -24,6 +24,7 @@ define([
   _.extend(Backform, {
     controlLabelClassName: 'control-label pg-el-sm-3 pg-el-12',
     controlsClassName: 'pgadmin-controls pg-el-sm-9 pg-el-12',
+    controlContainerClassName: 'pgadmin-controls pg-el-sm-9 pg-el-12',
     groupClassName: 'pgadmin-control-group form-group row pg-el-12',
     setGroupClassName: 'set-group pg-el-12',
     tabClassName: 'backform-tab pg-el-12',
@@ -1073,7 +1074,7 @@ define([
       self.grid = new Backgrid.Grid({
         columns: gridSchema.columns,
         collection: collection,
-        className: 'backgrid table-bordered',
+        className: 'backgrid table-borderless backgrid-striped',
       });
 
       // Render subNode grid
@@ -1353,7 +1354,7 @@ define([
         columns: gridSchema.columns,
         collection: collection,
         row: this.row,
-        className: 'backgrid table-bordered',
+        className: 'backgrid table-borderless backgrid-striped',
       });
 
       // Render subNode grid
