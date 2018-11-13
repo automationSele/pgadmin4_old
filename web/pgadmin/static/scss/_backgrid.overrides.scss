@@ -106,8 +106,18 @@
     background-color: $color-gray-light;
 }
 
-.backgrid td.renderable {
-    padding: 6px 3px 3px 3px;
+.backgrid.presentation {
+  & td.renderable, & th.renderable {
+    padding: $table-cell-padding $table-cell-padding*2.5;
+  }
+}
+
+.backgrid:not(.presentation) td.renderable:not(.editable):not(.delete-cell) {
+    background-color: $color-gray-lighter;
+}
+
+.backgrid tr.header td.renderable:not(.editable):not(.delete-cell) {
+    background-color: $color-gray-light;
 }
 
 .sql-editor-grid-container .backgrid > thead > th.renderable,
@@ -120,7 +130,8 @@
 }
 
 table.backgrid {
-  overflow: auto;
+  position: initial;
+  border-radius: 0px;
 }
 
 .backgrid td.editor input[type=password] {
@@ -163,3 +174,5 @@ table.backgrid {
 span.form-control:disabled {
   @extend .form-control:disabled
 }
+
+

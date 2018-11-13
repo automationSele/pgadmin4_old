@@ -73,6 +73,7 @@ define('misc.depends', [
         var $container = panel[0].layout().scene().find('.pg-panel-content'),
           $gridContainer = $container.find('.pg-panel-depends-container'),
           grid = new Backgrid.Grid({
+            emptyText: 'No data found',
             columns: [{
               name: 'type',
               label: gettext('Type'),

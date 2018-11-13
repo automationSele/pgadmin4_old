@@ -140,8 +140,12 @@ iframe {
 	padding: 0.25rem 0.5rem;
 }
 
+.table {
+	margin-bottom: 0rem;
+}
+
 .table-borderless {
-	& thead tr, & tbody tr {
+	& tbody tr {
 		border-top: $table-border-width solid transparent;
 
 		&:first-of-type {
