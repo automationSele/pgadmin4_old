@@ -74,6 +74,7 @@ $font-family-editor: 'Source Code Pro' !default;
 $border-width: 1px;
 $border-color: rgba($color-gray, .5);
 $border-color-dark: $color-gray;
+$box-shadow: 0 0.125rem 0.5rem rgba($color-gray-dark, .175);
 
 /** Bootstrap **/
 $gray-400: #ced4da; //no change
@@ -98,7 +99,7 @@ $btn-active-box-shadow: none;
 $dropdown-link-hover-color: $white;
 $dropdown-link-hover-bg: $color-primary;
 $dropdown-border-color: $border-color;
-$dropdown-box-shadow: 0 0.125rem 0.5rem rgba($color-gray-dark, .175);
+$dropdown-box-shadow: $box-shadow;
 $dropdown-divider-bg: $dropdown-border-color;
 $dropdown-padding-y: 0.25rem;
 $dropdown-item-padding-x: 1rem;
@@ -111,7 +112,7 @@ $btn-transition: color .05s ease-in-out, background-color .05s ease-in-out, bord
 
 $card-spacer-y: 0rem;
 $card-spacer-x: 0rem;
-$card-border-radius: 6px;
+$card-border-radius: $border-radius;
 $card-border-color: $border-color;
 $card-cap-bg: $color-bg-theme;
 $card-bg: $color-bg-theme;
@@ -132,6 +133,7 @@ $table-border-color: $border-color !default;
 $table-head-bg: $color-primary !default;
 $table-head-color: $color-primary-fg !default;
 
+$input-color: $color-fg-theme;
 $input-border-color: $gray-400; //no change
 $input-border-radius: $border-radius; //no change
 $input-disabled-bg: $color-gray-lighter;
@@ -145,7 +147,7 @@ $panel-border-dark: $panel-border-width solid $border-color-dark !important;
 $tabs-padding-top: 5px-$panel-border-width;
 $tabs-padding: 5px 10px 2px;
 $title-height: 37px * $font-size-base/1rem;
-
+$footer-padding: 0.5rem;
 $navbar-font-size: 0.875rem;
 $navbar-user-font-size: 0.815rem;
 
@@ -169,3 +171,4 @@ $sql-history-error-bg: $color-danger-light;
 $sql-history-error-fg: $color-danger;
 
 $negative-bg: $color-gray-light;
+$dialog-box-shadow: $box-shadow;

@@ -77,13 +77,12 @@ iframe {
 	color: $dropdown-link-hover-color;
 }
 
-
 /** Overriding secondary button of bootstrap **/
 /* Used Bootstrap 4 Mixin button-variant
  * Refer file : bootstrap/scss/mixins/_buttons.scss
  */
 .btn-secondary {
-	@include button-variant($color-secondary, $color-gray);
+	@include button-variant($color-secondary, $color-gray, $color-gray-light);
 }
 
 .form-group fieldset {

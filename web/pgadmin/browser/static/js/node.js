@@ -1354,7 +1354,7 @@ define('pgadmin.browser.node', [
               label: '',
               type: 'help',
               tooltip: gettext('SQL help for this object type.'),
-              extraClasses: ['btn-secondary', 'pull-left', 'm-1'],
+              extraClasses: ['btn-secondary', 'pull-left', 'mx-1'],
               icon: 'fa fa-lg fa-info',
               disabled: (that.sqlAlterHelp == '' && that.sqlCreateHelp == '') ? true : false,
               register: function(btn) {
@@ -1366,7 +1366,7 @@ define('pgadmin.browser.node', [
               label: '',
               type: 'help',
               tooltip: gettext('Help for this dialog.'),
-              extraClasses: ['btn-secondary', 'pull-left', 'm-1'],
+              extraClasses: ['btn-secondary', 'pull-left', 'mx-1'],
               icon: 'fa fa-lg fa-question',
               disabled: (that.dialogHelp == '') ? true : false,
               register: function(btn) {
@@ -1378,8 +1378,8 @@ define('pgadmin.browser.node', [
               label: gettext('Cancel'),
               type: 'cancel',
               tooltip: gettext('Cancel changes to this object.'),
-              extraClasses: ['btn-secondary', 'm-1'],
-              icon: 'fa fa-lg fa-close',
+              extraClasses: ['btn-secondary', 'mx-1'],
+              icon: 'fa fa-close pg-alertify-button',
               disabled: false,
               register: function(btn) {
                 btn.on('click',() => {
@@ -1392,8 +1392,8 @@ define('pgadmin.browser.node', [
               label: gettext('Reset'),
               type: 'reset',
               tooltip: gettext('Reset the fields on this dialog.'),
-              extraClasses: ['btn-secondary', 'm-1'],
-              icon: 'fa fa-lg fa-recycle',
+              extraClasses: ['btn-secondary', 'mx-1'],
+              icon: 'fa fa-recycle pg-alertify-button',
               disabled: true,
               register: function(btn) {
                 btn.on('click',() => {
@@ -1406,8 +1406,8 @@ define('pgadmin.browser.node', [
               label: gettext('Save'),
               type: 'save',
               tooltip: gettext('Save this object.'),
-              extraClasses: ['btn-primary', 'm-1'],
-              icon: 'fa fa-lg fa-save',
+              extraClasses: ['btn-primary', 'mx-1'],
+              icon: 'fa fa-save pg-alertify-button',
               disabled: true,
               register: function(btn) {
                 // Save the changes

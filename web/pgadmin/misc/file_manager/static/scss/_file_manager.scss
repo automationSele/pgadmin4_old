@@ -3,6 +3,10 @@
   color:  $color-gray;
 }
 
+.file_listing {
+  min-width: 100%;
+}
+
 .file_listing #contents.grid li.selected {
   border: 1px solid $color-primary-lighter;
 }
@@ -23,10 +27,6 @@
 .fm_drive {
   font-size: xx-large !important;
   color:  $color-gray;
-}
-
-.file_manager button {
-  background-color: $color-gray-light;
 }
 
 .newfile {
@@ -121,6 +121,18 @@
   border-left: 1px solid $color-gray-light;
 }
 
+.file_manager {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.file_manager #uploader {
+  border-bottom: $panel-border;
+}
+
 .file_manager #uploader .filemanager-path-group {
   padding: 0;
   display: block;
@@ -149,65 +161,21 @@
   overflow: hidden;
 }
 
-.file_manager .fileinfo #contents tbody tr:nth-child(even) {
-  background: $color-gray-lighter;
-}
-
-.file_manager .fileinfo #contents thead tr th:not(:first-child) {
-  border-left: 1px solid $color-bg;
-}
-
-.file_manager .upload_file {
-  display: none;
-  z-index: 1;
-  margin-bottom: auto;
-  top: 0;
-  margin-top: 0;
-  height: calc(100% - 5px);
-  width: 100%;
-  border: none;
-  position: absolute;
-  bottom: 0;
-  background-color: $color-bg-inverse;
-  padding: 0px;
-  padding-top: 22px;
-  padding-left: 10px;
-}
-
-
-.file_manager .upload_file #multiple-uploads {
-  height: calc(100% - 20px);
-  background: $color-fg-inverse;
-  color: $color-fg-inverse;
-  padding: 0px !important;
-  overflow: auto;
-  width: 100%;
+.file_manager .upload_file #dropzone-container {
+  background: $color-gray-light;
 }
 
 .fileinfo .prompt-info {
   text-align: center;
-  color: $color-fg-inverse;
+  color: $color-fg-theme;
 }
 
-.fileinfo .file_listing {
-  display: block;
-  height: calc(100% - 35px);
-  border: 1px solid $color-gray-lighter;
-  border-bottom: none;
-  font-size: 12px;
+.allowed_file_types {
+  border-top: $panel-border;
 }
 
-.fileinfo .allowed_file_types {
-  display: block;
-  height: 25px;
-  position: absolute;
-  right: 0;
-  border-top: 1px solid $color-gray-lighter;
-  padding-top: 4px;
-  bottom: 4px;
-  width: 100%;
-  background: $color-bg;
-  white-space: nowrap;
+.upload_file{
+  min-width: 100%;
 }
 
 .upload_file .file_upload_main {
@@ -268,6 +236,10 @@
   border: 1px solid $color-fg;
 }
 
+.dropzone .dz-message {
+  color: $color-gray;
+}
+
 .fileinfo .fm_dimmer {
   height: calc(100% - 32px);
   display: none;
@@ -307,11 +279,9 @@
 }
 
 .upload_file .dz_cross_btn {
-  color: $color-fg-inverse;
-  font-size: x-large;
-  right: -4px;
+  color: $color-fg-theme;
+  right: 0px;
   position: absolute;
-  top: -1px;
   background: transparent;
   border: none;
 }
@@ -334,8 +304,8 @@
 }
 
 .file_manager button.ON {
-  background: $color-gray-lighter;
-  border: 1px inset $color-gray-lighter;
+  background: $color-primary;
+  color: $color-primary-fg;
 }
 
 .fileinfo .is_file_replace {

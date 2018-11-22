@@ -576,7 +576,7 @@ define([
 
           result += '</ul>';
         } else {
-          result += '<table id="contents" class="list tablesorter">';
+          result += '<table id="contents" class="table table-bordered tablesorter">';
           result += '<thead><tr><th>';
           result += '<span>' + lg.name + '</span></th>';
           result += '<th><span>' + lg.size + '</span></th><th>';
@@ -1104,20 +1104,15 @@ define([
             selected = false,
             have_all_types = false;
 
-          select_box = '<div class=\'change_file_types\'>' +
-            gettext('Show hidden files and folders') +
-            '? <input type=\'checkbox\' id=\'show_hidden\' onclick=\'pgAdmin.FileUtils.handleClick(this)\' tabindex=\'11\'>' +
-            '<span></span>' +
-            '<select name=\'type\' tabindex=\'12\'>';
-
+          let fileFormats = '';
           while (i < types_len) {
             t = allowed_types[i];
             if (!selected && (types_len == 1 || t != '*')) {
-              select_box += '<option value=' + t + ' selected>' + t + '</option>';
+              fileFormats += '<option value=' + t + ' selected>' + t + '</option>';
               selected = true;
               have_all_types = (have_all_types || (t == '*'));
             } else {
-              select_box += '<option value="' + t + '">' +
+              fileFormats += '<option value="' + t + '">' +
                 (t == '*' ? gettext('All Files') : t) + '</option>';
               have_all_types = (have_all_types || (t == '*'));
             }
@@ -1125,9 +1120,18 @@ define([
           }
 
           if (!have_all_types) {
-            select_box += '<option value="*">' + gettext('All Files') + '</option>';
+            fileFormats += '<option value="*">' + gettext('All Files') + '</option>';
           }
-          select_box += '</select><label>' + gettext('Format') + ': </label></div>';
+
+          select_box = `<div class='change_file_types d-flex align-items-center p-1'>
+          <div>
+            ${gettext('Show hidden files and folders')} ?
+            <input type='checkbox' id='show_hidden' onclick='pgAdmin.FileUtils.handleClick(this)' tabindex='11'>
+          </div>
+          <div class="ml-auto">
+            <label>${gettext('Format')}</label>
+            <select name='type' tabindex='12'>${fileFormats}</select>
+          <div>`;
         }
 
         $('.allowed_file_types').html(select_box);
@@ -1399,10 +1403,12 @@ define([
 
         $('#uploader .upload').off().on('click', function() {
           // we create prompt
-          var msg = '<div id="dropzone-container">' +
-            '<button class="fa fa-times dz_cross_btn" tabindex="7"></button>' +
-            '<div id="multiple-uploads" class="dropzone"></div>' +
-            '<div class="prompt-info">' + lg.file_size_limit +
+          var msg = '<div id="dropzone-container" class="d-flex flex-column flex-grow-1">' +
+            '<button class="fa fa-times fa-lg dz_cross_btn ml-auto" tabindex="7"></button>' +
+            '<div id="multiple-uploads" class="dropzone flex-grow-1 d-flex p-1">'+
+            '<div class="dz-default dz-message d-none"></div>'+
+            '</div>' +
+            '<div class="prompt-info">Drop files here to upload. ' + lg.file_size_limit +
             config.upload.fileSizeLimit + ' ' + lg.mb + '.</div>',
             path = $('.currentpath').val(),
             filesizelimit = config.upload.fileSizeLimit,
@@ -1419,10 +1425,10 @@ define([
             acceptFiles = null;
           }
 
-          $('.file_manager .upload_file').toggle();
+          $('.file_manager .upload_file').toggleClass('d-none');
+          $('.file_manager .file_listing').toggleClass('d-none');
           $('.file_manager .upload_file').html(msg);
 
-          //var previewTemplate = '<div id="dropzone-container">';
           var previewTemplate = '<div class="file_upload_main dz-preview dz-file-preview">' +
             '<div class="show_error">' +
             '<p class="size dz-size" data-dz-size></p>' +
@@ -1454,7 +1460,8 @@ define([
             autoProcessQueue: true,
             init: function() {
               $('.dz_cross_btn').off().on('click', function() {
-                $('.file_manager .upload_file').toggle();
+                $('.file_manager .upload_file').toggleClass('d-none');
+                $('.file_manager .file_listing').toggleClass('d-none');
               });
             },
             sending: function(file, xhr, formData) {
