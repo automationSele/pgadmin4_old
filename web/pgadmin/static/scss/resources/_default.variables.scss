@@ -137,6 +137,8 @@ $input-color: $color-fg-theme;
 $input-border-color: $gray-400; //no change
 $input-border-radius: $border-radius; //no change
 $input-disabled-bg: $color-gray-lighter;
+
+$btn-border-radius: $border-radius; //no change
 /***************/
 
 $active-border: 3px solid $color-primary;
@@ -144,7 +146,6 @@ $panel-border-width: $border-width;
 $panel-border-color: $border-color;
 $panel-border: $panel-border-width solid $panel-border-color !important;
 $panel-border-dark: $panel-border-width solid $border-color-dark !important;
-$tabs-padding-top: 5px-$panel-border-width;
 $tabs-padding: 5px 10px 2px;
 $title-height: 37px * $font-size-base/1rem;
 $footer-padding: 0.5rem;
