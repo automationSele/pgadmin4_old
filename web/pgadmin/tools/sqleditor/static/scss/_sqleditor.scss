@@ -158,13 +158,9 @@ li.CodeMirror-hint-active {
 }
 
 .ui-widget-content.slick-row {
-  &.even {
+  &.even,  &.odd {
     background: none;
-    background-color: $table-bg-even;
-  }
-  &.odd {
-    background: none;
-    background-color: $table-bg-odd;
+    background-color: $table-bg;
   }
 }
 

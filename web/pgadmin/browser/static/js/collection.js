@@ -59,7 +59,7 @@ define([
           j = panel.$container.find('.obj_properties').first(),
           view = j.data('obj-view'),
           content = $('<div></div>')
-          .addClass('pg-prop-content col-12'),
+          .addClass('pg-prop-content col-12 p-2'),
           node = pgBrowser.Nodes[that.node],
           // This will be the URL, used for object manipulation.
           urlBase = this.generate_url(item, 'properties', data),
@@ -75,7 +75,7 @@ define([
           grid = new Backgrid.Grid({
             columns: gridSchema.columns,
             collection: collection,
-            className: 'backgrid table-bordered',
+            className: 'backgrid table presentation table-bordered',
           }),
           gridView = {
             'remove': function() {

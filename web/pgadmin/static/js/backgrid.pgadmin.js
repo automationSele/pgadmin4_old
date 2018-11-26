@@ -236,7 +236,7 @@ define([
       var $dialog = this.$dialog = $(this.modalTemplate({
           title: '',
         })),
-        tr = $('<tr class="nohover">'),
+        tr = $('<tr class="nohover editor-row">'),
         td = $('<td>', {
           class: 'editable sortable renderable',
           style: 'height: auto',

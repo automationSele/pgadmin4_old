@@ -104,7 +104,7 @@ define('misc.depends', [
             ],
 
             collection: collection,
-            className: 'backgrid table-borderless presentation table backgrid-striped',
+            className: 'backgrid table presentation table-bordered',
           });
 
         // Condition is used to save grid object to change the label of the header.

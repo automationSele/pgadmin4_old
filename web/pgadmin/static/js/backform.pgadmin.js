@@ -641,7 +641,7 @@ define([
       'header': _.template([
         '<fieldset class="<%=fieldsetClass%>" <%=disabled ? "disabled" : ""%>>',
         ' <% if (legend != false) { %>',
-        '  <legend class="<%=legendClass%>" <%=collapse ? "data-toggle=\'collapse\'" : ""%> data-target="#<%=cId%>"><%=collapse ? "<span class=\'caret\'></span>" : "" %><%=label%></legend>',
+        '  <div><legend class="<%=legendClass%>" <%=collapse ? "data-toggle=\'collapse\'" : ""%> data-target="#<%=cId%>"><%=collapse ? "<span class=\'caret\'></span>" : "" %><%=label%></legend></div>',
         ' <% } %>',
         '</fieldset>',
       ].join('\n')),
@@ -1074,7 +1074,7 @@ define([
       self.grid = new Backgrid.Grid({
         columns: gridSchema.columns,
         collection: collection,
-        className: 'backgrid table-borderless backgrid-striped',
+        className: 'backgrid table presentation table-bordered',
       });
 
       // Render subNode grid
@@ -1354,7 +1354,7 @@ define([
         columns: gridSchema.columns,
         collection: collection,
         row: this.row,
-        className: 'backgrid table-borderless backgrid-striped',
+        className: 'backgrid table presentation table-bordered',
       });
 
       // Render subNode grid
@@ -2025,7 +2025,7 @@ define([
       'header': _.template([
         '<fieldset class="<%=fieldsetClass%>" <%=disabled ? "disabled" : ""%>>',
         ' <% if (legend != false) { %>',
-        '  <legend class="<%=legendClass%>" <%=collapse ? "data-toggle=\'collapse\'" : ""%> data-target="#<%=cId%>"><%=collapse ? "<span class=\'caret\'></span>" : "" %></legend>',
+        '  <div><legend class="<%=legendClass%>" <%=collapse ? "data-toggle=\'collapse\'" : ""%> data-target="#<%=cId%>"><%=collapse ? "<span class=\'caret\'></span>" : "" %></legend></div>',
         ' <% } %>',
         '</fieldset>',
       ].join('\n')),

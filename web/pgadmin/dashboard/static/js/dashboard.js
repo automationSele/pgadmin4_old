@@ -592,7 +592,7 @@ define('pgadmin.dashboard', [
         emptyText: 'No data found',
         columns: columns,
         collection: data,
-        className: 'backgrid table-borderless presentation table backgrid-striped',
+        className: 'backgrid presentation table presentation',
       });
 
       // Render the grid

@@ -79,6 +79,7 @@
   color: $color-fg-theme;
   padding: $tabs-padding;
   margin: 0px;
+  font-weight: bold;
 }
 
 .wcTabIcon {
@@ -86,8 +87,9 @@
 }
 
 .wcFloating .wcPanelTabActive {
-  border-bottom: $active-border;
-  color: $color-primary;
+  border-bottom: none;
+  color: $color-fg-theme;
+  font-weight: bold;
 }
 
 .wcFloating .wcPanelTabActive:hover {

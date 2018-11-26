@@ -86,7 +86,7 @@ define('misc.statistics', [
             includeDate: false, includeTime: true, includeMilli: true
           }) */
     },
-    GRID_CLASSES = 'backgrid presentation table backgrid-striped table-borderless table-hover',
+    GRID_CLASSES = 'backgrid presentation table backgrid-striped table-bordered table-hover',
     wcDocker = window.wcDocker;
 
   _.extend(

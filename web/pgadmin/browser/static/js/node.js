@@ -1121,6 +1121,7 @@ define('pgadmin.browser.node', [
           that.footer = $('<div></div>').addClass(
             'pg-prop-footer'
           ).appendTo(j);
+
           // Create a view to show the properties in fieldsets
           view = that.getView(item, 'properties', content, data, 'fieldset', undefined, j);
           if (view) {
@@ -1132,11 +1133,11 @@ define('pgadmin.browser.node', [
             var buttons = [];
 
             buttons.push({
-              label: '',
+              label: gettext('Edit'),
               type: 'edit',
               tooltip: gettext('Edit'),
-              extraClasses: ['btn-default'],
-              icon: 'fa fa-lg fa-pencil-square-o',
+              extraClasses: ['btn', 'btn-primary', 'pull-right', 'm-1'],
+              icon: 'fa fa-sm fa-pencil',
               disabled: !that.canEdit,
               register: function(btn) {
                 btn.on('click',() => {
@@ -1149,7 +1150,7 @@ define('pgadmin.browser.node', [
               label: '',
               type: 'help',
               tooltip: gettext('SQL help for this object type.'),
-              extraClasses: ['btn-default', 'pull-right'],
+              extraClasses: ['btn-default', 'btn-secondary', 'm-1'],
               icon: 'fa fa-lg fa-info',
               disabled: (that.sqlAlterHelp == '' && that.sqlCreateHelp == '') ? true : false,
               register: function(btn) {
