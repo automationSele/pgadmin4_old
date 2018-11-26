@@ -574,7 +574,7 @@ define('tools.querytool', [
               }, {
                 text: gettext('Save'),
                 className: 'btn btn-primary fa fa-lg fa-save pg-alertify-button',
-              },],
+              }],
               focus: {
                 element: 0,
                 select: false,

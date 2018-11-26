@@ -427,7 +427,7 @@ define('pgadmin.node.server', [
                     },{
                       text: gettext('OK'), key: 13, className: 'btn btn-primary fa fa-check pg-alertify-button',
                       attrs: {name:'submit'},
-                    },],
+                    }],
                     // Set options for dialog
                     options: {
                       padding : !1,
@@ -1195,7 +1195,7 @@ define('pgadmin.node.server', [
                   key: 27,
                 },{
                   text: gettext('OK'), key: 13, className: 'btn btn-primary fa fa-check pg-alertify-button',
-                },],
+                }],
                 focus: {element: '#password', select: true},
                 options: {
                   modal: 0, resizable: false, maximizable: false, pinnable: false,

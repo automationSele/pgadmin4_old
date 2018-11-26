@@ -416,7 +416,7 @@ define('pgadmin.preferences', [
                 text: gettext('Save'),
                 key: 13,
                 className: 'btn btn-primary fa fa-lg fa-save pg-alertify-button',
-              },],
+              }],
               focus: {
                 element: 0,
               },

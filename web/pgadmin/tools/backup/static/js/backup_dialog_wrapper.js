@@ -59,7 +59,7 @@ export class BackupDialogWrapper extends DialogWrapper {
         key: 13,
         className: 'btn btn-primary fa fa-lg fa-save pg-alertify-button',
         'data-btn-name': 'backup',
-      },],
+      }],
       // Set options for dialog
       options: {
         title: this.dialogTitle,

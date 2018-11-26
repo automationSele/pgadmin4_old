@@ -561,7 +561,7 @@ define([
                 text: gettext('Debug'),
                 key: 13,
                 className: 'btn btn-primary fa fa-bug pg-alertify-button',
-              },],
+              }],
               // Set options for dialog
               options: {
                 //disable both padding and overflow control.

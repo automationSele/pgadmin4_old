@@ -315,7 +315,7 @@ define([
                   key: 13,
                   className: 'btn btn-primary fa fa-lg fa-check pg-alertify-button',
                   'data-btn-name': 'ok',
-                },],
+                }],
                 options: {
                   modal: 0,
                   pinnable: false,

@@ -74,7 +74,7 @@ let FilterDialog = {
                 text: gettext('OK'),
                 className: 'btn btn-primary fa fa-check pg-alertify-button',
                 'data-btn-name': 'ok',
-              },],
+              }],
               // Set options for dialog
               options: {
                 title: title,

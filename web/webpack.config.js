@@ -8,11 +8,11 @@ const sourceDir = __dirname + '/pgadmin/static';
 // and other util function used in CommonsChunksPlugin.
 const webpackShimConfig = require('./webpack.shim');
 const PRODUCTION = process.env.NODE_ENV === 'production';
-const envType = PRODUCTION ? 'production': 'development';
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractStyle = new ExtractTextPlugin('[name].css');
 // Disabled till node issues are resolved
+//const envType = PRODUCTION ? 'production': 'development';
 //const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 // Extract vendor related libraries(node_modules/lib/lib.js) from bundles

@@ -277,7 +277,7 @@ define('pgadmin.datagrid', [
                     text: gettext('OK'),
                     key: 13,
                     className: 'btn btn-primary fa fa-check pg-alertify-button',
-                  },],
+                  }],
                   options: {
                     modal: 0,
                     resizable: true,

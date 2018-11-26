@@ -54,7 +54,7 @@ export class RestoreDialogWrapper extends DialogWrapper {
         className: 'btn btn-primary fa fa-upload pg-alertify-button',
         restore: true,
         'data-btn-name': 'restore',
-      },],
+      }],
       // Set options for dialog
       options: {
         title: this.dialogTitle,

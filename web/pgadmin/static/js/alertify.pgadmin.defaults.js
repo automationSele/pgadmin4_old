@@ -409,16 +409,17 @@ define([
   });
 
   // Confirm dialogue: Set title attribute
-  alertify.confirm().set({onshow:function() {
+  alertify.confirm().set({
+    onshow:function() {
       $(this.elements.commands.close).attr('title', gettext('Close'));
       $(this.elements.commands.maximize).attr('title', gettext('Maximize'));
     },
-    reverseButtons: true
+    reverseButtons: true,
   });
 
   alertify.prompt().set({
     reverseButtons: true,
-  })
+  });
 
   return alertify;
 });
