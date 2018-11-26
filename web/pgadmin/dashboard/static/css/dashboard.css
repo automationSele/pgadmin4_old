@@ -100,3 +100,11 @@
 .dashboard-hidden {
   display: none;
 }
+
+div#dashboard-activity div.tab-content > div.tab-pane table.backgrid.table-bordered {
+  border: none;
+}
+
+div#dashboard-activity div.tab-content > div.tab-pane table.backgrid.table-bordered tr > td:first-child {
+  border-left: none !important;
+}
