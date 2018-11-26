@@ -37,7 +37,7 @@ $color-editor-activeline: #50B0F0 !default;
 
 $gray-base: #000 !default;
 
-$color-gray-darker: #848ea0;
+$color-gray-darker: #5b6d7c;
 $color-gray-dark: #848ea0;
 $color-gray: #bac1cd;
 $color-gray-light: #ebeef3;
@@ -152,12 +152,13 @@ $panel-border-dark: $panel-border-width solid $border-color-dark !important;
 $tabs-padding: 5px 10px 2px;
 $title-height: 37px * $font-size-base/1rem;
 $footer-padding: 0.5rem;
+$footer-min-height: 2.18rem;
 $navbar-font-size: 0.875rem;
 $navbar-user-font-size: 0.815rem;
 
 $navbar-dropdown-top: $title-height + 4px;
 $dropdown-submenu-top: -$dropdown-spacer;
-$sqleditor-title-padding: 3px;
+
 
 $table-bg: $color-bg-theme;
 $table-bg-selected: $color-primary-light;
@@ -166,6 +167,9 @@ $table-hover-border: $panel-border-width solid #4fc2f8 !important;
 $table-hover-bg-color: $color-primary-light;
 $datagrid-bg: $color-gray-light;
 
+$sql-title-padding: 3px;
+$sql-title-bg: $color-gray-darker;
+$sql-title-fg: $white;
 $sql-gutters-bg: $color-gray-light;
 $sql-history-detail-bg: $color-gray-lighter;
 $sql-history-success-bg: $color-primary-light;

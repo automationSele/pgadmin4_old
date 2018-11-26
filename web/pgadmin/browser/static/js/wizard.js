@@ -68,13 +68,13 @@ define([
       '    <div class="pgadmin-wizard" style="height: <%= this.options.height %>px;' +
       '    width: <%= this.options.width %>px">' +
       '      <div class="wizard-header wizard-badge">' +
-      '        <div class="row">' +
-      '          <div class="col-sm-10">' +
+      '        <div class="d-flex">' +
+      '          <div>' +
       '              <h3><span id="main-title"><%= this.options.title %></span> -' +
       '              <span id="step-title"><%= page_title %></span></h3>' +
       '          </div>' +
       '          <% if (this.options.show_header_cancel_btn) { %>' +
-      '            <div class="col-sm-2">' +
+      '            <div class="ml-auto">' +
       '              <button class="ajs-close wizard-cancel-event pull-right"' +
       '                title="' + gettext('Close') + '></button>' +
       '              <% if (this.options.show_header_maximize_btn) { %>' +
@@ -120,21 +120,21 @@ define([
       '        </div>' +
       '      </div>' +
       '      <div class="footer col-sm-12">' +
-      '        <div class="row">' +
-      '          <div class="col-sm-4 wizard-buttons pull-left">' +
+      '        <div class="d-flex">' +
+      '          <div class="wizard-buttons pull-left">' +
       '            <button title = "' + gettext('Help for this dialog.') + '"' +
-      '              class="btn btn-default pull-left wizard-help" <%=this.options.wizard_help ? "" : "disabled" %>>' +
+      '              class="btn btn-secondary pull-left wizard-help" <%=this.options.wizard_help ? "" : "disabled" %>>' +
       '              <span class="fa fa-lg fa-question"></span></button>' +
       '          </div>' +
-      '          <div class="col-sm-8">' +
+      '          <div class="ml-auto">' +
       '            <div class="wizard-buttons">' +
-      '              <button class="btn btn-primary wizard-back" <%=this.options.disable_prev ? "disabled" : ""%>>' +
+      '              <button class="btn btn-secondary wizard-cancel" <%=this.options.disable_cancel ? "disabled" : ""%>>' +
+      '                <i class="fa fa-lg fa-close"></i>' + gettext('Cancel') + '</button>' +
+      '              <button class="btn btn-secondary wizard-back" <%=this.options.disable_prev ? "disabled" : ""%>>' +
       '                <i class="fa fa-backward"></i>' + gettext('Back') + '</button>' +
-      '              <button class="btn btn-primary wizard-next" <%=this.options.disable_next ? "disabled" : ""%>>' +
+      '              <button class="btn btn-secondary wizard-next" <%=this.options.disable_next ? "disabled" : ""%>>' +
       '                ' + gettext('Next') +
       '                <i class="fa fa-forward"></i></button>' +
-      '              <button class="btn btn-danger wizard-cancel" <%=this.options.disable_cancel ? "disabled" : ""%>>' +
-      '                <i class="fa fa-lg fa-close"></i>' + gettext('Cancel') + '</button>' +
       '              <button class="btn btn-primary wizard-finish" <%=this.options.disable_finish ? "disabled" : ""%>>' +
       '                ' + gettext('Finish') + '</button>' +
       '            </div>' +

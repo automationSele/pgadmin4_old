@@ -1,27 +1,37 @@
 .wizard-header {
   padding: 6px 10px!important;
-  min-height: 35px;
-  max-height: 35px;
-  border-bottom: 2px solid $color-gray-light;
+  min-height: $title-height;
+  max-height: $title-height;
   background-color: $color-primary;
+  font-size: $font-size-base;
   font-weight: bold;
-  color: $color-fg-inverse;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 0;
+  color: $color-primary-fg;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 0rem;
+  border-top-left-radius: $panel-border-radius;
+  border-top-right-radius: $panel-border-radius;
+  border-bottom: none;
 }
 
+.wizard-content {
+  position: absolute;
+  overflow: auto;
+  top: $title-height;
+  bottom: $footer-min-height+$footer-padding*2; //similar to alertify footer
+}
+
+/* match the alertify footer */
 .pgadmin-wizard .footer {
-  background-color: $color-gray-lighter;
-  border-width: 2px 0px 0px 0px;
-  border-style: solid;
-  border-color:  $color-gray-dark;
+  min-height: $footer-min-height;
+  border: none;
+  border-top: $panel-border;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   margin: 0;
-  padding: 0;
+  padding: $footer-padding
 }
 
 /* Error message css */

@@ -144,7 +144,7 @@ define(
               /** Calculations based on https://getbootstrap.com/docs/4.1/layout/grid/#grid-options **/
               if (w < 576) {
                 w = 'xs';
-              } 
+              }
               if (w >= 576) {
                 w = 'sm';
               }
@@ -153,7 +153,7 @@ define(
               }
               if (w >= 992) {
                 w = 'lg';
-              } 
+              }
               if (w >=1200) {
                 w = 'xl';
               }

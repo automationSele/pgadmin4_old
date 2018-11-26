@@ -34,6 +34,16 @@ iframe {
 	box-shadow: $dropdown-box-shadow;
 }
 
+.dropdown-toggle::after {
+	font-family: 'FontAwesome';
+	content: "\f078";
+	font-size: 0.6rem;
+	vertical-align: 1px;
+	margin-left: 0rem;
+	border: none;
+	width: auto;
+}
+
 /*
  * Bootstrap 3 remove submenus as they don't work overly well on Mobile. The
  * following CSS adds them back in - for our purposes they actually work fine
@@ -53,11 +63,16 @@ iframe {
 .dropdown-submenu .dropdown-menu.show {
 	background-color: $dropdown-bg;
 }
+
 .dropdown-submenu>a:after {
-	content: "▸";
+	font-family: 'FontAwesome';
+	content: "\f054";
 	float: right;
 	margin-right: -10px;
+	font-size: 0.6rem;
+	line-height: 2;
 }
+
 .dropdown-submenu:hover>a:after {
 	border-left-color: $dropdown-link-hover-color;
 }

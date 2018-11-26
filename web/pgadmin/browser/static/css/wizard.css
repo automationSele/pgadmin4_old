@@ -21,12 +21,6 @@
   height: 100%;
 }
 
-.wizard-content {
-  position: relative;
-  padding: 0;
-  height: calc(100% - 120px);
-}
-
 .wizard-right-panel {
   overflow-y: auto;
   height: 100%;
@@ -64,12 +58,6 @@
 /* Wizard Button CSS */
 .pgadmin-wizard .wizard-buttons {
   float: right;
-}
-
-.pgadmin-wizard .wizard-buttons button {
-  float: left;
-  font-size: 14px;
-  margin: 3px 5px 0 0 !important;
 }
 
 .pgadmin-wizard .wizard-buttons button.wizard-next i.fa {
