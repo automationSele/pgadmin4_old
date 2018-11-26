@@ -385,7 +385,7 @@ define([
             columns: gridSchema.columns,
             collection: self.collection,
             row: VariableRow,
-            className: 'backgrid table',
+            className: 'backgrid table presentation table-bordered',
           });
           self.$grid = grid.render().$el;
 
