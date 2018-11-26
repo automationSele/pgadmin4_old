@@ -54,9 +54,9 @@ let FilterDialog = {
           setup: function() {
             return {
               buttons: [{
-                text: '',
+                text: '<span class="fa fa-lg fa-question"></span>',
                 key: 112,
-                className: 'btn btn-default pull-left fa fa-lg fa-question',
+                className: 'btn btn-secondary pull-left',
                 attrs: {
                   name: 'dialog_help',
                   type: 'button',
@@ -66,15 +66,15 @@ let FilterDialog = {
                   }),
                 },
               }, {
-                text: gettext('OK'),
-                className: 'btn btn-primary pg-alertify-button',
-                'data-btn-name': 'ok',
-              }, {
                 text: gettext('Cancel'),
                 key: 27,
-                className: 'btn btn-danger pg-alertify-button',
+                className: 'btn btn-secondary fa fa-times pg-alertify-button',
                 'data-btn-name': 'cancel',
-              }],
+              }, {
+                text: gettext('OK'),
+                className: 'btn btn-primary fa fa-check pg-alertify-button',
+                'data-btn-name': 'ok',
+              },],
               // Set options for dialog
               options: {
                 title: title,
@@ -109,7 +109,7 @@ let FilterDialog = {
             let self = this;
             $container.html('');
             // Disable Ok button
-            this.__internal.buttons[1].element.disabled = true;
+            this.__internal.buttons[2].element.disabled = true;
 
             // Status bar
             this.statusBar = $('<div class=\'pg-prop-status-bar pg-el-xs-12 d-none\'>' +
@@ -162,14 +162,14 @@ let FilterDialog = {
                 self.statusBar.removeClass('d-none');
                 $(self.statusBar.find('.alert-text')).html(msg);
                 // Disable Okay button
-                self.__internal.buttons[1].element.disabled = true;
+                self.__internal.buttons[2].element.disabled = true;
               });
 
               view.listenTo(view.model, 'pgadmin-session:valid', function() {
                 self.statusBar.addClass('d-none');
                 $(self.statusBar.find('.alert-text')).html('');
                 // Enable Okay button
-                self.__internal.buttons[1].element.disabled = false;
+                self.__internal.buttons[2].element.disabled = false;
               });
             });
 

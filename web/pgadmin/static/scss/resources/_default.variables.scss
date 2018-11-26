@@ -138,6 +138,7 @@ $input-color: $color-fg-theme;
 $input-border-color: $gray-400; //no change
 $input-border-radius: $border-radius; //no change
 $input-disabled-bg: $color-gray-lighter;
+$input-btn-border-width: $border-width; //no change
 
 $btn-border-radius: $border-radius; //no change
 /***************/
@@ -174,3 +175,7 @@ $sql-history-error-fg: $color-danger;
 
 $negative-bg: $color-gray-light;
 $dialog-box-shadow: $box-shadow;
+
+$alertify-borderremove-margin: $panel-border-width;
+$btn-secondary-border: $color-gray;
+$btn-secondary-hover-bg: $color-gray-light;

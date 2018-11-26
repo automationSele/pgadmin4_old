@@ -564,17 +564,17 @@ define('tools.querytool', [
           setup: function() {
             return {
               buttons: [{
-                text: gettext('Save'),
-                className: 'btn btn-primary',
-              }, {
-                text: gettext('Don\'t save'),
-                className: 'btn btn-danger',
-              }, {
                 text: gettext('Cancel'),
                 key: 27, // ESC
                 invokeOnClose: true,
-                className: 'btn btn-warning',
-              }],
+                className: 'btn btn-secondary fa fa-lg fa-times pg-alertify-button',
+              }, {
+                text: gettext('Don\'t save'),
+                className: 'btn btn-secondary fa fa-lg fa-trash-o pg-alertify-button',
+              }, {
+                text: gettext('Save'),
+                className: 'btn btn-primary fa fa-lg fa-save pg-alertify-button',
+              },],
               focus: {
                 element: 0,
                 select: false,
@@ -587,16 +587,16 @@ define('tools.querytool', [
           },
           callback: function(closeEvent) {
             switch (closeEvent.index) {
-            case 0: // Save
-              that.handler.close_on_save = true;
-              that.handler._save(that, that.handler);
+            case 0: // Cancel
+              //Do nothing.
               break;
             case 1: // Don't Save
               that.handler.close_on_save = false;
               that.handler.close();
               break;
-            case 2: //Cancel
-                //Do nothing.
+            case 2: //Save
+              that.handler.close_on_save = true;
+              that.handler._save(that, that.handler);
               break;
             }
           },

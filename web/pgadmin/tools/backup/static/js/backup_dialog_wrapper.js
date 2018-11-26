@@ -30,7 +30,7 @@ export class BackupDialogWrapper extends DialogWrapper {
     return {
       buttons: [{
         text: '<span class="fa fa-lg fa-info"></span>',
-        className: 'btn btn-default pull-left',
+        className: 'btn btn-secondary pull-left',
         attrs: {
           name: 'object_help',
           type: 'button',
@@ -40,7 +40,7 @@ export class BackupDialogWrapper extends DialogWrapper {
       }, {
         text: '<span class="fa fa-lg fa-question"></span>',
         key: 112,
-        className: 'btn btn-default pull-left',
+        className: 'btn btn-secondary pull-left',
         attrs: {
           name: 'dialog_help',
           type: 'button',
@@ -50,16 +50,16 @@ export class BackupDialogWrapper extends DialogWrapper {
           }),
         },
       }, {
+        text: gettext('Cancel'),
+        key: 27,
+        className: 'btn btn-secondary fa fa-lg fa-times pg-alertify-button',
+        'data-btn-name': 'cancel',
+      }, {
         text: gettext('Backup'),
         key: 13,
         className: 'btn btn-primary fa fa-lg fa-save pg-alertify-button',
         'data-btn-name': 'backup',
-      }, {
-        text: gettext('Cancel'),
-        key: 27,
-        className: 'btn btn-danger fa fa-lg fa-times pg-alertify-button',
-        'data-btn-name': 'cancel',
-      }],
+      },],
       // Set options for dialog
       options: {
         title: this.dialogTitle,
@@ -181,11 +181,11 @@ export class BackupDialogWrapper extends DialogWrapper {
   }
 
   disableBackupButton() {
-    this.__internal.buttons[2].element.disabled = true;
+    this.__internal.buttons[3].element.disabled = true;
   }
 
   enableBackupButton() {
-    this.__internal.buttons[2].element.disabled = false;
+    this.__internal.buttons[3].element.disabled = false;
   }
 
   createDialog(node, treeInfo, typeOfDialog, $container) {

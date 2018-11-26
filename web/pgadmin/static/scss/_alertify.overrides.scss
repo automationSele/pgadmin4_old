@@ -2,8 +2,9 @@
 .alertify {
   .ajs-header {
     padding: 6px 10px !important;
-    min-height: $title-height;
-    max-height: $title-height;
+    //margin is calculated with -$alertify-borderremove-margin, adjust the header
+    min-height: $title-height + $alertify-borderremove-margin;
+    max-height: $title-height + $alertify-borderremove-margin;
     background-color: $color-primary;
     font-size: $font-size-base;
     font-weight: bold;
@@ -15,7 +16,8 @@
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
     border-bottom: none;
-
+    margin: -24px - $alertify-borderremove-margin; //-24px is default by alertify
+    margin-bottom: 0px;
     &:hover {
       background-color: $color-primary;
     }
@@ -25,6 +27,11 @@
   &.ajs-maximized {
     & .ajs-body .ajs-content {
       top: $title-height;
+    }
+
+    & .ajs-header{
+      //default is 0, to override the borders
+      margin: -$alertify-borderremove-margin;
     }
   }
   .ajs-body .ajs-content {
@@ -107,12 +114,11 @@
 .ajs-pin, .ajs-maximize, .ajs-close {
   width: 20px;
   height: 20px;
-  border: 2px solid $color-gray-light !important;
-  background-color: $color-gray-lighter !important;
+  border: $input-btn-border-width solid $btn-secondary-border !important;
+  background-color: $color-secondary !important;
   font-size: 12px;
-  border-radius: 5px 5px 5px 5px;
+  border-radius: $btn-border-radius;
   position: relative;
-  //float: right;
   cursor: pointer;
   text-align: center;
   overflow: hidden;
@@ -120,7 +126,7 @@
 }
 
 .ajs-pin:hover, .ajs-maximize:hover, .ajs-close:hover {
-  border: 2px solid $color-gray-lighter !important;
+  background-color: $btn-secondary-hover-bg !important;
 }
 
 .alertify.ajs-modeless.ajs-pinnable .ajs-commands button.ajs-pin {

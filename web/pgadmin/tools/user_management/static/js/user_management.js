@@ -62,7 +62,7 @@ define([
                 buttons: [{
                   text: '<span class="fa fa-lg fa-question"></span>',
                   key: 112,
-                  className: 'btn btn-default pull-left',
+                  className: 'btn btn-secondary pull-left',
                   attrs: {
                     name: 'dialog_help',
                     type: 'button',
@@ -75,7 +75,7 @@ define([
                 }, {
                   text: gettext('Close'),
                   key: 27,
-                  className: 'btn btn-danger fa fa-lg fa-times pg-alertify-button',
+                  className: 'btn btn-secondary fa fa-lg fa-times pg-alertify-button',
                   attrs: {
                     name: 'close',
                     type: 'button',
@@ -167,7 +167,7 @@ define([
               return {
                 buttons: [{
                   text: gettext('Close'), key: 27,
-                  className: 'btn btn-danger fa fa-lg fa-times pg-alertify-button',
+                  className: 'btn btn-secondary fa fa-lg fa-times pg-alertify-button',
                   attrs:{name:'close', type:'button'},
                 }],
                 // Set options for dialog
@@ -578,7 +578,7 @@ define([
                 buttons: [{
                   text: '<span class="fa fa-lg fa-question"></span>',
                   key: 112,
-                  className: 'btn btn-default pull-left',
+                  className: 'btn btn-secondary pull-left',
                   attrs: {
                     name: 'dialog_help',
                     type: 'button',
@@ -591,7 +591,7 @@ define([
                 }, {
                   text: gettext('Close'),
                   key: 27,
-                  className: 'btn btn-danger fa fa-lg fa-times pg-alertify-button user_management_pg-alertify-button',
+                  className: 'btn btn-secondary fa fa-lg fa-times pg-alertify-button user_management_pg-alertify-button',
                   attrs: {
                     name: 'close',
                     type: 'button',

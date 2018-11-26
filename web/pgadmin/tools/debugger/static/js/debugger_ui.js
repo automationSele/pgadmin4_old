@@ -554,16 +554,14 @@ define([
           setup: function() {
             return {
               buttons: [{
-                text: gettext('Debug'),
-                key: 13,
-                className: 'btn btn-primary',
-              },
-              {
                 text: gettext('Cancel'),
                 key: 27,
-                className: 'btn btn-primary',
-              },
-              ],
+                className: 'btn btn-secondary fa fa-times pg-alertify-button',
+              },{
+                text: gettext('Debug'),
+                key: 13,
+                className: 'btn btn-primary fa fa-bug pg-alertify-button',
+              },],
               // Set options for dialog
               options: {
                 //disable both padding and overflow control.
@@ -876,9 +874,9 @@ define([
              enable the debug button otherwise disable the debug button.
             */
             if (this.func_args_data.length == 0) {
-              this.__internal.buttons[0].element.disabled = true;
+              this.__internal.buttons[1].element.disabled = true;
             } else {
-              this.__internal.buttons[0].element.disabled = false;
+              this.__internal.buttons[1].element.disabled = false;
             }
 
             /*
@@ -895,7 +893,7 @@ define([
                     for (var i = 0; i < this.collection.length; i++) {
 
                       if (this.collection.models[i].get('is_null')) {
-                        obj.__internal.buttons[0].element.disabled = false;
+                        obj.__internal.buttons[1].element.disabled = false;
                         enable_btn = true;
                         continue;
                       }
@@ -907,15 +905,15 @@ define([
                         enable_btn = true;
 
                         if (this.collection.models[i].get('use_default')) {
-                          obj.__internal.buttons[0].element.disabled = false;
+                          obj.__internal.buttons[1].element.disabled = false;
                         } else {
-                          obj.__internal.buttons[0].element.disabled = true;
+                          obj.__internal.buttons[1].element.disabled = true;
                           break;
                         }
                       }
                     }
                     if (!enable_btn)
-                      obj.__internal.buttons[0].element.disabled = false;
+                      obj.__internal.buttons[1].element.disabled = false;
                   };
                 })(this)
             );

@@ -270,16 +270,14 @@ define('pgadmin.datagrid', [
               setup:function() {
                 return {
                   buttons:[{
-                    text: gettext('OK'),
-                    key: 13,
-                    className: 'btn btn-primary',
-                  },
-                  {
                     text: gettext('Cancel'),
                     key: 27,
-                    className: 'btn btn-danger',
-                  },
-                  ],
+                    className: 'btn btn-secondary fa fa-times pg-alertify-button',
+                  },{
+                    text: gettext('OK'),
+                    key: 13,
+                    className: 'btn btn-primary fa fa-check pg-alertify-button',
+                  },],
                   options: {
                     modal: 0,
                     resizable: true,
@@ -303,7 +301,7 @@ define('pgadmin.datagrid', [
 
                 this.setContent($content.get(0));
                 // Disable OK button
-                that.__internal.buttons[0].element.disabled = true;
+                that.__internal.buttons[1].element.disabled = true;
 
                 // Apply CodeMirror to filter text area.
                 this.filter_obj = CodeMirror.fromTextArea($sql_filter.get(0), {
@@ -329,9 +327,9 @@ define('pgadmin.datagrid', [
 
                 that.filter_obj.on('change', function() {
                   if (that.filter_obj.getValue() !== '') {
-                    that.__internal.buttons[0].element.disabled = false;
+                    that.__internal.buttons[1].element.disabled = false;
                   } else {
-                    that.__internal.buttons[0].element.disabled = true;
+                    that.__internal.buttons[1].element.disabled = true;
                   }
                 });
               },

@@ -2,8 +2,8 @@ define([
   'sources/gettext', 'alertify', 'jquery',
 ], function(gettext, alertify, $) {
   alertify.defaults.transition = 'zoom';
-  alertify.defaults.theme.ok = 'btn btn-primary';
-  alertify.defaults.theme.cancel = 'btn btn-danger';
+  alertify.defaults.theme.ok = 'btn btn-primary fa fa-lg fa-check pg-alertify-button';
+  alertify.defaults.theme.cancel = 'btn btn-secondary fa fa-lg fa-times pg-alertify-button';
   alertify.defaults.theme.input = 'form-control';
   alertify.defaults.closable = false;
   alertify.pgIframeDialog || alertify.dialog('pgIframeDialog', function() {
@@ -410,9 +410,15 @@ define([
 
   // Confirm dialogue: Set title attribute
   alertify.confirm().set({onshow:function() {
-    $(this.elements.commands.close).attr('title', gettext('Close'));
-    $(this.elements.commands.maximize).attr('title', gettext('Maximize'));
-  }});
+      $(this.elements.commands.close).attr('title', gettext('Close'));
+      $(this.elements.commands.maximize).attr('title', gettext('Maximize'));
+    },
+    reverseButtons: true
+  });
+
+  alertify.prompt().set({
+    reverseButtons: true,
+  })
 
   return alertify;
 });

@@ -178,13 +178,13 @@ define('pgadmin.node.tablespace', [
                 setup:function() {
                   return {
                     buttons: [{
-                      text: '', key: 112, className: 'btn btn-default pull-left fa fa-lg fa-question',
+                      text: '<span class="fa fa-lg fa-question"></span>', key: 112, className: 'btn btn-secondary pull-left',
                       attrs:{name:'dialog_help', type:'button', label: gettext('Users'),
                         url: url_for('help.static', {'filename': 'move_objects.html'})},
                     },{
-                      text: gettext('OK'), key: 13, className: 'btn btn-primary fa fa-lg fa-save pg-alertify-button',
+                      text: gettext('Cancel'), key: 27, className: 'btn btn-secondary fa fa-lg fa-times pg-alertify-button',
                     },{
-                      text: gettext('Cancel'), key: 27, className: 'btn btn-danger fa fa-lg fa-times pg-alertify-button',
+                      text: gettext('OK'), key: 13, className: 'btn btn-primary fa fa-lg fa-save pg-alertify-button',
                     }],
                     // Set options for dialog
                     options: {
@@ -212,7 +212,7 @@ define('pgadmin.node.tablespace', [
                   var self = this,
                     $container = $('<div class=\'move_objects\'></div>');
                   //Disbale Okay button
-                  this.__internal.buttons[1].element.disabled = true;
+                  this.__internal.buttons[2].element.disabled = true;
                   // Find current/selected node
                   var t = pgBrowser.tree,
                     i = t.selected(),
@@ -246,9 +246,9 @@ define('pgadmin.node.tablespace', [
                   this.view.model.on('change', function() {
                     if (!_.isUndefined(this.get('tblspc')) && this.get('tblspc') !== '') {
                       this.errorModel.clear();
-                      self.__internal.buttons[1].element.disabled = false;
+                      self.__internal.buttons[2].element.disabled = false;
                     } else {
-                      self.__internal.buttons[1].element.disabled = true;
+                      self.__internal.buttons[2].element.disabled = true;
                       this.errorModel.set('tblspc', gettext('Please select tablespace'));
                     }
                   });

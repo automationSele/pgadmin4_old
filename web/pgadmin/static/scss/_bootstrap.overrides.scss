@@ -82,7 +82,7 @@ iframe {
  * Refer file : bootstrap/scss/mixins/_buttons.scss
  */
 .btn-secondary {
-	@include button-variant($color-secondary, $color-gray, $color-gray-light);
+	@include button-variant($color-secondary, $btn-secondary-border, $btn-secondary-hover-bg);
 }
 
 .form-group fieldset {

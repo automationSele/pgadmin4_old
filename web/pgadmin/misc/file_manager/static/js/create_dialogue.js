@@ -14,7 +14,7 @@ module.exports =  Alertify.dialog('createModeDlg', function() {
         buttons: [{
           text: gettext('Cancel'),
           key: 27,
-          className: 'btn btn-danger fa fa-times file_manager_create_cancel pg-alertify-button',
+          className: 'btn btn-secondary fa fa-times file_manager_create_cancel pg-alertify-button',
         },{
           text: gettext('Create'),
           key: 13,

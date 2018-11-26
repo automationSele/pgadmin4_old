@@ -395,9 +395,9 @@ define('pgadmin.preferences', [
           setup: function() {
             return {
               buttons: [{
-                text: '',
+                text: '<span class="fa fa-lg fa-question"></span>',
                 key: 112,
-                className: 'btn btn-default pull-left fa fa-lg fa-question',
+                className: 'btn btn-secondary pull-left pg-alertify-button',
                 attrs: {
                   name: 'dialog_help',
                   type: 'button',
@@ -409,14 +409,14 @@ define('pgadmin.preferences', [
                   ),
                 },
               }, {
-                text: gettext('OK'),
-                key: 13,
-                className: 'btn btn-primary fa fa-lg fa-save pg-alertify-button',
-              }, {
                 text: gettext('Cancel'),
                 key: 27,
-                className: 'btn btn-danger fa fa-lg fa-times pg-alertify-button',
-              }],
+                className: 'btn btn-secondary fa fa-lg fa-times pg-alertify-button',
+              }, {
+                text: gettext('Save'),
+                key: 13,
+                className: 'btn btn-primary fa fa-lg fa-save pg-alertify-button',
+              },],
               focus: {
                 element: 0,
               },
