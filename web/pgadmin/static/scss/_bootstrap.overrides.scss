@@ -1,8 +1,6 @@
 /* Ensure simple forms don't hit the top of the screen */
 body {
 	font-family: $font-family-primary;
-	padding-bottom: 20px;
-	padding-top: 50px;
 }
 
 .app-icon {
@@ -38,7 +36,7 @@ iframe {
 	font-family: 'FontAwesome';
 	content: "\f078";
 	font-size: 0.6rem;
-	vertical-align: 1px;
+	vertical-align: 2px;
 	margin-left: 0rem;
 	border: none;
 	width: auto;

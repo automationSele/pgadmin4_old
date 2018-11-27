@@ -1075,7 +1075,7 @@ define([
             },
           }),
           collection: stackColl,
-          className: 'backgrid table-bordered',
+          className: 'backgrid table table-bordered table-noouter-border',
         });
 
         stack_grid.render();
@@ -1125,7 +1125,7 @@ define([
         var result_grid = this.result_grid = new Backgrid.Grid({
           columns: resultGridCols,
           collection: new ResultsCollection(result),
-          className: 'backgrid table-bordered',
+          className: 'backgrid table table-bordered table-noouter-border',
         });
 
         result_grid.render();
@@ -1202,7 +1202,7 @@ define([
         var variable_grid = this.variable_grid = new Backgrid.Grid({
           columns: gridCols,
           collection: new VariablesCollection(my_obj),
-          className: 'backgrid table-bordered',
+          className: 'backgrid table table-bordered table-noouter-border',
         });
 
         variable_grid.collection.on(
@@ -1287,7 +1287,7 @@ define([
         var param_grid = this.param_grid = new Backgrid.Grid({
           columns: paramGridCols,
           collection: new ParametersCollection(param_obj),
-          className: 'backgrid table-bordered',
+          className: 'backgrid table table-bordered table-noouter-border',
         });
 
         param_grid.collection.on(

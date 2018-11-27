@@ -2,12 +2,9 @@
   background: $color-editor-activeline;
 }
 
-.CodeMirror-foldmarker {
-  color: $color-editor-foldmarker;
-  text-shadow: #b9f 1px 1px 2px, #b9f -1px -1px 2px, #b9f 1px -1px 2px, #b9f -1px 1px 2px;
-  font-family: $font-family-primary;
-  line-height: .3;
-  cursor: pointer;
+
+#stack_editor_pane {
+  border-top: $panel-border;
 }
 
 /* To make font same as Query tool in messages tab */

@@ -864,3 +864,13 @@ body {
 .nav-tabs {
   background-color: $color-bg-theme;
 }
+
+.editor-toolbar {
+  background: $sql-gutters-bg;
+  padding: 0.05rem 0.25rem;
+}
+
+
+table.table-noouter-border {
+  border: none;
+}

@@ -113,27 +113,9 @@
   height: 100%;
 }
 
-#editor-panel .CodeMirror-gutter {
-  min-width: 1em;
-}
-
 #output-panel {
   height: 100% !important;
 }
-
-.CodeMirror-foldgutter-open,
-.CodeMirror-foldgutter-folded {
-  cursor: pointer;
-}
-
-.CodeMirror-foldgutter-open:after {
-  content: "\25BC";
-}
-
-.CodeMirror-foldgutter-folded:after {
-  content: "\25B6";
-}
-
 
 .sql-editor-explain {
   height: 100%;

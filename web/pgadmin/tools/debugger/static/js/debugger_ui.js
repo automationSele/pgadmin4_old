@@ -531,7 +531,7 @@ define([
             var grid = this.grid = new Backgrid.Grid({
               columns: gridCols,
               collection: this.debuggerInputArgsColl,
-              className: 'backgrid table-bordered',
+              className: 'backgrid table table-bordered table-noouter-border',
             });
 
             grid.render();
