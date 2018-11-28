@@ -2795,7 +2795,7 @@ define([
 
   Backform.CheckboxControl = Backform.CheckboxControl.extend({
     events: _.extend({}, Backform.CheckboxControl.prototype.events, {
-      "click button": "onButtonClick"
+      'click button': 'onButtonClick',
     }),
     template: _.template([
       '<label class="<%=Backform.controlLabelClassName%>"><%=controlLabel%></label>',
@@ -2804,14 +2804,14 @@ define([
       '    <input type="<%=type%>" class="<%=extraClasses.join(\' \')%>" id="<%=id%>" name="<%=name%>" <%=value ? "checked=\'checked\'" : ""%> <%=disabled ? "disabled" : ""%> <%=required ? "required" : ""%> />',
       '    <%=label%>',
       '  </button>',
-      '</div>'
-    ].join("\n")),
+      '</div>',
+    ].join('\n')),
     onButtonClick: function(e) {
       if (e.target.nodeName !== 'BUTTON')
         return;
-      var $el = this.$el.find("input[type=checkbox]");
+      var $el = this.$el.find('input[type=checkbox]');
       $el.prop('checked', !$el.prop('checked'));
-    }
+    },
   });
 
   return Backform;
