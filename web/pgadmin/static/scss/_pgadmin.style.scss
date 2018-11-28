@@ -529,7 +529,7 @@ fieldset.inline-fieldset > div {
 
 .pgadmin-controls input[type="checkbox"]{
   margin-left: 0 !important;
-  margin-top: 10px !important;
+  margin-top: 0px !important;
 }
 
 .pgadmin-controls.sql_field_layout {
@@ -873,4 +873,8 @@ body {
 
 table.table-noouter-border {
   border: none;
+}
+
+.no-border-radius {
+  border-radius: $no-border-radius;
 }

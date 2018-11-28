@@ -30,7 +30,7 @@ define('pgadmin.preferences', [
           controls = [], // Keep tracking of all the backform controls
           // created by the dialog.
           // Dialog containter
-          $container = $('<div class=\'preferences_dialog\'></div>');
+          $container = $('<div class=\'preferences_dialog d-flex flex-row\'></div>');
 
 
         /*
@@ -363,9 +363,9 @@ define('pgadmin.preferences', [
             dialogContentCleanup();
 
             $container.append(
-              '<div class=\'pg-el-xs-3 preferences_tree aciTree\'></div>'
+              '<div class=\'pg-el-3 preferences_tree aciTree\'></div>'
             ).append(
-              '<div class=\'pg-el-xs-9 preferences_content\'>' +
+              '<div class=\'pg-el-9 preferences_content\'>' +
               gettext('Category is not selected.') +
               '</div>'
             );

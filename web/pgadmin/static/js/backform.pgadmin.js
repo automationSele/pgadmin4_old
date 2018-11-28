@@ -403,7 +403,7 @@ define([
             '[type="radio"]'
           ).append(
             $('<div></div>').addClass(
-              'pgadmin-control-error-message pg-el-xs-offset-4 pg-el-xs-8 pg-el-xs-8 help-block'
+              'pgadmin-control-error-message pg-el-offset-4 pg-el-8 pg-el-8 help-block'
             ).text(error));
         });
       },
@@ -482,7 +482,7 @@ define([
     tagName: 'div',
     legend: true,
     className: function() {
-      return 'pg-el-sm-12 pg-el-md-12 pg-el-lg-12 pg-el-xs-12';
+      return 'pg-el-sm-12 pg-el-md-12 pg-el-lg-12 pg-el-12';
     },
     tabPanelClassName: function() {
       return Backform.tabClassName;
@@ -514,7 +514,7 @@ define([
         '<%=label%></a></li>',
       ].join(' ')),
       'panel': _.template(
-        '<div role="tabpanel" tabindex="-1" class="tab-pane <%=label%> pg-el-sm-12 pg-el-md-12 pg-el-lg-12 pg-el-xs-12 fade" id="<%=cId%>" aria-labelledby="<%=hId%>"></div>'
+        '<div role="tabpanel" tabindex="-1" class="tab-pane <%=label%> pg-el-sm-12 pg-el-md-12 pg-el-lg-12 pg-el-12 fade" id="<%=cId%>" aria-labelledby="<%=hId%>"></div>'
       ),
     },
     render: function() {
@@ -540,7 +540,7 @@ define([
 
       var tabHead = $('<ul class="nav nav-tabs" role="tablist"></ul>')
         .appendTo(this.$el);
-      var tabContent = $('<div class="tab-content pg-el-sm-12 pg-el-md-12 pg-el-lg-12 pg-el-xs-12"></div>')
+      var tabContent = $('<div class="tab-content pg-el-sm-12 pg-el-md-12 pg-el-lg-12 pg-el-12"></div>')
         .appendTo(this.$el);
 
       _.each(this.schema, function(o) {
@@ -629,7 +629,7 @@ define([
 
   Backform.Fieldset = Backform.Dialog.extend({
     className: function() {
-      return 'set-group pg-el-xs-12';
+      return 'set-group pg-el-12';
     },
     tabPanelClassName: function() {
       return Backform.tabClassName;
@@ -995,7 +995,7 @@ define([
           '  <button class="btn btn-sm-sq btn-default add fa fa-plus" <%=canAdd ? "" : "disabled=\'disabled\'"%> title="' + _('Add new row') + '"><%-add_label%></button>',
           '</div>',
         ].join('\n')),
-        gridBody = $('<div class="pgadmin-control-group backgrid form-group pg-el-xs-12 object subnode"></div>').append(
+        gridBody = $('<div class="pgadmin-control-group backgrid form-group pg-el-12 object subnode"></div>').append(
           gridHeader(data)
         );
 
@@ -1074,7 +1074,7 @@ define([
       self.grid = new Backgrid.Grid({
         columns: gridSchema.columns,
         collection: collection,
-        className: 'backgrid table presentation table-bordered',
+        className: 'backgrid table presentation table-bordered no-border-radius',
       });
 
       // Render subNode grid
@@ -1170,7 +1170,7 @@ define([
 
         self.$el.addClass('subnode-error').append(
           $('<div></div>').addClass(
-            'pgadmin-control-error-message pg-el-xs-offset-4 pg-el-xs-8 help-block'
+            'pgadmin-control-error-message pg-el-offset-4 pg-el-8 help-block'
           ).text(error)
         );
       });
@@ -1236,7 +1236,7 @@ define([
 
       if (self.field.get('showError')) {
         self.$el.addClass('subnode-error').append(
-          $('<div></div>').addClass('pgadmin-control-error-message pg-el-xs-offset-4 pg-el-xs-8 help-block').text(error)
+          $('<div></div>').addClass('pgadmin-control-error-message pg-el-offset-4 pg-el-8 help-block').text(error)
         );
       }
     },
@@ -1263,7 +1263,7 @@ define([
           '  <button class=\'btn btn-sm-sq btn-default add fa fa-plus\' title=\'' + _('Add new row') + '\'></button>',
           '</div>',
         ].join('\n'),
-        gridBody = $('<div class=\'pgadmin-control-group backgrid form-group pg-el-xs-12 object subnode\'></div>').append(gridHeader);
+        gridBody = $('<div class=\'pgadmin-control-group backgrid form-group pg-el-12 object subnode\'></div>').append(gridHeader);
 
       var subnode = data.subnode.schema ? data.subnode : data.subnode.prototype,
         gridSchema = Backform.generateGridColumnsFromModel(
@@ -1354,7 +1354,7 @@ define([
         columns: gridSchema.columns,
         collection: collection,
         row: this.row,
-        className: 'backgrid table presentation table-bordered',
+        className: 'backgrid table presentation table-bordered no-border-radius',
       });
 
       // Render subNode grid
@@ -2230,7 +2230,7 @@ define([
       noteClass: 'backform_control_notes',
     },
     template: _.template([
-      '<div class="<%=noteClass%> pg-el-xs-12 <%=extraClasses.join(\' \')%>">',
+      '<div class="<%=noteClass%> pg-el-12 <%=extraClasses.join(\' \')%>">',
       '<label class="control-label"><%=label%>:</label>',
       '<span><%=text%></span></div>',
     ].join('\n')),
@@ -2704,7 +2704,7 @@ define([
     },
     template: _.template([
       '<label class="<%=Backform.controlLabelClassName%>"><%=label%></label>',
-      '<div class="<%=Backform.controlsClassName%>">',
+      '<div class="<%=Backform.controlsClassName%> d-flex flex-row">',
       '</div>',
     ].join('\n')),
 
@@ -2769,13 +2769,13 @@ define([
             cntr.$el.find('label.control-label').remove();
           }
 
-          if (fld['name'] == 'alt_option') {
-            $container.append($('<div class="pg-el-sm-3 pg-el-xs-12"></div>').append(cntr.$el));
+          if (fld['name'] == 'alt') {
+            $container.append($('<div class="pg-el-sm-3 pg-el-12"></div>').append(cntr.$el));
           } else {
-            $container.append($('<div class="pg-el-sm-2 pg-el-xs-12"></div>').append(cntr.$el));
+            $container.append($('<div class="pg-el-sm-2 pg-el-12"></div>').append(cntr.$el));
           }
         } else {
-          $container.append($('<div class="pg-el-sm-5 pg-el-xs-12"></div>').append(cntr.$el));
+          $container.append($('<div class="pg-el-sm-5 pg-el-12"></div>').append(cntr.$el));
         }
 
         // We will keep track of all the controls rendered at the
@@ -2791,6 +2791,27 @@ define([
       this.cleanup();
       Backform.Control.prototype.remove.apply(this, arguments);
     },
+  });
+
+  Backform.CheckboxControl = Backform.CheckboxControl.extend({
+    events: _.extend({}, Backform.CheckboxControl.prototype.events, {
+      "click button": "onButtonClick"
+    }),
+    template: _.template([
+      '<label class="<%=Backform.controlLabelClassName%>"><%=controlLabel%></label>',
+      '<div class="<%=Backform.controlContainerClassName%>">',
+      '  <button class="btn btn-secondary">',
+      '    <input type="<%=type%>" class="<%=extraClasses.join(\' \')%>" id="<%=id%>" name="<%=name%>" <%=value ? "checked=\'checked\'" : ""%> <%=disabled ? "disabled" : ""%> <%=required ? "required" : ""%> />',
+      '    <%=label%>',
+      '  </button>',
+      '</div>'
+    ].join("\n")),
+    onButtonClick: function(e) {
+      if (e.target.nodeName !== 'BUTTON')
+        return;
+      var $el = this.$el.find("input[type=checkbox]");
+      $el.prop('checked', !$el.prop('checked'));
+    }
   });
 
   return Backform;
