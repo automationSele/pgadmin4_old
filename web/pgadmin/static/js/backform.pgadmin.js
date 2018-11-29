@@ -2750,7 +2750,7 @@ define([
           _.extend({}, {
             id: fld['name'],
             name: fld['name'],
-            control: fld['type'],
+            control: fld['type'] == 'checkbox' ? 'checkboxWithBox' : fld['type'],
             label: fld['label'],
           })
           ),
@@ -2793,14 +2793,14 @@ define([
     },
   });
 
-  Backform.CheckboxControl = Backform.CheckboxControl.extend({
+  Backform.CheckboxWithBoxControl = Backform.CheckboxControl.extend({
     events: _.extend({}, Backform.CheckboxControl.prototype.events, {
       'click button': 'onButtonClick',
     }),
     template: _.template([
       '<label class="<%=Backform.controlLabelClassName%>"><%=controlLabel%></label>',
       '<div class="<%=Backform.controlContainerClassName%>">',
-      '  <button class="btn btn-secondary">',
+      '  <button class="btn btn-secondary btn-checkbox">',
       '    <input type="<%=type%>" class="<%=extraClasses.join(\' \')%>" id="<%=id%>" name="<%=name%>" <%=value ? "checked=\'checked\'" : ""%> <%=disabled ? "disabled" : ""%> <%=required ? "required" : ""%> />',
       '    <%=label%>',
       '  </button>',
