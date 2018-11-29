@@ -34,3 +34,8 @@
     padding-top: 20px;
     padding-bottom: 40px;
 }
+
+.grid-container {
+    border-bottom-left-radius: $panel-border-radius;
+    border-bottom-right-radius: $panel-border-radius;
+}

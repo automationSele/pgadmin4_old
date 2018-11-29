@@ -23,12 +23,10 @@
 .fileinfo #contents li p > span.less_text,
 .fileinfo table#contents tr td:first-child p span.less_text {
   width: 100%;
-  display: inline-block;
   text-overflow: ellipsis;
   overflow: hidden;
   text-align: center;
   white-space: nowrap;
-  padding: 0 10px;
 }
 
 .fileinfo table#contents tr td p {
@@ -84,7 +82,6 @@ x:-o-prefocus, .file-input-container {top:16px;width:198px;}
 
 /** Input file Replacement - end */
 .file_listing #contents.grid {
-  padding: 25px;
   text-align: left;
 }
 

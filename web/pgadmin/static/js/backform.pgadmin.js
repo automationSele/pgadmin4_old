@@ -995,7 +995,7 @@ define([
           '  <button class="btn btn-sm-sq btn-default add fa fa-plus" <%=canAdd ? "" : "disabled=\'disabled\'"%> title="' + _('Add new row') + '"><%-add_label%></button>',
           '</div>',
         ].join('\n')),
-        gridBody = $('<div class="pgadmin-control-group backgrid form-group pg-el-12 object subnode"></div>').append(
+        gridBody = $('<div class="pgadmin-control-group backgrid form-group pg-el-12 object subnode "></div>').append(
           gridHeader(data)
         );
 
@@ -1074,7 +1074,7 @@ define([
       self.grid = new Backgrid.Grid({
         columns: gridSchema.columns,
         collection: collection,
-        className: 'backgrid table presentation table-bordered no-border-radius',
+        className: 'backgrid table presentation table-bordered table-noouter-border table-hover',
       });
 
       // Render subNode grid
@@ -1354,7 +1354,7 @@ define([
         columns: gridSchema.columns,
         collection: collection,
         row: this.row,
-        className: 'backgrid table presentation table-bordered no-border-radius',
+        className: 'backgrid table presentation table-bordered table-noouter-border table-hover',
       });
 
       // Render subNode grid

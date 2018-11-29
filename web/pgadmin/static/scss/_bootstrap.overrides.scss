@@ -156,27 +156,62 @@ iframe {
 	margin-bottom: 0rem;
 }
 
-.table-borderless {
-	& tbody tr {
-		border-top: $table-border-width solid transparent;
+.table-bordered {
+	border: $panel-border;
 
-		&:first-of-type {
-			border-top: $panel-border;
+	& thead {
+		& th, & td {
+			border-bottom: none;
 		}
 
-		&:last-of-type {
-			border-top: $table-border-width solid transparent;
+		& tr {
+			font-weight: bold !important;
+			// for first row, remove top border
+			&:first-of-type{
+				& td, & th {
+					border-top: none;
+				}
+			}
 		}
 	}
-	& td {
-		border-left: none !important;
-  }
-  & th {
-    border-left: $panel-border;
-    &:first-of-type {
-	  border-left: none !important;
+	& tbody {
+		& tr {
+			& th, & td {
+				border-top: $panel-border;
+				border-bottom: none;
+			}
 		}
-  }
+	}
+
+	& thead, & tbody {
+		& tr {
+			& td, & th {
+				&:first-of-type {
+					border-left: none;
+				}
+
+				&:last-of-type {
+					border-right: none;
+				}
+			}
+		}
+	}
+}
+
+.table.table-hover {
+	& tbody {
+		& tr:not(.nohover):not(.empty):hover, tr.selected {
+			background-color: $table-hover-bg;
+			& td {
+				border-top: $table-hover-border;
+				border-bottom: $table-hover-border;
+			}
+		}
+
+		& tr.nohover {
+			background-color: transparent;
+		}
+	}
 }
 
 /* Override default bootstrap popover fonts & size */
@@ -214,6 +249,8 @@ td.switch-cell > div.bootstrap-switch {
 
 .nav-tabs {
 	height: $title-height;
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
 }
 
 .nav-link {

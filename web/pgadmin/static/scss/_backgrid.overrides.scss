@@ -3,17 +3,6 @@
   text-align: left;
 }
 
-.backgrid thead th {
-  border: none !important;
-  border-left: 1px solid $border-color !important;
-  font-weight: bold !important;
-}
-
-.backgrid thead th:first-child {
-  border-left: none !important;
-}
-
-.backgrid tbody,
 .backgrid.backgrid-striped tbody {
   & tr:nth-child(even) {
     background: $table-bg;
@@ -79,29 +68,15 @@
      -moz-appearance: none;
 }
 
-.backgrid > thead > th {
-    background: $color-bg-theme;
-    text-align: left;
+.backgrid {
+  border-radius: inherit;
 }
 
 .backgrid thead td,
 .backgrid thead th{
+  background: $color-bg-theme;
   background-color: $color-bg-theme !important;
-}
-
-.backgrid,
-.backgrid.backgrid-striped {
-  & tbody tr:not(.nohover):not(.empty):hover {
-    border-top: $table-hover-border;
-    border-bottom: $table-hover-border;
-    background-color: $table-hover-bg-color;
-  }
-}
-
-.backgrid.presentation {
-  & td.renderable, & th.renderable {
-    padding: $table-cell-padding $table-cell-padding*2.5;
-  }
+  text-align: left;
 }
 
 .backgrid:not(.presentation) td.renderable:not(.editable):not(.delete-cell) {
@@ -115,10 +90,6 @@
 .sql-editor-grid-container .backgrid > thead > th.renderable,
 .sql-editor-grid-container .backgrid > tbody > td.renderable {
     white-space: pre-wrap;
-}
-
-.alertify_tools_dialog_backgrid_properties {
-  top: 43px !important;
 }
 
 table.backgrid {
@@ -167,8 +138,12 @@ span.form-control:disabled {
 }
 
 .subnode {
-  border: 1px solid $border-color;
-  padding: 1px;
+  border: $panel-border;
+  background: $color-bg-theme;
+}
+
+.subnode-noouter-border {
+  border: none !important;
 }
 
 .subnode > table.backgrid > thead > tr > th:last-child {
@@ -217,9 +192,8 @@ span.form-control:disabled {
 
 .subnode-header {
     background-color: $color-bg-theme;
-    color: $color-bg-inverse;
-    border: $panel-border;
-    border-bottom: 1px solid transparent !important;
+    color: $color-fg-theme;
+    border-bottom: $panel-border;
 }
 
 .subnode-header .control-label {
@@ -232,11 +206,6 @@ span.form-control:disabled {
     margin-right: 3px;
     margin-bottom: 3px;
     margin-top: 5px;
-}
-
-.subnode {
-    padding-top: 0px;
-    border: none !important;
 }
 
 .subnode-dialog {
@@ -264,7 +233,8 @@ span.form-control:disabled {
 
 .sub-node-form {
     height: auto;
-    padding: 0px;
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
 }
 
 .sub-node-form > ul.tab-content{
@@ -290,10 +260,15 @@ span.form-control:disabled {
     color: $color-danger;
 }
 
+table.backgrid {
+  overflow: auto;
+}
 
-.backgrid tr.editor-row > td {
-  padding: 10px !important;
-  background-color: $color-gray-light;
+.backgrid tr.editor-row  {
+  & > td {
+    padding: 15px !important;
+    background-color: $color-gray-light;
+  }
 }
 
 

@@ -7,12 +7,11 @@
   min-width: 100%;
 }
 
+.file_listing #contents.grid li:hover,
 .file_listing #contents.grid li.selected {
-  border: 1px solid $color-primary-lighter;
-}
-
-.file_listing #contents.grid li.selected, .fileinfo #contents tbody tr.selected {
-  background: $color-primary-lighter !important;
+  cursor: pointer;
+  border: $table-hover-border;
+  background: $table-hover-bg;
 }
 
 .fileinfo table#contents tr td p {
@@ -103,18 +102,6 @@
   color: $color-gray-light;
   margin-right: 5px;
 }
-
-.file_listing #contents.list tbody tr:nth-child(even):hover {
-  background-color: $color-gray-lighter !important;
-}
-
-.file_listing #contents.grid li:hover {
-  border: 1px solid $color-gray-lighter;
-  background-color: $color-gray-lighter;
-  cursor: pointer;
-  height: 80px;
-}
-
 
 .btn-group.filemanager-btn-group .btn:not(:first-child):not(:last-child),
 .btn-group.filemanager-path-group .btn:not(:first-child):not(:last-child) {
@@ -287,7 +274,7 @@
 }
 
 .file_manager .fileinfo #contents .fm_lock_icon {
-  color: $color-danger-lighter;
+  color: $color-danger;
   position: absolute;
   top: 6px;
   right: 0;
@@ -329,4 +316,9 @@
   min-width: 30px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+
+.cap_select_file {
+  cursor: pointer;
 }

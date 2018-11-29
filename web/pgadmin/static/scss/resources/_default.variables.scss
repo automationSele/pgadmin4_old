@@ -164,7 +164,7 @@ $table-bg: $color-bg-theme;
 $table-bg-selected: $color-primary-light;
 $table-hover-border-color: #4fc2f8;
 $table-hover-border: $panel-border-width solid #4fc2f8 !important;
-$table-hover-bg-color: $color-primary-light;
+$table-hover-bg: $color-primary-light;
 $datagrid-bg: $color-gray-light;
 
 $sql-title-padding: 3px;
@@ -183,5 +183,3 @@ $dialog-box-shadow: $box-shadow;
 $alertify-borderremove-margin: $panel-border-width;
 $btn-secondary-border: $color-gray;
 $btn-secondary-hover-bg: $color-gray-light;
-
-$no-border-radius: 0px !important;

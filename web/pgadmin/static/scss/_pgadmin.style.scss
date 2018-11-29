@@ -299,7 +299,7 @@
     margin: 7px;
     padding: 6px;
     border: $panel-border;
-    border-radius: 3px;
+    border-radius: $card-border-radius;
     max-width: 99% !important;
     background-color: $color-bg;
 }
@@ -322,8 +322,8 @@
 
 
 .pgadmin-control-group {
-    margin: 0px;
-    padding: 2px 0px;
+    margin: 0rem 0rem $form-group-margin-bottom 0rem;
+    padding: 0rem;
 }
 
 .pgadmin-controls {
@@ -398,26 +398,6 @@
     vertical-align: middle;
     margin-top: -2.5px;
     padding-right: 0px;
-}
-
-.obj_properties table {
-  display: table !important;
-}
-
-.obj_properties table tr {
-    border: 0px $color-bg solid;
-    margin: 1em;
-}
-
-.obj_properties .pgadmin-properties {
-    border: 1px  $color-gray-dark solid;
-    border-radius: 6px;
-    padding: 5px;
-    margin: 0.2px 2px 2px 2px;
-}
-
-.obj_properties table .spacer {
-    height: 2em;
 }
 
 .obj_properties table td {
@@ -661,24 +641,7 @@ div.inline-tab-panel {
     float: left; width: 100%;
     background-color: $color-primary-fg;
     border: 1px solid $border-color;
-    border-radius: 3px;
-}
-
-div.inline-tab-panel > ul.nav-tabs > li {
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-}
-
-div.inline-tab-panel > ul.nav-tabs > li:first-child {
-    border-top-left-radius: 3px; border-top-right-radius: 10px;
-}
-
-div.inline-tab-panel > ul.nav-tabs > li > a,
-div.inline-tab-panel > ul.nav-tabs > li > a:active,
-div.inline-tab-panel > ul.nav-tabs > li > a:hover,
-div.inline-tab-panel > ul.nav-tabs > li > a:focus {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+    border-radius: $card-border-radius;
 }
 
 div.inline-tab-panel > ul.nav-tabs > li:first-child > a,
@@ -721,16 +684,15 @@ div.inline-tab-panel > ul.tab-content > div.tab-pane > *:last-child {
   margin-bottom: 5px;
 }
 
-div.inline-tab-panel > .tab-content > div.tab-pane div.subnode-header {
-  border: none !important;
-}
-div.inline-tab-panel > .tab-content > div.tab-pane div.subnode table.table-bordered {
-  border-left: none;
-  border-right: none;
-}
+div.inline-tab-panel > .tab-content > div.tab-pane {
+  & div.subnode {
+    border: none !important;
+    border-bottom: $panel-border;
+  }
 
-div.inline-tab-panel > .tab-content > div.tab-pane div.subnode table.table-bordered tr > td:first-child {
-  border-left: none !important;
+  .backgrid.pgadmin-control-group {
+    margin-bottom: 0rem !important;
+  }
 }
 
 table tr th {
@@ -872,9 +834,11 @@ body {
 
 
 table.table-noouter-border {
-  border: none;
-}
+  border: none !important;
 
-.no-border-radius {
-  border-radius: $no-border-radius;
+  tbody tr:last-of-type{
+    & td, & th {
+      border-bottom: $table-border-width solid transparent;
+    }
+  }
 }

@@ -75,7 +75,7 @@ define([
           grid = new Backgrid.Grid({
             columns: gridSchema.columns,
             collection: collection,
-            className: 'backgrid table presentation table-bordered',
+            className: 'backgrid table presentation table-bordered table-noouter-border table-hover',
           }),
           gridView = {
             'remove': function() {

@@ -576,7 +576,7 @@ define([
 
           result += '</ul>';
         } else {
-          result += '<table id="contents" class="table table-bordered tablesorter">';
+          result += '<table id="contents" class="table table-bordered table-noouter-border table-hover tablesorter">';
           result += '<thead><tr><th>';
           result += '<span>' + lg.name + '</span></th>';
           result += '<th><span>' + lg.size + '</span></th><th>';
@@ -589,7 +589,7 @@ define([
             var path = _.escape((data[key]).Path),
               props = (data[key]).Properties,
               cap_classes = '',
-              cap, class_type;
+              cap, class_type, icon_type;
 
             for (cap in capabilities) {
               if (has_capability(data[key], capabilities[cap])) {
@@ -601,11 +601,14 @@ define([
             bindToolbar(data[key]);
 
             if ((data[key]).file_type == 'dir') {
-              class_type = 'fa fa-folder-open tbl_folder';
+              class_type = 'tbl_folder';
+              icon_type = 'fa fa-folder-open';
             } else if ((data[key]).file_type == 'drive') {
-              class_type = 'fa fa-hdd-o tbl_drive';
+              class_type = 'tbl_drive';
+              icon_type = 'fa fa-hdd-o';
             } else {
-              class_type = 'fa fa-file-text tbl_file';
+              class_type = 'tbl_file';
+              icon_type = 'fa fa-file-text';
             }
 
             result += '<tr class="' + cap_classes + '">';
@@ -625,8 +628,10 @@ define([
               result += '<span title="' + (data[key]).Filename + '">' +
                 fm_filename + '</span></td>';
             } else {
-              result += '<p><input type="text" class="fm_file_rename"/><span class="less_text" title="' +
-                fm_filename + '">' + fm_filename + '</span></p></td>';
+              result += '<p><input type="text" class="fm_file_rename"/>'+
+                        '<span class="'+icon_type+'"></span>' +
+                        '<span class="less_text ml-2" title="' + fm_filename + '">' + fm_filename + '</span>' +
+                        '</p></td>';
             }
             if (props.Size && props.Size != '') {
               result += '<td><span title="' + props.Size + '">' +
@@ -1601,10 +1606,12 @@ define([
           // template to create new folder in table view
           folder_div = $(
             '<tr class=\'cap_download cap_delete cap_select_file cap_select_folder cap_rename cap_create cap_upload\'>' +
-            '<td title=\'\' class=\'fa fa-folder-open tbl_folder\'>' +
-            '<p><input type=\'text\' class=\'fm_file_rename\'><span>' +
-            lg.new_folder + '</span></p>' +
-            '</td><td><span title=\'\'></span></td>' +
+            '<td title=\'\' class=\' tbl_folder\'>' +
+            '<input type=\'text\' class=\'fm_file_rename\'>'+
+            '<span class="fa fa-folder-open"></span>' +
+            '<span>' + lg.new_folder + '</span>' +
+            '</td>'+
+            '<td><span title=\'\'></span></td>' +
             '<td></td>' +
             '</tr>'
           );
