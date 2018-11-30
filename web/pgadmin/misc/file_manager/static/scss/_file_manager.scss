@@ -11,7 +11,7 @@
 .file_listing #contents.grid li.selected {
   cursor: pointer;
   border: $table-hover-border;
-  background: $table-hover-bg;
+  background: $table-hover-bg-color;
 }
 
 .fileinfo table#contents tr td p {

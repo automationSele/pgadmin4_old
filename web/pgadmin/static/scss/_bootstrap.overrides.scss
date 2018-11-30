@@ -199,16 +199,16 @@ iframe {
 }
 
 .table.table-hover {
-	& tbody {
-		& tr:not(.nohover):not(.empty):hover, tr.selected {
-			background-color: $table-hover-bg;
-			& td {
+	& > tbody {
+		& > tr:not(.nohover):not(.empty):hover, tr.selected {
+			background-color: $table-hover-bg-color;
+			& > td {
 				border-top: $table-hover-border;
 				border-bottom: $table-hover-border;
 			}
 		}
 
-		& tr.nohover {
+		& > tr.nohover {
 			background-color: transparent;
 		}
 	}

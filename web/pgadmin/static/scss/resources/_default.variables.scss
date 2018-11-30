@@ -77,7 +77,6 @@ $border-color-dark: $color-gray;
 $box-shadow: 0 0.125rem 0.5rem rgba($color-gray-dark, .175);
 
 /** Bootstrap **/
-$gray-400: #ced4da; //no change
 $gray-600: $color-gray-dark;
 $gray-900: $color-fg-theme;
 $body-color: $color-fg-theme;
@@ -127,7 +126,7 @@ $nav-tabs-link-active-bg: none;
 $nav-tabs-link-active-border-color: none;
 
 $table-cell-padding: 0.25rem;
-$table-hover-bg: $color-primary-light;
+$table-hover-bg: none; //we will use our own classes
 $table-active-bg: $color-primary-light;
 $table-border-width: $border-width !default;
 $table-border-color: $border-color !default;
@@ -135,10 +134,11 @@ $table-head-bg: $color-primary !default;
 $table-head-color: $color-primary-fg !default;
 
 $input-color: $color-fg-theme;
-$input-border-color: $gray-400; //no change
+$input-border-color: $border-color;
 $input-border-radius: $border-radius; //no change
 $input-disabled-bg: $color-gray-lighter;
 $input-btn-border-width: $border-width; //no change
+$input-border-width: $input-btn-border-width; //no change
 
 $btn-border-radius: $border-radius; //no change
 /***************/
@@ -164,7 +164,7 @@ $table-bg: $color-bg-theme;
 $table-bg-selected: $color-primary-light;
 $table-hover-border-color: #4fc2f8;
 $table-hover-border: $panel-border-width solid #4fc2f8 !important;
-$table-hover-bg: $color-primary-light;
+$table-hover-bg-color: $color-primary-light;
 $datagrid-bg: $color-gray-light;
 
 $sql-title-padding: 3px;

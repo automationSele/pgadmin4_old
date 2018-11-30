@@ -294,15 +294,6 @@
     vertical-align: middle;
 }
 
-.obj_properties .set-group {
-    margin: 7px;
-    padding: 0rem;
-    border: $panel-border;
-    border-radius: $card-border-radius;
-    max-width: 99% !important;
-    background-color: $color-bg;
-}
-
 /* Message panel shown on browser tabs */
 .pg-panel-message {
     margin-top: 25px !important;
@@ -407,10 +398,14 @@
 
 
 fieldset.inline-fieldset {
-    margin: 0px; margin-left: 2px; margin-right: 2px;
-    padding-right: 10px; padding-left: 10px; padding-top: 6px; padding-bottom: 12px;
-    border: 1px solid; border-radius: 5px;
-    border-color: $color-gray-light; box-shadow: 0.1px 0.1px 0.1px $color-gray-lighter;
+    padding: 10px;
+    border: 1px solid $card-border-color; 
+    border-radius: $card-border-radius;
+
+    & legend {
+      font-size: 0.875rem;
+      font-weight: bold;
+    }
 }
 
 fieldset.inline-fieldset-without-border {
@@ -593,8 +588,8 @@ fieldset.inline-fieldset > div {
 
 
 .sql_field_layout {
-    border: 1px solid rgba($color-gray-light, 1) !important;
-    border-radius: 4px;
+    border: $input-border-width solid $input-border-color !important;
+    border-radius: $input-border-radius;
     padding: 0px;
 }
 

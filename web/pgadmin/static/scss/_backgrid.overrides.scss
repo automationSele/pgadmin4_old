@@ -20,7 +20,6 @@
     }
   }
 }
-
 .backgrid tbody tr.empty td {
   display: table-cell;
   font-style: normal;
@@ -168,6 +167,9 @@ span.form-control:disabled {
   margin: 0px !important;
 }
 
+.subnode-header .control-label {
+  min-height: 31px;
+}
 
 .subnode-footer {
   text-align: right;
@@ -264,12 +266,25 @@ table.backgrid {
   overflow: auto;
 }
 
-.backgrid tr.editor-row  {
-  & > td {
-    padding: 15px !important;
-    background-color: $color-gray-light;
+.backgrid tbody {
+  & td.editor {
+    background-color: $color-gray-light !important;
+    border-bottom: none !important;
+    outline: none !important;
+  }
+
+  tr.editor-row  {
+    & > td {
+      padding: 15px !important;
+      background-color: $color-gray-light;
+      border-top: none !important;
+    }
   }
 }
+
+.backgrid tbody {
+}
+
 
 
 table tr th button {
