@@ -109,7 +109,8 @@ define([
         j.data('obj-view', gridView);
 
         // Render subNode grid
-        content.append(grid.render().$el);
+        content.append('<div class="pg-prop-coll-container"></div>');
+        content.find('.pg-prop-coll-container').append(grid.render().$el);
         j.append(content);
 
         // Fetch Data

@@ -530,10 +530,12 @@ fieldset.inline-fieldset > div {
 
 .dashboard-tab-container,
 .pg-panel-statistics-container,
-.pg-panel-depends-container {
+.pg-panel-depends-container,
+.pg-prop-coll-container, {
     width: 100%;
     overflow: auto;
     border-radius: $card-border-radius;
+    border: $panel-border;
 }
 
 .pg-prop-header {
