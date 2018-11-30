@@ -153,11 +153,6 @@
     height: $title-height;
   }
 
-  .pg-navbar .navbar-nav > li > a {
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-  }
-
   .pg-docker {
     top: $title-height !important;
   }
@@ -166,7 +161,9 @@
 .pg-navbar {
   font-size: $navbar-font-size;
   font-weight: bold;
-  line-height: 1;
+  & .nav-item .nav-link{
+    line-height: 1;
+  }
 }
 
 .pg-docker {
@@ -845,4 +842,14 @@ table.table-noouter-border {
       border-bottom: $table-border-width solid transparent;
     }
   }
+}
+
+.context-menu-list .context-menu-submenu:after {
+  font-family: 'FontAwesome';
+  content: "\f054" !important;
+  right: 15px;
+  top: unset;
+  font-size: 0.6rem;
+  line-height: 2;
+  border-style: none;
 }

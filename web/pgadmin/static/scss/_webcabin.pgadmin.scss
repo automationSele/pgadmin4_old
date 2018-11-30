@@ -174,7 +174,7 @@
   background-color: $dropdown-bg;
 }
 
-.wcMenuItemHover, .wcMenuItem:hover, .context-menu-item.hover, .context-menu-item:hover {
+.wcMenuItemHover, .wcMenuItem:hover, .context-menu-item:not(.context-menu-not-selectable).hover, .context-menu-item:not(.context-menu-not-selectable):hover {
   color: $dropdown-link-hover-color;
   background-color: $dropdown-link-hover-bg !important;
 }
@@ -229,4 +229,18 @@
 .context-menu-item.context-menu-disabled {
   color: $text-muted;
   background-color: $dropdown-bg;
+}
+
+.context-menu-submenu::after {
+  font-family: 'FontAwesome';
+  content: "\f054" !important;
+  right: 15px;
+  top: unset;
+  font-size: 0.6rem;
+  line-height: 2;
+  border-style: none;
+}
+
+.wcMenuSubMenu::before{
+  content: none;
 }
