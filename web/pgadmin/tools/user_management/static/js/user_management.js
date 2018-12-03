@@ -122,7 +122,7 @@ define([
         });
       }
 
-      alertify.ChangePassword(title, url).resizeTo('75%', '70%');
+      alertify.ChangePassword(title, url).resizeTo('55%', '60%');
     },
 
     isPgaLoginRequired(xhr) {
