@@ -396,12 +396,19 @@
     vertical-align: middle;
 }
 
+.obj_properties .set-group {
+  margin: 0.5rem;
+  padding: 0rem;
+  border: $panel-border;
+  border-radius: $card-border-radius;
+  background-color: $color-bg;
+  max-width: 99% !important;
+}
 
 fieldset.inline-fieldset {
     padding: 10px;
-    border: 1px solid $card-border-color; 
     border-radius: $card-border-radius;
-
+    background: $color-gray-light;
     & legend {
       font-size: 0.875rem;
       font-weight: bold;
@@ -837,6 +844,14 @@ table.table-noouter-border {
   tbody tr:last-of-type{
     & td, & th {
       border-bottom: $table-border-width solid transparent;
+    }
+  }
+}
+
+table.table-bottom-border {
+  tbody tr:last-of-type{
+    & td, & th {
+      border-bottom: $panel-border;
     }
   }
 }

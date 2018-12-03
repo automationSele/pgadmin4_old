@@ -248,18 +248,18 @@ td.switch-cell > div.bootstrap-switch {
 }
 
 .nav {
-	& .nav-tabs {
+	&.nav-tabs {
 		height: $title-height;
 		border-top-left-radius: inherit;
 		border-top-right-radius: inherit;
-	}
 
-	& .nav-link {
-		border: none !important;
-		padding: $tabs-padding;
-		color: $color-fg-theme;
-		&.active {
-			border-bottom: $active-border !important;
+		& .nav-link {
+			border: none !important;
+			padding: $tabs-padding;
+			color: $color-fg-theme;
+			&.active {
+				border-bottom: $active-border !important;
+			}
 		}
 	}
 }
