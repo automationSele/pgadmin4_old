@@ -356,6 +356,7 @@ define('pgadmin.browser', [
           allowContextMenu: true,
           allowCollapse: false,
           themePath: '../static/css',
+          loadingClass: 'fa fa-circle-o-notch',
           theme: 'webcabin.overrides.css',
         });
       if (obj.docker) {

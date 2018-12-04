@@ -396,7 +396,7 @@ define('pgadmin.node.exclusion_constraint', [
           '   </div>',
           '   <div class="col-4" header="column"></div>',
           '   <div class="col-4">',
-          '     <button class="btn btn-sm-sq btn-default add fa fa-plus" <%=canAdd ? "" : "disabled=\'disabled\'"%> ></button>',
+          '     <button class="btn btn-sm-sq btn-secondary add fa fa-plus" <%=canAdd ? "" : "disabled=\'disabled\'"%> ></button>',
           '   </div>',
           '  </div>',
           ' </div>',

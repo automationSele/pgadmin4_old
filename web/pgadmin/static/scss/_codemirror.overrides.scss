@@ -7,6 +7,10 @@
     background-color: $color-gray-lighter !important;
 }
 
+.CodeMirror {
+  font-size: 1em;
+}
+
 /* Ensure the codemirror editor displays full height gutters when resized */
 .CodeMirror, .CodeMirror-gutter {
     height: 100% !important;
@@ -26,10 +30,6 @@
 
 .sql_field_layout .CodeMirror-linenumber {
     border-right: 1px solid $color-gray-lighter;
-}
-
-.CodeMirror-linenumber {
-    font-size: $font-size-base;
 }
 
 /* class to disable Codemirror editor */
@@ -69,8 +69,6 @@
   background-color: $sql-gutters-bg;
   border-right: none;
 }
-
-.CodeMirror-linenumber
 
 /* workaround for codemirrors 'readOnly' option which is set to true instead of 'noCursor' */
 .hide-cursor-workaround .CodeMirror-cursors {

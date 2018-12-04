@@ -447,7 +447,7 @@ define('pgadmin.preferences', [
               return;
             }
 
-            if (e.button.text == gettext('OK')) {
+            if (e.button.text == gettext('Save')) {
               preferences.updateAll();
 
               /* Find the modules changed */
@@ -469,7 +469,7 @@ define('pgadmin.preferences', [
           },
           hooks: {
             onshow: function() {
-              $(this.elements.body).addClass('pgadmin-preference-body');
+              // $(this.elements.body).addClass('pgadmin-preference-body');
             },
           },
         };

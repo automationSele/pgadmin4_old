@@ -1150,7 +1150,7 @@ define('pgadmin.browser.node', [
               label: '',
               type: 'help',
               tooltip: gettext('SQL help for this object type.'),
-              extraClasses: ['btn-default', 'btn-secondary', 'm-1'],
+              extraClasses: ['btn-secondary', 'btn-secondary', 'm-1'],
               icon: 'fa fa-lg fa-info',
               disabled: (that.sqlAlterHelp == '' && that.sqlCreateHelp == '') ? true : false,
               register: function(btn) {

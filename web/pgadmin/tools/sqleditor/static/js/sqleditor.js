@@ -2170,19 +2170,19 @@ define('tools.querytool', [
             self.query = res.data.sql;
 
 
-            /* If filter is applied then remove class 'btn-default'
+            /* If filter is applied then remove class 'btn-secondary'
              * and add 'btn-warning' to change the colour of the button.
              */
             if (self.can_filter && res.data.filter_applied) {
-              $('#btn-filter').removeClass('btn-default');
-              $('#btn-filter-dropdown').removeClass('btn-default');
+              $('#btn-filter').removeClass('btn-secondary');
+              $('#btn-filter-dropdown').removeClass('btn-secondary');
               $('#btn-filter').addClass('btn-primary');
               $('#btn-filter-dropdown').addClass('btn-primary');
             } else {
               $('#btn-filter').removeClass('btn-primary');
               $('#btn-filter-dropdown').removeClass('btn-primary');
-              $('#btn-filter').addClass('btn-default');
-              $('#btn-filter-dropdown').addClass('btn-default');
+              $('#btn-filter').addClass('btn-secondary');
+              $('#btn-filter-dropdown').addClass('btn-secondary');
             }
             $('#btn-save').prop('disabled', true);
             $('#btn-file-menu-dropdown').prop('disabled', true);

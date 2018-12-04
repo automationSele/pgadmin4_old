@@ -309,7 +309,7 @@ define('pgadmin.node.foreign_key', [
           '   </div>',
           '   <div class="col-md-6" header="local_column"></div>',
           '   <div class="col-md-2">',
-          '     <button class="btn btn-sm-sq btn-default add fa fa-plus" <%=canAdd ? "" : "disabled=\'disabled\'"%> ></button>',
+          '     <button class="btn btn-sm-sq btn-secondary add fa fa-plus" <%=canAdd ? "" : "disabled=\'disabled\'"%> ></button>',
           '   </div>',
           '  </div>',
           '  <div class="row">',
