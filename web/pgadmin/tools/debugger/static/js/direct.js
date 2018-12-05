@@ -129,6 +129,7 @@ define([
       },
 
       setActiveLine: function(lineNo) {
+        var self = this;
         let editor = pgTools.DirectDebug.editor;
 
         /* If lineNo sent, remove active line */
@@ -390,12 +391,15 @@ define([
                   }
 
                   // Enable all the buttons as we got the results
-                  self.enable('stop', true);
-                  self.enable('step_over', true);
-                  self.enable('step_into', true);
-                  self.enable('continue', true);
-                  self.enable('toggle_breakpoint', true);
-                  self.enable('clear_all_breakpoints', true);
+                  // TODO: Fix this properly so a timeout isn't required.
+                  setTimeout(function() {
+                    self.enable('stop', true);
+                    self.enable('step_over', true);
+                    self.enable('step_into', true);
+                    self.enable('continue', true);
+                    self.enable('toggle_breakpoint', true);
+                    self.enable('clear_all_breakpoints', true);
+                  }, 500);
                 }
               } else if (res.data.status === 'Busy') {
                 pgTools.DirectDebug.polling_timeout_idle = true;
@@ -518,12 +522,15 @@ define([
                   // Execution completed so disable the buttons other than
                   // "Continue/Start" button because user can still
                   // start the same execution again.
-                  self.enable('stop', false);
-                  self.enable('step_over', false);
-                  self.enable('step_into', false);
-                  self.enable('toggle_breakpoint', false);
-                  self.enable('clear_all_breakpoints', false);
-                  self.enable('continue', true);
+                  setTimeout(function() {
+                    self.enable('stop', false);
+                    self.enable('step_over', false);
+                    self.enable('step_into', false);
+                    self.enable('toggle_breakpoint', false);
+                    self.enable('clear_all_breakpoints', false);
+                    self.enable('continue', true);
+                  }, 500);
+
                   // Stop further polling
                   pgTools.DirectDebug.is_polling_required = false;
                 } else {
@@ -549,12 +556,14 @@ define([
                     // Execution completed so disable the buttons other than
                     // "Continue/Start" button because user can still
                     // start the same execution again.
-                    self.enable('stop', false);
-                    self.enable('step_over', false);
-                    self.enable('step_into', false);
-                    self.enable('toggle_breakpoint', false);
-                    self.enable('clear_all_breakpoints', false);
-                    self.enable('continue', true);
+                    setTimeout(function() {
+                      self.enable('stop', false);
+                      self.enable('step_over', false);
+                      self.enable('step_into', false);
+                      self.enable('toggle_breakpoint', false);
+                      self.enable('clear_all_breakpoints', false);
+                      self.enable('continue', true);
+                    }, 500);
 
                     // Stop further pooling
                     pgTools.DirectDebug.is_polling_required = false;
@@ -1516,7 +1525,7 @@ define([
 
   _.extend(DirectDebug.prototype, {
     /* We should get the transaction id from the server during initialization here */
-    init: function(trans_id, debug_type) {
+    init: function(trans_id, debug_type, function_name_with_arguments) {
       // We do not want to initialize the module multiple times.
       var self = this;
       _.bindAll(pgTools.DirectDebug, 'messages');
@@ -1535,6 +1544,7 @@ define([
       this.debug_restarted = false;
       this.is_user_aborted_debugging = false;
       this.is_polling_required = true; // Flag to stop unwanted ajax calls
+      this.function_name_with_arguments = function_name_with_arguments;
 
       let browser = window.opener ?
               window.opener.pgAdmin.Browser : window.top.pgAdmin.Browser;
@@ -1569,11 +1579,18 @@ define([
             controller.poll_result(trans_id);
           }
         })
-        .fail(function() {
-          Alertify.alert(
-            gettext('Debugger Error'),
-            gettext('Error while starting debugging listener.')
-          );
+        .fail(function(xhr) {
+          try {
+            var err = JSON.parse(xhr.responseText);
+            if (err.success == 0) {
+              Alertify.alert(gettext('Debugger Error'), err.errormsg);
+            }
+          } catch (e) {
+            Alertify.alert(
+              gettext('Debugger Error'),
+              gettext('Error while starting debugging listener.')
+            );
+          }
         });
       } else if (trans_id != undefined && debug_type) {
         // Make ajax call to execute the and start the target for execution
@@ -1590,11 +1607,18 @@ define([
             self.messages(trans_id);
           }
         })
-        .fail(function() {
-          Alertify.alert(
-            gettext('Debugger Error'),
-            gettext('Error while starting debugging listener.')
-          );
+        .fail(function(xhr) {
+          try {
+            var err = JSON.parse(xhr.responseText);
+            if (err.success == 0) {
+              Alertify.alert(gettext('Debugger Error'), err.errormsg);
+            }
+          } catch (e) {
+            Alertify.alert(
+              gettext('Debugger Error'),
+              gettext('Error while starting debugging listener.')
+            );
+          }
         });
       } else
         this.intializePanels();
@@ -1680,7 +1704,7 @@ define([
     intializePanels: function() {
       var self = this;
       this.registerPanel(
-        'code', false, '100%', '50%',
+        'code', self.function_name_with_arguments, '100%', '50%',
         function() {
 
           // Create the parameters panel to display the arguments of the functions

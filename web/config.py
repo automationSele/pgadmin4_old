@@ -50,7 +50,7 @@ APP_ICON = 'pg-icon'
 
 # Application version number components
 APP_RELEASE = 3
-APP_REVISION = 4
+APP_REVISION = 6
 
 # Application version suffix, e.g. 'beta1', 'dev'. Usually an empty string
 # for GA releases.
@@ -59,7 +59,7 @@ APP_SUFFIX = ''
 # Numeric application version for upgrade checks. Should be in the format:
 # [X]XYYZZ, where X is the release version, Y is the revision, with a leading
 # zero if needed, and Z represents the suffix, with a leading zero if needed
-APP_VERSION_INT = 30400
+APP_VERSION_INT = 30600
 
 # DO NOT CHANGE!
 # The application version string, constructed from the components
@@ -118,7 +118,7 @@ NODE_BLACKLIST = []
 #       from it, notably various paths such as LOG_FILE and anything
 #       using DATA_DIR.
 
-if builtins.SERVER_MODE is None:
+if (not hasattr(builtins, 'SERVER_MODE')) or builtins.SERVER_MODE is None:
     SERVER_MODE = True
 else:
     SERVER_MODE = builtins.SERVER_MODE

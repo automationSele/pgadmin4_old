@@ -539,7 +539,7 @@ fieldset.inline-fieldset > div {
 }
 
 .pg-prop-header {
-    position: absolute;
+    position: relative;
     left: 0px;
     right: 0px;
     top : 0;
@@ -567,7 +567,6 @@ fieldset.inline-fieldset > div {
     margin-left: -18px;
     margin-right: 9px;
 }
-
 
 .width_percent_5 { width: 5%; }
 .width_percent_10 { width: 10%; }
@@ -926,4 +925,21 @@ table.table-bottom-border {
   background: $loader-icon center center no-repeat;
   height: 90px;
   width: auto;
+}
+
+.delete_multiple_cascade {
+  align-content: center;
+  vertical-align: middle;
+  height: 33px;
+  background-image: url(/static/img/drop_cascade.svg) !important;
+  background-size: 25px !important;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.pgadmin-controls-radio-none {
+  & input[type="radio"] {
+    display: none;
+  }
 }

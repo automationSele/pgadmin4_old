@@ -43,14 +43,14 @@ define('misc.bgprocess', [
         <div class="pr-2">
           <i class="fa fa-info fa-lg text-primary pg-bg-status-icon" aria-hidden="true"></i>
         </div>
-        <div class="text-body mx-auto pg-bg-status-text"<%-status_text%>></div>
+        <div class="text-body mx-auto pg-bg-status-text"><%-status_text%></div>
       </div>`),
       initialize: function(info, notify) {
         _.extend(this, {
           details: false,
           notify: (_.isUndefined(notify) || notify),
           curr_status: null,
-          state: 0, // 0: NOT Started, 1: Started, 2: Finished
+          state: 0, // 0: NOT Started, 1: Started, 2: Finished, 3: Terminated
           completed: false,
 
           id: info['id'],
@@ -116,6 +116,10 @@ define('misc.bgprocess', [
           return url_for('bgprocess.acknowledge', {
             'pid': this.id,
           });
+        case 'stop_process':
+          return url_for('bgprocess.stop_process', {
+            'pid': this.id,
+          });
         default:
           return url_for('bgprocess.list');
         }
@@ -140,6 +144,9 @@ define('misc.bgprocess', [
 
         if ('exit_code' in data)
           self.exit_code = data.exit_code;
+
+        if ('process_state' in data)
+          self.state = data.process_state;
 
         if ('out' in data) {
           self.out = data.out && data.out.pos;
@@ -200,7 +207,9 @@ define('misc.bgprocess', [
           }
 
           if (!_.isNull(self.exit_code)) {
-            if (self.exit_code == 0) {
+            if (self.state === 3) {
+              self.curr_status = self.failed_status_tpl({status_text:gettext('Terminated by user.')});
+            } else if (self.exit_code == 0) {
               self.curr_status = self.success_status_tpl({status_text:gettext('Successfully completed.')});
             } else {
               self.curr_status = self.failed_status_tpl(
@@ -284,6 +293,7 @@ define('misc.bgprocess', [
                   <div class="pg-bg-etime my-auto"></div>
                   <div class="ml-auto">
                     <button class="btn btn-secondary pg-bg-more-details">More details...</button>
+                    <button class="btn btn-danger bg-process-stop">Stop Process</button>
                   </div>
                 </div>
                 <div class="pg-bg-status py-1">
@@ -327,6 +337,9 @@ define('misc.bgprocess', [
 
               return;
             });
+
+            // On Click event to stop the process.
+            content.find('.bg-process-stop').off('click').on('click', self.stop_process.bind(this));
           }
 
           // TODO:: Formatted execution time
@@ -340,6 +353,13 @@ define('misc.bgprocess', [
 
           var $status_bar = $(self.container.find('.pg-bg-status'));
           $status_bar.html(self.curr_status);
+          // Enable/Disable stop process button
+          var $btn_stop_process = $(self.container.find('.bg-process-stop'));
+          if (isNaN(parseInt(self.exit_code))) {
+            $btn_stop_process.attr('disabled', false);
+          } else {
+            $btn_stop_process.attr('disabled', true);
+          }
         } else {
           self.show_detailed_view.apply(self);
         }
@@ -362,7 +382,18 @@ define('misc.bgprocess', [
         var container = panel.$container,
           $logs = container.find('.bg-process-watcher'),
           $header = container.find('.bg-process-details'),
-          $footer = container.find('.bg-process-footer');
+          $footer = container.find('.bg-process-footer'),
+          $btn_stop_process = container.find('.bg-process-stop');
+
+        // Enable/Disable stop process button
+        if (isNaN(parseInt(self.exit_code))) {
+          $btn_stop_process.attr('disabled', false);
+        } else {
+          $btn_stop_process.attr('disabled', true);
+        }
+
+        // On Click event to stop the process.
+        $btn_stop_process.off('click').on('click', self.stop_process.bind(this));
 
         if (is_new) {
           // set logs
@@ -440,6 +471,27 @@ define('misc.bgprocess', [
           console.warn(arguments);
         });
       },
+
+      stop_process: function() {
+        var self = this;
+        // Set the state to terminated.
+        self.state = 3;
+        $.ajax({
+          type: 'PUT',
+          timeout: 30000,
+          url: self.bgprocess_url('stop_process'),
+          cache: false,
+          async: true,
+          contentType: 'application/json',
+        })
+        .done(function() {
+          return;
+        })
+        .fail(function() {
+          console.warn(arguments);
+        });
+      },
+
     });
 
   _.extend(
@@ -546,6 +598,9 @@ define('misc.bgprocess', [
                 '<div class="pg-bg-etime my-auto">'+
                   '<span>' + gettext('Start time') + ': <span class="bgprocess-start-time"></span>' +
                   '</span>'+
+                '</div>' +
+                '<div class="ml-auto">' +
+                  '<button type="button" class="btn btn-danger bg-process-stop">' + gettext('Stop Process') + '</button>' +
                 '</div>' +
               '</div>' +
             '</div>' +

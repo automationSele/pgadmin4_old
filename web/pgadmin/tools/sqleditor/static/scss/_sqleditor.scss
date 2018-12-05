@@ -37,6 +37,7 @@
 .connection_status_wrapper {
   width: 100%;
   border-top: $panel-border;
+  border-bottom: $panel-border;
 }
 
 .connection_status .fa-clock-o,

@@ -14,6 +14,7 @@ Introduce a function to run the process executor in detached mode.
 import csv
 import os
 import sys
+import psutil
 from abc import ABCMeta, abstractproperty, abstractmethod
 from datetime import datetime
 from pickle import dumps, loads
@@ -34,6 +35,11 @@ if IS_PY2:
     from StringIO import StringIO
 else:
     from io import StringIO
+
+PROCESS_NOT_STARTED = 0
+PROCESS_STARTED = 1
+PROCESS_FINISHED = 2
+PROCESS_TERMINATED = 3
 
 
 def get_current_time(format='%Y-%m-%d %H:%M:%S.%f %z'):
@@ -112,6 +118,8 @@ class BatchProcess(object):
         self.etime = p.end_time
         # Exit code
         self.ecode = p.exit_code
+        # Process State
+        self.process_state = p.process_state
 
     def _create_process(self, _desc, _cmd, _args):
         ctime = get_current_time(format='%y%m%d%H%M%S%f')
@@ -165,6 +173,8 @@ class BatchProcess(object):
         self.etime = None
         # Exit code
         self.ecode = None
+        # Process State
+        self.process_state = PROCESS_NOT_STARTED
 
         # Arguments
         self.args = _args
@@ -392,6 +402,14 @@ class BatchProcess(object):
             p.start_time = p.end_time = get_current_time()
             if not p.exit_code:
                 p.exit_code = self.ecode
+            p.process_state = PROCESS_FINISHED
+            db.session.commit()
+        else:
+            # Update the process state to "Started"
+            p = Process.query.filter_by(
+                pid=self.id, user_id=current_user.id
+            ).first()
+            p.process_state = PROCESS_STARTED
             db.session.commit()
 
     def status(self, out=0, err=0):
@@ -479,7 +497,8 @@ class BatchProcess(object):
             return {
                 'start_time': self.stime,
                 'exit_code': self.ecode,
-                'execution_time': execution_time
+                'execution_time': execution_time,
+                'process_state': self.process_state
             }
 
         return {
@@ -495,7 +514,8 @@ class BatchProcess(object):
             },
             'start_time': self.stime,
             'exit_code': self.ecode,
-            'execution_time': execution_time
+            'execution_time': execution_time,
+            'process_state': self.process_state
         }
 
     @staticmethod
@@ -522,6 +542,10 @@ class BatchProcess(object):
                             # We can't have 'end_time' without the 'exit_code'.
                             if 'end_time' in data and data['end_time']:
                                 p.end_time = data['end_time']
+
+                    # get the pid of the utility.
+                    if 'pid' in data:
+                        p.utility_pid = data['pid']
 
                     return True, True
 
@@ -592,7 +616,8 @@ class BatchProcess(object):
                 'etime': p.end_time,
                 'exit_code': p.exit_code,
                 'acknowledge': p.acknowledge,
-                'execution_time': execution_time
+                'execution_time': execution_time,
+                'process_state': p.process_state
             })
 
         if changed:
@@ -657,3 +682,29 @@ class BatchProcess(object):
 
         if 'env' in kwargs:
             self.env.update(kwargs['env'])
+
+    @staticmethod
+    def stop_process(_pid):
+        """
+        """
+        p = Process.query.filter_by(
+            user_id=current_user.id, pid=_pid
+        ).first()
+
+        if p is None:
+            raise LookupError(
+                _("Could not find a process with the specified ID.")
+            )
+
+        try:
+            process = psutil.Process(p.utility_pid)
+            process.terminate()
+            # Update the process state to "Terminated"
+            p.process_state = PROCESS_TERMINATED
+            db.session.commit()
+        except psutil.Error as e:
+            current_app.logger.warning(
+                _("Unable to kill the background process '{0}'").format(
+                    p.utility_pid)
+            )
+            current_app.logger.exception(e)

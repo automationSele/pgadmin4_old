@@ -552,6 +552,26 @@ def direct_new(trans_id):
     # We need client OS information to render correct Keyboard shortcuts
     user_agent = UserAgent(request.headers.get('User-Agent'))
 
+    function_arguments = '('
+    if 'functionData' in session:
+        session_function_data = session['functionData'][str(trans_id)]
+        if 'args_name' in session_function_data and \
+            session_function_data['args_name'] is not None and \
+                session_function_data['args_name'] != '':
+            args_name_list = session_function_data['args_name'].split(",")
+            args_type_list = session_function_data['args_type'].split(",")
+            index = 0
+            for args_name in args_name_list:
+                function_arguments = '{}{} {}, '.format(function_arguments,
+                                                        args_name,
+                                                        args_type_list[index])
+                index += 1
+            # Remove extra comma and space from the arguments list
+            if len(args_name_list) > 0:
+                function_arguments = function_arguments[:-2]
+
+    function_arguments += ')'
+
     return render_template(
         "debugger/direct.html",
         _=gettext,
@@ -561,6 +581,7 @@ def direct_new(trans_id):
         is_desktop_mode=current_app.PGADMIN_RUNTIME,
         is_linux=is_linux_platform,
         client_platform=user_agent.platform,
+        function_name_with_arguments=obj['function_name'] + function_arguments
     )
 
 
@@ -1806,17 +1827,21 @@ def set_arguments_sqlite(sid, did, scid, func_id):
 
             # handle the Array list sent from the client
             array_string = ''
-            if data[i]['value'].__class__.__name__ in (
-                    'list') and data[i]['value']:
-                for k in range(0, len(data[i]['value'])):
-                    array_string += data[i]['value'][k]['value']
-                    if k != (len(data[i]['value']) - 1):
-                        array_string += ','
-            elif data[i]['value'].__class__.__name__ in (
-                    'list') and not data[i]['value']:
-                array_string = ''
-            else:
-                array_string = data[i]['value']
+            if 'value' in data[i]:
+                if data[i]['value'].__class__.__name__ in (
+                        'list') and data[i]['value']:
+                    for k in range(0, len(data[i]['value'])):
+                        if data[i]['value'][k]['value'] is None:
+                            array_string += 'NULL'
+                        else:
+                            array_string += str(data[i]['value'][k]['value'])
+                        if k != (len(data[i]['value']) - 1):
+                            array_string += ','
+                elif data[i]['value'].__class__.__name__ in (
+                        'list') and not data[i]['value']:
+                    array_string = ''
+                else:
+                    array_string = data[i]['value']
 
             # Check if data is already available in database then update the
             # existing value otherwise add the new value

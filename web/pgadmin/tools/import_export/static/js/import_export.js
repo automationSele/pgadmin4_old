@@ -174,6 +174,7 @@ Backform, commonUtils, supportedNodes
         allowClear: false,
         placeholder: gettext('Columns for importing...'),
         first_empty: false,
+        preserveSelectionOrder: true,
       },
       visible: 'importing',
       helpMessage: gettext('An optional list of columns to be copied. If no column list is specified, all columns of the table will be copied.'),
@@ -192,6 +193,7 @@ Backform, commonUtils, supportedNodes
         multiple: true,
         allowClear: true,
         placeholder: gettext('Colums for exporting...'),
+        preserveSelectionOrder: true,
       },
       visible: 'exporting',
       transform: function(rows) {
@@ -534,6 +536,11 @@ Backform, commonUtils, supportedNodes
                   if (res.success) {
                     Alertify.success(gettext('Import/export job created.'), 5);
                     pgBrowser.Events.trigger('pgadmin-bgprocess:created', self);
+                  } else {
+                    Alertify.alert(
+                      gettext('Import/export job creation failed.'),
+                      res.errormsg
+                    );
                   }
                 })
                 .fail(function(xhr) {
@@ -652,12 +659,38 @@ Backform, commonUtils, supportedNodes
         });
       }
 
-      // Open the Alertify dialog for the import/export module
-      Alertify.ImportDialog(
-        S(
-          gettext('Import/Export data - table \'%s\'')
-        ).sprintf(treeInfo.table.label).value(), node, i, d
-      ).set('resizable', true).resizeTo('70%', '80%');
+      const baseUrl = url_for('import_export.utility_exists', {
+        'sid': server_data._id,
+      });
+
+      // Check psql utility exists or not.
+      $.ajax({
+        url: baseUrl,
+        type:'GET',
+      })
+      .done(function(res) {
+        if (!res.success) {
+          Alertify.alert(
+            gettext('Utility not found'),
+            res.errormsg
+          );
+          return;
+        }
+
+        // Open the Alertify dialog for the import/export module
+        Alertify.ImportDialog(
+          S(
+            gettext('Import/Export data - table \'%s\'')
+          ).sprintf(treeInfo.table.label).value(), node, i, d
+        ).set('resizable', true).resizeTo('70%', '80%');
+      })
+      .fail(function() {
+        Alertify.alert(
+          gettext('Utility not found'),
+          gettext('Failed to fetch Utility information')
+        );
+        return;
+      });
     },
   };
 

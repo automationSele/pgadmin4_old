@@ -36,7 +36,7 @@ from .cursor import DictCursor
 from .typecast import register_global_typecasters, \
     register_string_typecasters, register_binary_typecasters, \
     register_array_to_string_typecasters, ALL_JSON_TYPES
-
+from .encoding import getEncoding
 
 if sys.version_info < (3,):
     # Python2 in-built csv module do not handle unicode
@@ -402,20 +402,14 @@ class Connection(BaseConnection):
         if self.use_binary_placeholder:
             register_binary_typecasters(self.conn)
 
-        if self.conn.encoding in ('SQL_ASCII', 'SQLASCII',
-                                  'MULE_INTERNAL', 'MULEINTERNAL'):
-            status = _execute(cur, "SET DateStyle=ISO;"
-                                   "SET client_min_messages=notice;"
-                                   "SET bytea_output=escape;"
-                                   "SET client_encoding='{0}';"
-                              .format(self.conn.encoding))
-            self.python_encoding = 'raw_unicode_escape'
-        else:
-            status = _execute(cur, "SET DateStyle=ISO;"
-                                   "SET client_min_messages=notice;"
-                                   "SET bytea_output=escape;"
-                                   "SET client_encoding='UNICODE';")
-            self.python_encoding = 'utf-8'
+        postgres_encoding, self.python_encoding = \
+            getEncoding(self.conn.encoding)
+
+        status = _execute(cur, "SET DateStyle=ISO; "
+                               "SET client_min_messages=notice;"
+                               "SET bytea_output=escape;"
+                               "SET client_encoding='{0}';"
+                          .format(postgres_encoding))
 
         # Replace the python encoding for original name and renamed encodings
         # psycopg2 removes the underscore in conn.encoding
@@ -1685,7 +1679,8 @@ Failed to reset the connection to the server due to following error:
 
         # if formatted_msg is false then return from the function
         if not formatted_msg:
-            return errmsg
+            notices = self.get_notices()
+            return errmsg if notices is '' else notices + '\n' + errmsg
 
         # Do not append if error starts with `ERROR:` as most pg related
         # error starts with `ERROR:`
@@ -1748,7 +1743,8 @@ Failed to reset the connection to the server due to following error:
                 errmsg += gettext('Context: ')
                 errmsg += self.decode_to_utf8(exception_obj.diag.context)
 
-        return errmsg
+        notices = self.get_notices()
+        return errmsg if notices is '' else notices + '\n' + errmsg
 
     #####
     # As per issue reported on pgsycopg2 github repository link is shared below
@@ -1826,6 +1822,22 @@ Failed to reset the connection to the server due to following error:
                          } for notify in self.__notifies
                         ]
         return notifies
+
+    def get_notices(self):
+        """
+        This function will returns the notices as string.
+        :return:
+        """
+        notices = ''
+        # Check for notices.
+        if self.conn.notices and self.__notices is not None:
+            self.__notices.extend(self.conn.notices)
+            self.conn.notices.clear()
+
+            while self.__notices:
+                notices += self.__notices.pop(0)
+
+        return notices
 
     def pq_encrypt_password_conn(self, password, user):
         """

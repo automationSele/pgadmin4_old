@@ -405,6 +405,36 @@ def drop_database(connection, database_name):
             connection.close()
 
 
+def drop_database_multiple(connection, database_names):
+    """This function used to drop the database"""
+    for database_name in database_names:
+        if database_name not in ["postgres", "template1", "template0"]:
+            pg_cursor = connection.cursor()
+            if connection.server_version >= 90100:
+                pg_cursor.execute(
+                    "SELECT pg_terminate_backend(pg_stat_activity.pid) "
+                    "FROM pg_stat_activity "
+                    "WHERE pg_stat_activity.datname ='%s' AND "
+                    "pid <> pg_backend_pid();" % database_name
+                )
+            else:
+                pg_cursor.execute(
+                    "SELECT pg_terminate_backend(procpid) "
+                    "FROM pg_stat_activity "
+                    "WHERE pg_stat_activity.datname ='%s' "
+                    "AND current_query='<IDLE>';" % database_name
+                )
+            pg_cursor.execute("SELECT * FROM pg_database db WHERE"
+                              " db.datname='%s'" % database_name)
+            if pg_cursor.fetchall():
+                old_isolation_level = connection.isolation_level
+                connection.set_isolation_level(0)
+                pg_cursor.execute('''DROP DATABASE "%s"''' % database_name)
+                connection.set_isolation_level(old_isolation_level)
+                connection.commit()
+    connection.close()
+
+
 def drop_tablespace(connection):
     """This function used to drop the tablespace"""
     pg_cursor = connection.cursor()
@@ -435,6 +465,10 @@ def create_server(server):
                     ' comment) VALUES (?,?,?,?,?,?,?,?,?,?)', server_details)
         server_id = cur.lastrowid
         conn.commit()
+        conn.close()
+
+        type = get_server_type(server)
+        server['type'] = type
         # Add server info to parent_node_dict
         regression.parent_node_dict["server"].append(
             {
@@ -639,6 +673,50 @@ def set_preference(default_binary_path):
             )
 
     conn.commit()
+    conn.close()
+
+
+def disable_tree_state_save():
+    conn = sqlite3.connect(config.TEST_SQLITE_PATH)
+    cur = conn.cursor()
+    pref = Preferences.module('browser')\
+        .preference('browser_tree_state_save_interval')
+
+    user_pref = cur.execute(
+        'SELECT pid, uid FROM user_preferences '
+        'where pid=?', (pref.pid,)
+    )
+
+    if len(user_pref.fetchall()) == 0:
+        cur.execute(
+            'INSERT INTO user_preferences(pid, uid, value)'
+            ' VALUES (?,?,?)', (pref.pid, 1, -1)
+        )
+    else:
+        cur.execute(
+            'UPDATE user_preferences'
+            ' SET VALUE = ?'
+            ' WHERE PID = ?', (-1, pref.pid)
+        )
+    conn.commit()
+    conn.close()
+
+
+def reset_layout_db(user_id=None):
+    conn = sqlite3.connect(config.TEST_SQLITE_PATH)
+    cur = conn.cursor()
+
+    if user_id is None:
+        cur.execute(
+            'DELETE FROM SETTING WHERE SETTING="Browser/Layout"'
+        )
+    else:
+        cur.execute(
+            'DELETE FROM SETTING WHERE SETTING="Browser/Layout"'
+            ' AND USER_ID=?', user_id
+        )
+    conn.commit()
+    conn.close()
 
 
 def remove_db_file():
@@ -854,3 +932,56 @@ def create_schema(server, db_name, schema_name):
 
     except Exception:
         traceback.print_exc(file=sys.stderr)
+
+
+def get_server_type(server):
+    """
+    This function will return the type of the server (PPAS, PG or GPDB)
+    :param server:
+    :return:
+    """
+    try:
+        connection = get_db_connection(
+            server['db'],
+            server['username'],
+            server['db_password'],
+            server['host'],
+            server['port'],
+            server['sslmode']
+        )
+
+        pg_cursor = connection.cursor()
+        # Get 'version' string
+        pg_cursor.execute("SELECT version()")
+        version_string = pg_cursor.fetchone()
+        connection.close()
+
+        if "Greenplum Database" in version_string:
+            return 'gpdb'
+        elif "EnterpriseDB" in version_string:
+            return 'ppas'
+
+        return 'pg'
+    except Exception:
+        traceback.print_exc(file=sys.stderr)
+
+
+def check_binary_path_or_skip_test(cls, utility_name):
+    if 'default_binary_paths' not in cls.server or \
+        cls.server['default_binary_paths'] is None or \
+        cls.server['type'] not in cls.server['default_binary_paths'] or \
+            cls.server['default_binary_paths'][cls.server['type']] == '':
+        cls.skipTest(
+            "default_binary_paths is not set for the server {0}".format(
+                cls.server['name']
+            )
+        )
+
+        from pgadmin.utils import is_utility_exists
+        binary_path = os.path.join(
+            cls.server['default_binary_paths'][cls.server['type']],
+            utility_name
+        )
+        retVal = is_utility_exists(binary_path)
+        if retVal is not None:
+            cls.skipTest(retVal)
