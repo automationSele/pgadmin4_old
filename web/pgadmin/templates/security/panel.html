@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% from "security/fields.html" import render_field_with_errors %}
 {% block body %}
-<div class="container-fluid login_page">
+<div class="container-fluid h-100 login_page">
     {% include "security/messages.html" %}
-    <div class="row align-items-center h-100">
-        <div class="col-md-6"></div>
+    <div class="row h-100 align-items-center justify-content-center">
+        <div class="col-md-6">{% block panel_image %}{% endblock %}</div>
         <div class="col-md-3">
             <div class="panel-header text-color h4"><i class="app-icon pg-icon"></i> {{ _('%(appname)s', appname=config.APP_NAME) }}</div>
             <div class="panel-body">
@@ -13,7 +13,6 @@
                 {% endblock %}
             </div>
         </div>
-        <div class="col-md-3"></div>
     </div>
 </div>
 {% endblock %}
