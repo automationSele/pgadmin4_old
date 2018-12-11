@@ -260,7 +260,7 @@
 
 .obj_properties .backform-tab {
     position: absolute;
-    margin: 0px 0px 75px;
+    margin: 0px 0px;
     padding: 0px;
     top: 0px;
     bottom: 0px;
@@ -271,8 +271,6 @@
 .obj_properties .backform-tab > .tab-content {
     padding: 0px;
     overflow-y: auto;
-    min-height: 100%;
-    max-height: 100%;
     background-color: $color-gray-light;
 }
 
@@ -495,7 +493,7 @@ fieldset.inline-fieldset > div {
 }
 
 .pgadmin-control-error-message{
-  padding-left: 4px;
+  padding: 15px;
 }
 
 .pgadmin-control-group.sql {
@@ -639,30 +637,30 @@ div.rolmembership {
     margin-top: 15px;
 }
 
-div.inline-tab-panel {
+.inline-tab-panel {
     float: left; width: 100%;
     background-color: $color-primary-fg;
     border: 1px solid $border-color;
     border-radius: $card-border-radius;
 }
 
-div.inline-tab-panel > ul.nav-tabs > li:first-child > a,
-div.inline-tab-panel > ul.nav-tabs > li:first-child > a:active,
-div.inline-tab-panel > ul.nav-tabs > li:first-child > a:hover,
-div.inline-tab-panel > ul.nav-tabs > li:first-child > a:focus {
+.inline-tab-panel > ul.nav-tabs > li:first-child > a,
+.inline-tab-panel > ul.nav-tabs > li:first-child > a:active,
+.inline-tab-panel > ul.nav-tabs > li:first-child > a:hover,
+.inline-tab-panel > ul.nav-tabs > li:first-child > a:focus {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   margin-left: 1px;
 }
 
-div.inline-tab-panel > ul.tab-content {
+.inline-tab-panel > ul.tab-content {
   padding-left: 5px; padding-right: 5px; border-color: $color-gray-lighter;
   border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
   border-width: 0px 1px 1px 1px; border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px; border-style: solid solid;
 }
 
-div.inline-tab-panel > .tab-content {
+.inline-tab-panel > .tab-content {
   padding: 0px;
   margin: 0px;
   border-top: none;
@@ -670,26 +668,28 @@ div.inline-tab-panel > .tab-content {
   border-bottom-right-radius: 5px;
 }
 
-div.inline-tab-panel > .tab-content > div.tab-pane {
+.inline-tab-panel > .tab-content > div.tab-pane {
   padding: 0px;
 }
 
-div.inline-tab-panel > ul.tab-content > div.tab-pane {
+.inline-tab-panel > ul.tab-content > div.tab-pane {
   min-height: 150px; padding: 0px !important;
 }
 
-div.inline-tab-panel > ul.tab-content > div.tab-pane > *:first-child {
+.inline-tab-panel > ul.tab-content > div.tab-pane > *:first-child {
   margin-top: 5px;
 }
 
-div.inline-tab-panel > ul.tab-content > div.tab-pane > *:last-child {
+.inline-tab-panel > ul.tab-content > div.tab-pane > *:last-child {
   margin-bottom: 5px;
 }
 
-div.inline-tab-panel > .tab-content > div.tab-pane {
-  & div.subnode {
-    border: none !important;
-    border-bottom: $panel-border;
+.inline-tab-panel > .tab-content > div.tab-pane {
+  & > .pgadmin-control-group {
+    & > div.subnode {
+      border: none !important;
+      border-bottom: $panel-border;
+    }
   }
 
   .backgrid.pgadmin-control-group {
@@ -837,12 +837,6 @@ body {
 
 table.table-noouter-border {
   border: none !important;
-
-  tbody tr:last-of-type{
-    & td, & th {
-      border-bottom: $table-border-width solid transparent;
-    }
-  }
 }
 
 table.table-bottom-border {
@@ -934,5 +928,25 @@ table.table-bottom-border {
 .pgadmin-controls-radio-none {
   & input[type="radio"] {
     display: none;
+  }
+}
+
+
+.backform-tab{
+  & > .nav.nav-tabs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  & > .tab-content {
+    position: absolute;
+    top: $title-height;
+    bottom: 50px;
+  }
+}
+.ajs-content {
+  .tab-content {
+    bottom: 0;
   }
 }

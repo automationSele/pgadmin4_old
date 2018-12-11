@@ -82,10 +82,6 @@
   font-weight: bold;
 }
 
-.wcTabIcon {
-  display: none;
-}
-
 .wcFloating .wcPanelTabActive {
   border-bottom: none;
   color: $color-fg-theme;
@@ -102,10 +98,13 @@
   border-bottom: $panel-border;
 }
 
+.wcTabIcon {
+  background-position: center;
+}
+
 .wcFloating .wcPanelTab .wcTabIcon {
   color: $color-primary;
-  padding: $tabs-padding;
-  margin: 0px;
+  padding: 0px 10px;
 }
 
 .wcPanelTabActive {

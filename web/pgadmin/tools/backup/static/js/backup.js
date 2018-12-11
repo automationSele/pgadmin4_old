@@ -50,7 +50,7 @@ define([
       '  <span class="<%=Backform.helpMessageClassName%>"><%=helpMessage%></span>',
       '<% } %>',
     ].join('\n')),
-    className: 'pgadmin-control-group form-group pg-el-md-6 pg-el-xs-12',
+    className: 'pgadmin-control-group form-group pg-el-md-6 pg-el-xs-12 row',
   });
 
   //Backup Model (Server Node)

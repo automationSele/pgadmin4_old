@@ -169,7 +169,7 @@ iframe {
 			// for first row, remove top border
 			&:first-of-type{
 				& td, & th {
-					border-top: none;
+					border-top: none !important;
 				}
 			}
 		}

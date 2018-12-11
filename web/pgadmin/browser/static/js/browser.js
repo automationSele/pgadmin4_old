@@ -117,7 +117,7 @@ define('pgadmin.browser', [
         showTitle: true,
         isCloseable: false,
         isPrivate: true,
-        icon: 'fa fa-binoculars',
+        icon: '',
         content: '<div id="tree" class="aciTree"></div>',
         onCreate: function(panel) {
           toolBar.initializeToolbar(panel, wcDocker);
@@ -127,7 +127,7 @@ define('pgadmin.browser', [
       'properties': new pgAdmin.Browser.Panel({
         name: 'properties',
         title: gettext('Properties'),
-        icon: 'fa fa-cogs',
+        icon: '',
         width: 500,
         isCloseable: false,
         isPrivate: true,
@@ -142,7 +142,7 @@ define('pgadmin.browser', [
       'statistics': new pgAdmin.Browser.Panel({
         name: 'statistics',
         title: gettext('Statistics'),
-        icon: 'fa fa-line-chart',
+        icon: '',
         width: 500,
         isCloseable: false,
         isPrivate: true,
@@ -153,7 +153,7 @@ define('pgadmin.browser', [
       'sql': new pgAdmin.Browser.Panel({
         name: 'sql',
         title: gettext('SQL'),
-        icon: 'fa fa-file-text-o',
+        icon: '',
         width: 500,
         isCloseable: false,
         isPrivate: true,
@@ -163,7 +163,7 @@ define('pgadmin.browser', [
       'dependencies': new pgAdmin.Browser.Panel({
         name: 'dependencies',
         title: gettext('Dependencies'),
-        icon: 'fa fa-hand-o-up',
+        icon: '',
         width: 500,
         isCloseable: false,
         isPrivate: true,
@@ -174,7 +174,7 @@ define('pgadmin.browser', [
       'dependents': new pgAdmin.Browser.Panel({
         name: 'dependents',
         title: gettext('Dependents'),
-        icon: 'fa fa-hand-o-down',
+        icon: '',
         width: 500,
         isCloseable: false,
         isPrivate: true,

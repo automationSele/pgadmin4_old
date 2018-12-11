@@ -247,10 +247,8 @@ span.form-control:disabled {
 
 .subnode-header-form {
     background-color: $color-gray-lighter;
-    color: black;
-    padding: 3px 0 10px 0;
-    border-top: solid 1.5px $color-bg;
-    font-size: 12px;
+    padding: 7px;
+    border-bottom: $panel-border;
 }
 
 .subnode-header-form button.add {

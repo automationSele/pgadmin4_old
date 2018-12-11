@@ -790,7 +790,6 @@ define([
     },
     render: function() {
       this.$el.empty();
-      //this.$el.html("<i class='fa fa-plus-circle'></i>");
       this.$el.html('<label><a><span style=\'font-weight:normal;\'>Array Values</a></span></label> <button class=\'btn-sm btn-secondary add\'>Add</button>');
       this.delegateEvents();
       return this;
