@@ -44,12 +44,6 @@
   font-size: 16px;
 }
 
-
-#pg-spinner .pg-sp-content {
-  position: absolute;
-  width: 100%;
-  top: 40%;
-}
 .pgadmin_header_logo {
   cursor: default;
 }

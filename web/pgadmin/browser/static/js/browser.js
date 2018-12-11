@@ -355,8 +355,10 @@ define('pgadmin.browser', [
         '#dockerContainer', {
           allowContextMenu: true,
           allowCollapse: false,
-          themePath: '../static/css',
-          loadingClass: 'fa fa-circle-o-notch',
+          loadingClass: 'pg-sp-icon',
+          themePath: url_for('static', {
+            'filename': 'css',
+          }),
           theme: 'webcabin.overrides.css',
         });
       if (obj.docker) {

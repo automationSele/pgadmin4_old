@@ -45,13 +45,14 @@ define('pgadmin.datagrid', [
           self.preferences = pgBrowser.get_preferences_for_module('sqleditor');
         });
 
-
-        this.spinner_el = '<div class="wcLoadingContainer">'+
-              '<div class="wcLoadingBackground"></div>'+
-                '<div class="wcLoadingIconContainer">'+
-                  '<i class="wcLoadingIcon fa fa-spinner fa-pulse"></i>'+
-                '</div>'+
-              '</div>';
+        this.spinner_el =
+          `<div class="pg-sp-container">
+              <div class="pg-sp-content">
+                  <div class="row">
+                      <div class="col-12 pg-sp-icon"></div>
+                  </div>
+              </div>
+          </div>`;
         // Define list of nodes on which view data option appears
         var supported_nodes = [
             'table', 'view', 'mview',
@@ -501,7 +502,7 @@ define('pgadmin.datagrid', [
                 var frame = $(j).data('embeddedFrame');
                 if (frame) {
                   frame.openURL(baseUrl);
-                  frame.$container.find('.wcLoadingContainer').delay(1000).hide(1);
+                  frame.$container.find('.pg-sp-container').delay(1000).hide(1);
                 }
               } else {
                 openQueryToolURL(j);

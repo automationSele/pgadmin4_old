@@ -163,6 +163,7 @@ define('tools.querytool', [
         '#editor-panel', {
           allowContextMenu: false,
           allowCollapse: false,
+          loadingClass: 'pg-sp-icon',
           themePath: url_for('static', {
             'filename': 'css',
           }),

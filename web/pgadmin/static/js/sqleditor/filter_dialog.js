@@ -128,12 +128,13 @@ let FilterDialog = {
 
             // To show progress on filter Saving/Updating on AJAX
             this.showFilterProgress = $(
-              '<div id="show_filter_progress" class="wcLoadingIconContainer busy-fetching d-none">' +
-              '<div class="wcLoadingBackground"></div>' +
-              '<span class="wcLoadingIcon fa fa-spinner fa-pulse"></span>' +
-              '<span class="busy-text wcLoadingLabel">' + gettext('Loading data...') + '</span>' +
-              '</div>').appendTo($container);
-
+              `<div id="show_filter_progress" class="pg-sp-container sql-editor-busy-fetching d-none">
+                  <div class="pg-sp-content">
+                      <div class="row"><div class="col-12 pg-sp-icon sql-editor-busy-icon"></div></div>
+                      <div class="row"><div class="col-12 pg-sp-text sql-editor-busy-text">${gettext('Loading data...')}</div></div>
+                  </div>
+              </div>`
+              ).appendTo($container);
             $(
               self.showFilterProgress[0]
             ).removeClass('d-none');

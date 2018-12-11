@@ -190,26 +190,21 @@
 
 .wcLoadingBackground {
   background: $loading-bg;
-  opacity: 0.6 !important;
-}
-
-.wcLoadingIcon.fa-spinner {
-  position: absolute;
-  top: 34%;
-  left: 48%;
-  font-size: 50px;
-  color: $color-gray-light;
-  height: 49px !important;
 }
 
 .wcLoadingLabel {
-  top: 40%;
+  top: 50%;
   left: 0;
   color: $color-fg-inverse;
   width: 100%;
   font-size: 20px;
   position: absolute;
   text-align: center;
+}
+
+.wcLoadingIcon.pg-sp-icon {
+  left: 0;
+  top: calc(50% - 75px);
 }
 
 .wcPanelTab > div {

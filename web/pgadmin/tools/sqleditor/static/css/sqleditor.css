@@ -11,19 +11,6 @@
   bottom: 0;
 }
 
-.sql-editor-busy-fetching {
-  position:absolute;
-  left: 0;
-  top: 65px;
-  bottom: 0;
-  right: 0;
-  margin:0;
-  padding: 0;
-  background: black;
-  opacity: 0.6;
-  z-index: 100;
-}
-
 #editor-panel {
   z-index: 0;
 }
