@@ -3,10 +3,6 @@
 }
 .control-label {
   margin: 0px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 25px;
   display: inline-block;
   vertical-align: middle;
   min-height: 28px;
@@ -339,7 +335,6 @@
 .pgadmin-controls > input.form-control:disabled,
 .pgadmin-controls > select.form-control:disabled {
     min-height: 28px;
-    padding: 3px 6px !important;
 }
 
 .pgadmin-controls > span.select2 {
@@ -389,7 +384,7 @@
 }
 
 .obj_properties table td {
-    vertical-align: middle;
+    vertical-align: top;
 }
 
 .obj_properties .set-group {
@@ -540,9 +535,8 @@ fieldset.inline-fieldset > div {
     position: relative;
     left: 0px;
     right: 0px;
-    top : 0;
-    background-color: $color-bg;
-    border-bottom: 1px solid $border-color;
+    top : 0px;
+    background-color: $color-bg-theme;
 }
 
 /* Overrides/fixes for pgAdmin specific styling */
@@ -650,7 +644,6 @@ div.rolmembership {
 .inline-tab-panel > ul.nav-tabs > li:first-child > a:focus {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  margin-left: 1px;
 }
 
 .inline-tab-panel > ul.tab-content {
@@ -837,6 +830,12 @@ body {
 
 table.table-noouter-border {
   border: none !important;
+
+  tbody tr:last-of-type{
+    & td {
+      border-bottom: $table-border-width solid transparent;
+    }
+  }
 }
 
 table.table-bottom-border {
@@ -914,10 +913,12 @@ table.table-bottom-border {
     background-size: 28px 28px;
   }
 }
-.delete_multiple_cascade {
+.icon-delete_multiple_cascade {
+  display: inline-block;
   align-content: center;
   vertical-align: middle;
-  height: 33px;
+  height: 17px;
+  width: 22px;
   background-image: url(/static/img/drop_cascade.svg) !important;
   background-size: 25px !important;
   background-repeat: no-repeat;

@@ -60,6 +60,15 @@ $bgproc-container-pad: 2px;
   color:  $color-gray-dark;
 }
 
+.pg-bg-res-out, .pg-bg-res-err {
+  white-space: pre-wrap;
+}
+
+.pg-bg-res-err {
+  color: $color-danger;
+}
+
+
 .ajs-bg-bgprocess > .pg-bg-bgprocess > .pg-bg-status.bg-success,
 .bg-process-status .bg-bgprocess-success {
   color: $color-success-light;

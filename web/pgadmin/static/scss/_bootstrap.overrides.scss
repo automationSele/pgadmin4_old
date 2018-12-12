@@ -140,16 +140,14 @@ iframe {
 	padding: 5px 25px 5px 5px;
 	vertical-align: middle;
 }
-.form-control {
-	color: $text-color;
-	padding: 3px 6px;
-}
+
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
 	color: $text-muted;
 }
 
 .card-header {
 	padding: $card-header-padding;
+	font-weight: bold;
 }
 
 .table {
@@ -258,6 +256,7 @@ td.switch-cell > div.bootstrap-switch {
 			border: none !important;
 			padding: $tabs-padding;
 			color: $color-fg-theme;
+			font-weight: bold;
 			&.active {
 				border-bottom: $active-border !important;
 			}

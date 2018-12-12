@@ -229,7 +229,7 @@ define([
           type: 'delete',
           tooltip: gettext('Drop Cascade'),
           extraClasses: ['btn-secondary m-1', 'delete_multiple_cascade'],
-          icon: '',
+          icon: 'icon-delete_multiple_cascade',
           disabled: !that.canDropCascade,
           register: function(btn) {
             btn.on('click',() => {

@@ -292,8 +292,8 @@ define('misc.bgprocess', [
                   </div>
                   <div class="pg-bg-etime my-auto"></div>
                   <div class="ml-auto">
-                    <button class="btn btn-secondary pg-bg-more-details">More details...</button>
-                    <button class="btn btn-danger bg-process-stop">Stop Process</button>
+                    <button class="btn btn-secondary pg-bg-more-details"><span class="fa fa-info-circle"></span>&nbsp;${gettext('More details...')}</button>
+                    <button class="btn btn-danger bg-process-stop"><span class="fa fa-times-circle"></span>&nbsp;${gettext('Stop Process')}</button>
                   </div>
                 </div>
                 <div class="pg-bg-status py-1">
@@ -600,16 +600,16 @@ define('misc.bgprocess', [
                   '</span>'+
                 '</div>' +
                 '<div class="ml-auto">' +
-                  '<button type="button" class="btn btn-danger bg-process-stop">' + gettext('Stop Process') + '</button>' +
+                  '<button type="button" class="btn btn-danger bg-process-stop"><span class="fa fa-times-circle"></span>&nbsp;' + gettext('Stop Process') + '</button>' +
                 '</div>' +
               '</div>' +
             '</div>' +
             '<div class="bg-process-watcher">' +
             '</div>' +
             '<div class="bg-process-footer p-2 d-flex">' +
-              '<div class="bg-process-status">' +
+              '<div class="bg-process-status flex-grow-1">' +
               '</div>' +
-              '<div class="bg-process-exec-time ml-auto my-auto">' +
+              '<div class="bg-process-exec-time ml-4 my-auto">' +
                 '<div class="exec-div">' +
                   '<span>' + gettext('Execution time') + ':</span><p></p>' +
                 '</div>' +

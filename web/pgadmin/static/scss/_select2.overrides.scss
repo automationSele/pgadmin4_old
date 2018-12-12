@@ -15,8 +15,19 @@
     width: 100% !important;
 }
 
-.select2-container .select2-selection--single .select2-selection__rendered{
-  padding-left: 5px;
+.select2-container .select2-selection--single  {
+  height: unset;
+  min-height: 28px;
+  & .select2-selection__rendered{
+    line-height: inherit;
+    padding: $input-padding-y $input-padding-x;
+    padding-right: 1.5rem;
+  }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 0px;
+  height: 100%;
 }
 
 

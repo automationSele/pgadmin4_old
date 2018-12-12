@@ -80,6 +80,8 @@
 
 .backgrid:not(.presentation) td.renderable:not(.editable):not(.delete-cell) {
     background-color: $color-gray-lighter;
+    // if transparent border then setting color will help
+    border-bottom-color: $color-gray-lighter;
 }
 
 .backgrid tr.header td.renderable:not(.editable):not(.delete-cell) {
@@ -169,6 +171,7 @@ span.form-control:disabled {
 
 .subnode-header .control-label {
   min-height: 31px;
+  font-weight: bold;
 }
 
 .subnode-footer {
@@ -196,11 +199,6 @@ span.form-control:disabled {
     background-color: $color-bg-theme;
     color: $color-fg-theme;
     border-bottom: $panel-border;
-}
-
-.subnode-header .control-label {
-    font-size: 13px;
-    font-weight: normal !important;
 }
 
 .subnode-header > button.add {
@@ -267,15 +265,16 @@ table.backgrid {
 .backgrid tbody {
   & td.editor {
     background-color: $color-gray-light !important;
-    border-bottom: none !important;
+    border-bottom-color: $color-gray-light !important;
     outline: none !important;
   }
 
   tr.editor-row  {
     & > td {
       padding: 15px !important;
-      background-color: $color-gray-light;
+      background-color: $color-gray-light !important;
       border-top: none !important;
+      border-bottom-color: $color-gray-light !important;
     }
   }
 }

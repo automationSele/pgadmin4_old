@@ -27,10 +27,6 @@ ol.pg-bg-process-logs {
   width: 100%;
 }
 
-.pg-bg-res-out, .pg-bg-res-err {
-  white-space: pre-wrap;
-}
-
 .pg-panel-content .bg-process-stats p{
   display: inline;
   padding-left: 5px;
