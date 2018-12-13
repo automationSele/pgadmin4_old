@@ -102,6 +102,7 @@ define([
       control: 'fieldset',
       label: gettext('Vacuum'),
       group: gettext('Options'),
+      contentClass: 'row',
       schema: [{
         id: 'vacuum_full',
         group: gettext('Vacuum'),
@@ -319,6 +320,9 @@ define([
                 options: {
                   modal: 0,
                   pinnable: false,
+                  //disable both padding and overflow control.
+                  padding: !1,
+                  overflow: !1,
                 },
               };
             },

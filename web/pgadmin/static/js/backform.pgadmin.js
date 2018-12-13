@@ -1969,6 +1969,7 @@ define([
       );
       this.dialog = opts.dialog;
       this.tabIndex = opts.tabIndex;
+      this.contentClass = opts.field.get('contentClass')?opts.field.get('contentClass'):'';
 
       // Listen to the dependent fields in the model for any change
       var deps = this.field.get('deps');
@@ -2015,7 +2016,6 @@ define([
     },
     fieldsetClass: 'inline-fieldset',
     legendClass: '',
-    contentClass: '',
     collapse: false,
   });
 

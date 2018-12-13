@@ -716,19 +716,6 @@ form[name="change_password_form"] .help-block {
     color: $color-danger !important;
 }
 
-/* For Backup & Restore Dialog */
-.custom_switch_label_class {
-  min-width: 0px !important;
-  padding-bottom: 10px !important;
-  font-size: 13px !important;
-  font-weight: normal !important;
-}
-
-.custom_switch_control_class {
-  min-width: 0px !important;
-  padding-bottom: 10px !important;
-}
-
 /* animate blink */
 .blink {
   animation: blink-animation 1s steps(5, start) infinite;
