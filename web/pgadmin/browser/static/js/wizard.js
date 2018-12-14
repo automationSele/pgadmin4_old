@@ -85,7 +85,7 @@ define([
       '          <% } %>' +
       '        </div>' +
       '      </div>' +
-      '      <div class="wizard-content col-sm-12">' +
+      '      <div class="wizard-content row m-0">' +
       '        <% if (this.options.show_left_panel) { %>' +
       '          <div class="col-sm-3 wizard-left-panel">' +
       '              <img src="<%= this.options.image %>"' +
@@ -101,33 +101,32 @@ define([
       '          <div class="wizard-progress-bar"><% if (show_progress_bar) { %>' +
       '            <p class="alert alert-info col-sm-12"><%= show_progress_bar %></p><% } %>' +
       '          </div>' +
-      '          <div class="wizard-right-panel_content col-12">' +
+      '          <div class="wizard-right-panel_content">' +
       '          </div>' +
       '        </div>' +
       '      </div>' +
-      '      <div class="col-sm-12 pg-prop-status-bar" style="visibility:hidden">' +
-      '        <div class="media error-in-footer bg-danger-lighter border-danger-light text-danger text-14">' +
-      '          <div class="media-body media-middle">' +
-      '            <div class="alert-icon error-icon">' +
-      '              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>' +
-      '            </div>' +
-      '            <div class="alert-text">' +
-      '            </div>' +
-      '            <div class="close-error-bar">' +
-      '              <a class="close-error">x</a>' +
-      '            </div>' +
-      '          </div>' +
-      '        </div>' +
-      '      </div>' +
-      '      <div class="footer col-sm-12">' +
-      '        <div class="d-flex">' +
-      '          <div class="wizard-buttons pull-left">' +
+      '      <div class="wizard-footer pg-prop-footer">' +
+        '      <div class="pg-prop-status-bar" style="visibility:hidden">' +
+        '        <div class="media error-in-footer bg-danger-lighter border-danger-light text-danger text-14">' +
+        '          <div class="media-body media-middle">' +
+        '            <div class="alert-icon error-icon">' +
+        '              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>' +
+        '            </div>' +
+        '            <div class="alert-text">' +
+        '            </div>' +
+        '            <div class="close-error-bar">' +
+        '              <a class="close-error">x</a>' +
+        '            </div>' +
+        '          </div>' +
+        '        </div>' +
+        '      </div>' +
+      '        <div class="wizard-buttons d-flex">' +
+      '          <div>' +
       '            <button title = "' + gettext('Help for this dialog.') + '"' +
       '              class="btn btn-secondary pull-left wizard-help" <%=this.options.wizard_help ? "" : "disabled" %>>' +
       '              <span class="fa fa-lg fa-question"></span></button>' +
       '          </div>' +
       '          <div class="ml-auto">' +
-      '            <div class="wizard-buttons">' +
       '              <button class="btn btn-secondary wizard-cancel" <%=this.options.disable_cancel ? "disabled" : ""%>>' +
       '                <i class="fa fa-lg fa-close"></i>' + gettext('Cancel') + '</button>' +
       '              <button class="btn btn-secondary wizard-back" <%=this.options.disable_prev ? "disabled" : ""%>>' +
@@ -137,7 +136,6 @@ define([
       '                <i class="fa fa-forward"></i></button>' +
       '              <button class="btn btn-primary wizard-finish" <%=this.options.disable_finish ? "disabled" : ""%>>' +
       '                ' + gettext('Finish') + '</button>' +
-      '            </div>' +
       '          </div>' +
       '        </div>' +
       '      </div>' +

@@ -3,8 +3,8 @@
   .ajs-header {
     padding: 6px 10px !important;
     //margin is calculated with -$alertify-borderremove-margin, adjust the header
-    min-height: $title-height + $alertify-borderremove-margin;
-    max-height: $title-height + $alertify-borderremove-margin;
+    min-height: $title-height + $alertify-borderremove-margin !important;
+    max-height: $title-height + $alertify-borderremove-margin !important;
     background-color: $color-primary;
     font-size: $font-size-base;
     font-weight: bold;
@@ -41,6 +41,10 @@
     & .ajs-header{
       //default is 0, to override the borders
       margin: -$alertify-borderremove-margin;
+    }
+
+    & .ajs-handle {
+      z-index: 5;
     }
   }
   .ajs-body .ajs-content {

@@ -18,20 +18,25 @@
   position: absolute;
   overflow: auto;
   top: $title-height;
-  bottom: $footer-min-height+$footer-padding*2; //similar to alertify footer
+  bottom: $footer-height-calc; //similar to alertify footer
+  left: 0;
+  right: 0;
+}
+
+.pgadmin-wizard .wizard-buttons {
+  border-top: $panel-border;
+  padding: $footer-padding
 }
 
 /* match the alertify footer */
-.pgadmin-wizard .footer {
+.pgadmin-wizard .wizard-footer {
   min-height: $footer-min-height;
   border: none;
-  border-top: $panel-border;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   margin: 0;
-  padding: $footer-padding
 }
 
 /* Error message css */

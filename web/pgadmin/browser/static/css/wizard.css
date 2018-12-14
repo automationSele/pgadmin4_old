@@ -11,7 +11,6 @@
 }
 
 .wizard_dlg {
-  float: left;
   height: 100%;
   width: 100%;
 }
@@ -46,8 +45,7 @@
 }
 
 .wizard-right-panel_content {
-  height: calc(100% - 86px);
-  padding: 0;
+  padding: 0.5rem 0rem;
 }
 
 /* Wizard Footer CSS */
@@ -56,9 +54,6 @@
 }
 
 /* Wizard Button CSS */
-.pgadmin-wizard .wizard-buttons {
-  float: right;
-}
 
 .pgadmin-wizard .wizard-buttons button.wizard-next i.fa {
   padding-left: 5px;
@@ -96,7 +91,7 @@ div.wizard-header.wizard-badge > div > div.col-sm-2 > button.ajs-maximized.ajs-m
 
 /* Wizard Status bar CSS */
 .pgadmin-wizard .wizard-description {
-  padding: 1.0em 0.1em;
+  padding: 0.5rem 0rem;
 }
 
 /* In wizard select2 dropdown doesn't

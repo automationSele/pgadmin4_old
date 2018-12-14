@@ -497,10 +497,6 @@ fieldset.inline-fieldset > div {
   height: 100%;
 }
 
-.pgadmin-control-group span.wcTabIcon {
-  padding-left: 20px;
-}
-
 .pgadmin-controls input[type="checkbox"]{
   margin-left: 0 !important;
   margin-top: 0px !important;
@@ -607,7 +603,7 @@ fieldset.inline-fieldset > div {
 
   & .input-group {
     & .input-group-text {
-      background: $color-bg-theme;
+      background: $input-bg;
     }
     & .form-control {
       border-left: none !important;
