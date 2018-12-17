@@ -53,20 +53,6 @@
   min-width: 35px !important;
 }
 
-.sql-editor-message {
-  white-space:pre-wrap;
-  font-family: "Source Code Pro";
-  padding-top: 5px;
-  padding-left: 10px;
-  overflow: auto;
-  height: 100%;
-  font-size: 0.925em;
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-}
-
 .sql-editor-history-container {
   height: 100%;
   overflow: auto;
@@ -361,10 +347,6 @@ input.editor-checkbox:focus {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAANElEQVQoU2O8e/fuf2VlZUYGLAAkB5bApggmBteJrAiZjWI0SAJkIrKVxCvAawVeRxLyJgB+Ajc1cwux9wAAAABJRU5ErkJggg==);
  }
 
-/* For leaflet map background */
-.geometry-viewer-container-plain-background {
-  background: #ffffff;
-}
 
 /* For geometry column button */
 .div-view-geometry-column {
@@ -403,10 +385,6 @@ input.editor-checkbox:focus {
 .view-geometry-property-table td {
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.view-geometry-property-table .td-disabled{
-  color: #999999;
 }
 
 /* For geometry viewer info control */

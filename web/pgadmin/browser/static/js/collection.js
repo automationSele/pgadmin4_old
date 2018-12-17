@@ -236,7 +236,6 @@ define([
           tooltip: gettext('Drop Cascade'),
           extraClasses: ['btn-secondary m-1', 'delete_multiple_cascade'],
           icon: 'icon-delete_multiple_cascade',
-          disabled: !that.canDropCascade,
           disabled: _.isFunction(that.canDropCascade) ?
             function() {
               return !(that.canDropCascade.apply(self, arguments));

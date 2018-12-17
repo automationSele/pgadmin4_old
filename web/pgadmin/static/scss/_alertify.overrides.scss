@@ -174,7 +174,7 @@
 .pg-alertify-button:before {
   font-size: $font-size-base;
   @at-root .ajs-button#{&} {
-    font-family: 'FontAwesome';
+    font-family: $font-family-icon;
     margin-right: 5px;
   }
 }

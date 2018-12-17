@@ -1,7 +1,7 @@
 .alert-icon {
   display: flex;
   align-items: center;
-  color: $color-fg-inverse;
+  color: $alert-icon-color;
   padding: 15px 15px 15px 17px;
   width: 50px;
   min-height: 50px;
@@ -46,8 +46,8 @@
 }
 
 .alert-info {
-  border-color: $color-primary-light;
-  background-color: $color-primary-lighter;
+  border-color: $color-primary;
+  background-color: $color-primary-light;
   color : $color-primary;
   background-image: none;
 }

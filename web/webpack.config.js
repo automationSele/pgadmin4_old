@@ -11,9 +11,8 @@ const PRODUCTION = process.env.NODE_ENV === 'production';
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractStyle = new ExtractTextPlugin('[name].css');
-// Disabled till node issues are resolved
-//const envType = PRODUCTION ? 'production': 'development';
-//const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const envType = PRODUCTION ? 'production': 'development';
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 // Extract vendor related libraries(node_modules/lib/lib.js) from bundles
 // specified in `chunks` into vendor.js bundle
@@ -83,16 +82,16 @@ const definePlugin = new webpack.DefinePlugin({
 
 // Manages the cache and stores it into 'sources/generated/.cache/<env><hash>/' path
 // where env = dev || prod
-//const hardSourceWebpackPlugin = new HardSourceWebpackPlugin({
-//  cacheDirectory: './.cache/hard-source/' + envType +'/[confighash]',
-//  recordsPath: './.cache/hard-source/' + envType +'/[confighash]/records.json',
-//  configHash: require('node-object-hash')({sort: false}).hash,
-//  environmentHash: {
-//    root: process.cwd(),
-//    directories: ['node_modules'],
-//    files: ['package.json'],
-//  },
-//});
+const hardSourceWebpackPlugin = new HardSourceWebpackPlugin({
+  cacheDirectory: './.cache/hard-source/' + envType +'/[confighash]',
+  recordsPath: './.cache/hard-source/' + envType +'/[confighash]/records.json',
+  configHash: require('node-object-hash')({sort: false}).hash,
+  environmentHash: {
+    root: process.cwd(),
+    directories: ['node_modules'],
+    files: ['package.json'],
+  },
+});
 
 // Helps in debugging each single file, it extracts the module files
 // from bundle so that they are accessible by search in Chrome's sources panel.
@@ -408,7 +407,7 @@ module.exports = {
     pgAdminCommonChunks,
     providePlugin,
     definePlugin,
-    // hardSourceWebpackPlugin,
+    hardSourceWebpackPlugin,
     sourceMapDevToolPlugin,
   ],
 };

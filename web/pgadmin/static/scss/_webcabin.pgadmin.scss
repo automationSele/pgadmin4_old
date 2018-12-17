@@ -64,7 +64,7 @@
 
 
 .wcLayoutGrid, .wcLayoutGrid tr, .wcLayoutGrid td {
-  border: 1px solid #555555;
+  border: 1px solid $panel-border-color;
 }
 
 .wcFrameCenter {
@@ -195,7 +195,7 @@
 .wcLoadingLabel {
   top: 50%;
   left: 0;
-  color: $color-fg-inverse;
+  color: $loading-fg;
   width: 100%;
   font-size: 20px;
   position: absolute;

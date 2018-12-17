@@ -1,81 +1,59 @@
 /** Dividing a pixel var with 1px or rem var with 1rem removes the unit px/rem **/
 $enable-flex: true !default;
 
-
 $white: #fff;
 $black: #000;
 
-$color-bg: #fff !default;
-$color-fg: #000 !default;
+$color-bg: $white !default;
+$color-fg: $black !default;
 
-$color-bg-theme: #fff !default;
+$color-bg-theme: $white !default;
 $color-fg-theme: #222222 !default;
 
-$color-fg-inverse: $color-bg;
-
 $color-primary: #326690 !default;
-$color-primary-fg: #fff !default;
+$color-primary-fg: $white !default;
+$color-primary-light: #d6effc;
+$color-primary-dark: #295c85;
 
 $color-secondary: $white !default;
 
 $color-danger: #e53935 !default;
-$color-danger-fg: #fff !default;
+$color-danger-fg: $white !default;
+$color-danger-light: #FBE1E1;
 
 $color-success: #43a047 !default;
-$color-success-fg: $color-fg !default;
+$color-success-fg: $black !default;
+$color-success-light: #DDF1DE;
 
 $color-warning: #eea236 !default;
-$color-warning-fg: $color-fg !default;
-
-$color-brand: #fff !default;
-$color-editor-bg: $color-bg !default;
-$color-editor-keyword: #908 !default;
-$color-editor-number: #964 !default;
-$color-editor-foldmarker: #0000FF !default;
-$color-editor-activeline: #50B0F0 !default;
-
-$gray-base: #000 !default;
+$color-warning-fg: $black !default;
+$color-warning-light: #fce5c5;
 
 $color-gray-darker: #5b6d7c;
 $color-gray-dark: #848ea0;
 $color-gray: #bac1cd;
 $color-gray-light: #ebeef3;
 $color-gray-lighter: #f3f5f9;
-$color-gray-white: #f3f5f9;
 
-$color-primary-light: #d6effc;
-$color-primary-dark: #295c85;
-
-$color-primary-lighter: lighten($color-primary, 50%);
-$color-primary-darker: darken($color-primary, 25%);
-
-$color-danger-light: #FBE1E1;
-
-$color-danger-lighter: lighten($color-danger, 40%);
-$color-danger-dark: darken($color-danger, 10%);
-$color-danger-darker: darken($color-danger, 25%);
-
-$color-success-light: #DDF1DE;
-$color-success-lighter: lighten($color-success, 50%);
-$color-success-dark: darken($color-success, 10%);
-$color-success-darker: darken($color-success, 25%);
-
-$color-warning-light: lighten($color-warning, 25%);
-$color-warning-lighter: lighten($color-warning, 40%);
-$color-warning-dark: darken($color-warning, 25%);
-$color-warning-darker: darken($color-warning, 40%);
+$color-brand: $white !default;
+$color-editor-bg: $color-bg !default;
+$color-editor-keyword: #908 !default;
+$color-editor-number: #964 !default;
+$color-editor-foldmarker: #0000FF !default;
+$color-editor-activeline: #50B0F0 !default;
 
 /* Typography */
-$font-family-primary: "Open Sans" !default;
-$font-family-semibold: "Open Sans Semibold" !default;
+$font-family-primary: "Roboto" !default;
+$font-family-semibold: "Roboto Medium" !default;
 $font-family-editor: 'Source Code Pro' !default;
+$font-family-icon: 'FontAwesome' !default;
 
 $border-width: 1px;
-$border-color: rgba($color-gray, .5);
+$border-color: rgba($color-gray, 0.5);
 $border-color-dark: $color-gray;
 $box-shadow: 0 0.125rem 0.5rem rgba($color-gray-dark, .175);
 
-/** Bootstrap **/
+/** Bootstrap Variable Changes **/
 $gray-600: $color-gray-dark;
 $gray-900: $color-fg-theme;
 $body-color: $color-fg-theme;
@@ -162,7 +140,6 @@ $navbar-user-font-size: 0.815rem;
 $navbar-dropdown-top: 100%;
 $dropdown-submenu-top: -$dropdown-spacer;
 
-
 $table-bg: $color-bg-theme;
 $table-bg-selected: $color-primary-light;
 $table-hover-border-color: #4fc2f8;
@@ -183,7 +160,9 @@ $sql-history-error-fg: $color-danger;
 $negative-bg: $color-gray-light;
 $dialog-box-shadow: $box-shadow;
 
+$alert-icon-color: $white;
 $alertify-borderremove-margin: $panel-border-width;
+
 $btn-secondary-border: $color-gray;
 $btn-secondary-hover-bg: $color-gray-light;
 

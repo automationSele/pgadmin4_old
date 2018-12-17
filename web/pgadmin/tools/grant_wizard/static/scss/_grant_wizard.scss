@@ -119,8 +119,8 @@
 }
 
 .wizard-right-panel_content .CodeMirror-linenumber {
-  background: #F7F7F7;
-  border-right: 1px solid #DDDDDD;
+  background: $color-gray-light;
+  border-right: none;
 }
 
 .wizard-right-panel_content .CodeMirror-gutters {

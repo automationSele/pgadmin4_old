@@ -1,7 +1,7 @@
 .filter-title {
   background-color: $color-primary;
   padding: 2px;
-  color: $color-fg-inverse;
+  color: $color-primary-fg;
   font-size: 13px;
 }
 
@@ -19,7 +19,7 @@
 }
 
 #editor-panel .CodeMirror-activeline-background {
-  background: $color-primary-lighter;
+  background: $color-primary-light;
 }
 
 .connection_status {
@@ -58,8 +58,7 @@ li.CodeMirror-hint-active {
 .filter-container {
   position: relative;
   background-color: $color-bg;
-  border: 1px solid black;
-  box-shadow: 0.5px 0.5px 5px #000;
+  border: 1px solid $border-color;
   padding-bottom: 30px;
   top: 10px;
   z-index: 1;
@@ -95,7 +94,7 @@ li.CodeMirror-hint-active {
   font-weight: bold;
   text-align: right;
   border-right: solid  $color-gray;
-  background: $color-gray-white;
+  background: $color-gray-lighter;
   cursor: move;
 }
 
@@ -108,7 +107,7 @@ li.CodeMirror-hint-active {
 }
 
 .slick-row.complete {
-  background-color: $color-success-lighter;
+  background-color: $color-success-light;
   color:  $color-gray-dark;
 }
 
@@ -170,7 +169,7 @@ li.CodeMirror-hint-active {
 
 /* To highlight all newly inserted rows */
 .grid-canvas .new_row {
-  background: $color-success-lighter !important;
+  background: $color-success-light !important;
 }
 
 /* To highlight all the updated rows */
@@ -180,7 +179,7 @@ li.CodeMirror-hint-active {
 
 /* To highlight row at fault */
 .grid-canvas .new_row.error, .grid-canvas .updated_row.error {
-  background: $color-danger-lighter !important;
+  background: $color-danger-light !important;
 }
 
 /* Disabled row */
@@ -234,4 +233,27 @@ li.CodeMirror-hint-active {
 
 .pg_text_editor textarea {
   resize: both;
+}
+
+.sql-editor-message {
+  white-space:pre-wrap;
+  font-family: $font-family-editor;
+  padding-top: 5px;
+  padding-left: 10px;
+  overflow: auto;
+  height: 100%;
+  font-size: 0.925em;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.view-geometry-property-table .td-disabled{
+  color: $color-gray-lighter;
+}
+
+/* For leaflet map background */
+.geometry-viewer-container-plain-background {
+  background: $color-bg;
 }

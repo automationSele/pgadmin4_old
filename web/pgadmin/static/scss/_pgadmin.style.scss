@@ -131,7 +131,7 @@
   width: 100%; }
 
 .bg-highlight {
-  background-color: $color-primary-lighter; }
+  background-color: $color-primary-light; }
 
 .bg-border {
   background-color: $color-primary-light; }
@@ -370,14 +370,14 @@
 }
 
 .obj_properties .badge .caret::before {
-  font-family: 'FontAwesome';
+  font-family: $font-family-icon;
 	content: "\f078";
 	font-size: 0.7rem;
 	margin-left: 0rem;
 }
 
 .obj_properties .collapsed .caret::before {
-  font-family: 'FontAwesome';
+  font-family: $font-family-icon;
 	content: "\f054";
 	font-size: 0.7rem;
 	border: none;
@@ -466,8 +466,8 @@ fieldset.inline-fieldset > div {
   background-color: $color-primary;
   background-image: none;
   font-family: $font-family-primary;
-  font-size: 12px;
-  color: $color-fg-inverse;
+  font-size: 0.75rem;
+  color: $color-primary-fg;
   text-shadow: none;
   -webkit-font-smoothing: auto;
 }
@@ -788,15 +788,6 @@ body {
   content: "\003F";
 }
 
-/* This is to be changed */
-/*.navbar-nav > .nav-item > a, .navbar-inverse .navbar-nav > li > a {
-	color: $color-fg-inverse;
-}
-
-.navbar-nav > .open > a, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-	background: $color-gray-dark none;
-}*/
-
 .pg-el-container {
   background-color: $color-gray-lighter;
 }
@@ -830,7 +821,7 @@ table.table-bottom-border {
 }
 
 .context-menu-list .context-menu-submenu:after {
-  font-family: 'FontAwesome';
+  font-family: $font-family-icon;
   content: "\f054" !important;
   right: 15px;
   top: unset;
