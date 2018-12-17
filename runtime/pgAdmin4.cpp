@@ -70,7 +70,7 @@ int main(int argc, char * argv[])
 
     // Create a hash of the executable path so we can run copies side-by-side
     QString homeDir = QDir::homePath();
-    unsigned long exeHash = sdbm((unsigned char *)argv[0]);
+    unsigned long exeHash = sdbm(reinterpret_cast<unsigned char *>(argv[0]));
 
     // Create the address file, that will be used to store the appserver URL for this instance
     addrFileName = homeDir + (QString("/.%1.%2.addr").arg(PGA_APP_NAME).arg(exeHash)).remove(" ");
@@ -214,22 +214,22 @@ int main(int argc, char * argv[])
 
     // Create Menu Actions
     MenuActions *menuActions = new MenuActions();
-    if(menuActions != NULL)
+    if(menuActions != Q_NULLPTR)
         menuActions->setLogFile(logFileName);
 
     splash->showMessage(QString(QWidget::tr("Checking for system tray...")), Qt::AlignBottom | Qt::AlignCenter);
     Logger::GetLogger()->Log("Checking for system tray...");
 
     // Check system tray is available or not. If not then create one floating window.
-    FloatingWindow *floatingWindow = NULL;
-    TrayIcon *trayicon = NULL;
+    FloatingWindow *floatingWindow = Q_NULLPTR;
+    TrayIcon *trayicon = Q_NULLPTR;
     if (QSystemTrayIcon::isSystemTrayAvailable())
     {
         // Start the tray service
         trayicon = new TrayIcon();
 
         // Set the MenuActions object to connect to slot
-        if (trayicon != NULL)
+        if (trayicon != Q_NULLPTR)
             trayicon->setMenuActions(menuActions);
 
         trayicon->Init();
@@ -240,10 +240,10 @@ int main(int argc, char * argv[])
         Logger::GetLogger()->Log("System tray not found, creating floating window...");
         // Unable to find tray icon, so creating floting window
         floatingWindow = new FloatingWindow();
-        if (floatingWindow == NULL)
+        if (floatingWindow == Q_NULLPTR)
         {
             QString error = QString(QWidget::tr("Unable to initialize either a tray icon or control window."));
-            QMessageBox::critical(NULL, QString(QWidget::tr("Fatal Error")), error);
+            QMessageBox::critical(Q_NULLPTR, QString(QWidget::tr("Fatal Error")), error);
             Logger::GetLogger()->Log(error);
             Logger::ReleaseLogger();
             exit(1);
@@ -270,12 +270,12 @@ int main(int argc, char * argv[])
         Logger::GetLogger()->Log("Initializing server...");
         if (!server->Init())
         {
-            splash->finish(NULL);
+            splash->finish(Q_NULLPTR);
 
             qDebug() << server->getError();
 
             QString error = QString(QWidget::tr("An error occurred initialising the application server:\n\n%1")).arg(server->getError());
-            QMessageBox::critical(NULL, QString(QWidget::tr("Fatal Error")), error);
+            QMessageBox::critical(Q_NULLPTR, QString(QWidget::tr("Fatal Error")), error);
 
             Logger::GetLogger()->Log(error);
             Logger::ReleaseLogger();
@@ -297,12 +297,12 @@ int main(int argc, char * argv[])
         // Any errors?
         if (server->isFinished() || server->getError().length() > 0)
         {
-            splash->finish(NULL);
+            splash->finish(Q_NULLPTR);
 
             qDebug() << server->getError();
 
             QString error = QString(QWidget::tr("An error occurred initialising the application server:\n\n%1")).arg(server->getError());
-            QMessageBox::critical(NULL, QString(QWidget::tr("Fatal Error")), error);
+            QMessageBox::critical(Q_NULLPTR, QString(QWidget::tr("Fatal Error")), error);
             Logger::GetLogger()->Log(error);
 
             // Allow the user to tweak the Python Path if needed
@@ -372,9 +372,9 @@ int main(int argc, char * argv[])
     Logger::GetLogger()->Log("Attempt to connect one more time in case of a long network timeout while looping");
     if (!alive && !PingServer(QUrl(appServerUrl)))
     {
-        splash->finish(NULL);
+        splash->finish(Q_NULLPTR);
         QString error(QWidget::tr("The application server could not be contacted."));
-        QMessageBox::critical(NULL, QString(QWidget::tr("Fatal Error")), error);
+        QMessageBox::critical(Q_NULLPTR, QString(QWidget::tr("Fatal Error")), error);
 
         Logger::ReleaseLogger();
         exit(1);
@@ -392,9 +392,9 @@ int main(int argc, char * argv[])
     menuActions->setAppServerUrl(appServerUrl);
 
     // Enable the shutdown server menu as server started successfully.
-    if (trayicon != NULL)
+    if (trayicon != Q_NULLPTR)
         trayicon->enableShutdownMenu();
-    if (floatingWindow != NULL)
+    if (floatingWindow != Q_NULLPTR)
         floatingWindow->enableShutdownMenu();
 
     QString cmd = settings.value("BrowserCommand").toString();
@@ -409,7 +409,7 @@ int main(int argc, char * argv[])
         if (!QDesktopServices::openUrl(appServerUrl))
         {
             QString error(QWidget::tr("Failed to open the system default web browser. Is one installed?."));
-            QMessageBox::critical(NULL, QString(QWidget::tr("Fatal Error")), error);
+            QMessageBox::critical(Q_NULLPTR, QString(QWidget::tr("Fatal Error")), error);
 
             Logger::GetLogger()->Log(error);
             Logger::ReleaseLogger();
@@ -418,9 +418,9 @@ int main(int argc, char * argv[])
     }
 
     QObject::connect(menuActions, SIGNAL(shutdownSignal(QUrl)), server, SLOT(shutdown(QUrl)));
-    splash->finish(NULL);
+    splash->finish(Q_NULLPTR);
 
-    if (floatingWindow != NULL)
+    if (floatingWindow != Q_NULLPTR)
         floatingWindow->show();
 
     Logger::GetLogger()->Log("Everything works fine, successfully started pgAdmin4.");

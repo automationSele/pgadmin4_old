@@ -231,3 +231,7 @@ li.CodeMirror-hint-active {
   background: $sql-title-bg;
   color: $sql-title-fg;
 }
+
+.pg_text_editor textarea {
+  resize: both;
+}

@@ -27,7 +27,7 @@ class FloatingWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit FloatingWindow(QWidget *parent = 0);
+    explicit FloatingWindow(QWidget *parent = Q_NULLPTR);
     ~FloatingWindow();
 
     bool Init();

@@ -55,7 +55,7 @@ void LogWindow::ReadLog()
 
     // Attempt to open the file
     log = fopen(m_logFile.toUtf8().data(), "r");
-    if (log == NULL)
+    if (log == Q_NULLPTR)
     {
             ui->textLog->setPlainText(QString(tr("The log file (%1) could not be opened.")).arg(m_logFile));
             this->setDisabled(false);
@@ -67,7 +67,7 @@ void LogWindow::ReadLog()
     fseek(log, 0, SEEK_END);
     len = ftell(log);
     rewind(log);
-    buffer = (char *)malloc((len + 1) * sizeof(char));
+    buffer = static_cast<char *>(malloc((len + 1) * sizeof(char)));
 
     for (i = 0; i < len; i++) {
         if (fread(buffer + i, 1, 1, log) > 0)

@@ -61,8 +61,8 @@ Server::Server(quint16 port, QString key, QString logFileName)
     m_port = port;
     m_key = key;
     m_logFileName = logFileName;
-    m_wcAppName = NULL;
-    m_wcPythonHome = NULL;
+    m_wcAppName = Q_NULLPTR;
+    m_wcPythonHome = Q_NULLPTR;
 
     // Initialise Python
     Py_NoSiteFlag=1;
@@ -200,8 +200,8 @@ Server::Server(quint16 port, QString key, QString logFileName)
     Logger::GetLogger()->Log("Python initialized.");
 
     // Get the current path
-    PyObject* sysPath = PySys_GetObject((char*)"path");
-    if (sysPath != NULL)
+    PyObject* sysPath = PySys_GetObject(const_cast<char *>("path"));
+    if (sysPath != Q_NULLPTR)
     {
         // Add new additional path elements
         Logger::GetLogger()->Log("Adding new additional path elements");
@@ -224,13 +224,13 @@ Server::Server(quint16 port, QString key, QString logFileName)
     // Redirect stderr
     Logger::GetLogger()->Log("Redirecting stderr...");
     PyObject *sys = PyImport_ImportModule("sys");
-    if (sys != NULL)
+    if (sys != Q_NULLPTR)
     {
-        PyObject *err = NULL;
+        PyObject *err = Q_NULLPTR;
 #ifdef PYTHON2
         err = PyFile_FromString(m_logFileName.toUtf8().data(), (char *)"w");
 #else
-        FILE *log = NULL;
+        FILE *log = Q_NULLPTR;
 
 #if defined(Q_OS_WIN)
         char *logFile = m_logFileName.toUtf8().data();
@@ -240,12 +240,12 @@ Server::Server(quint16 port, QString key, QString logFileName)
 
         log = _wfopen(wcLogFileName, (wchar_t *)"w");
 #else
-        log = fopen(m_logFileName.toUtf8().data(), (char *)"w");
+        log = fopen(m_logFileName.toUtf8().data(), const_cast<char *>("w"));
 #endif
-        if (log != NULL)
+        if (log != Q_NULLPTR)
         {
             int fd = fileno(log);
-            err = PyFile_FromFd(fd, NULL, (char *)"w", -1, NULL, NULL, NULL, 0);
+            err = PyFile_FromFd(fd, Q_NULLPTR, const_cast<char *>("w"), -1, Q_NULLPTR, Q_NULLPTR, Q_NULLPTR, 0);
         }
         else
             Logger::GetLogger()->Log(QString("Failed to open log file: %1").arg(m_logFileName));
@@ -259,7 +259,7 @@ Server::Server(quint16 port, QString key, QString logFileName)
 #endif
 #endif
         QFile(m_logFileName).setPermissions(QFile::ReadOwner|QFile::WriteOwner);
-        if (err != NULL)
+        if (err != Q_NULLPTR)
         {
             PyObject_SetAttrString(sys, "stderr", err);
             Logger::GetLogger()->Log("stderr redirected successfully.");
