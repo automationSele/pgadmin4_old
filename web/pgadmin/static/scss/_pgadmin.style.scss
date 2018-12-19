@@ -115,9 +115,6 @@
   display: table-cell;
   padding-left: 10px; }
 
-.alert-info {
-  border-color: $color-primary-light; }
-
 .color-chip {
   align-items: center;
   border-radius: 3px;
@@ -734,7 +731,7 @@ form[name="change_password_form"] .help-block {
 .close-error-bar {
   background: $color-danger;
   padding: 5px;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 4px 4px 0px;
 }
 
 .close-error-bar a {

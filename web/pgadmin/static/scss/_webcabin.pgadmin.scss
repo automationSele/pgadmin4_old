@@ -101,6 +101,10 @@
 .wcTabIcon {
   background-position: center;
   padding: 0px 10px;
+
+  &.fa{
+    padding: 0rem 0.25rem 0rem 0rem
+  }
 }
 
 .wcFloating .wcPanelTab .wcTabIcon {

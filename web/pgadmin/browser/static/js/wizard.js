@@ -107,7 +107,7 @@ define([
       '      </div>' +
       '      <div class="wizard-footer pg-prop-footer">' +
         '      <div class="pg-prop-status-bar" style="visibility:hidden">' +
-        '        <div class="media error-in-footer bg-danger-lighter border-danger-light text-danger text-14">' +
+        '        <div class="media error-in-footer bg-danger-light border-danger text-danger text-14">' +
         '          <div class="media-body media-middle">' +
         '            <div class="alert-icon error-icon">' +
         '              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>' +

@@ -620,16 +620,19 @@ define([
             fm_filename = _.escape(fm_filename);
 
             result += '<td title="' + path + '" class="' + class_type + '">';
+
+            let data_protected = '';
             if ((data[key]).Protected == 1) {
-              result +=
-                '<i class="fa fa-lock tbl_lock_icon" data-protected="protected"></i>';
+              data_protected = '<i class="fa fa-lock tbl_lock_icon" data-protected="protected"></i>';
             }
             if (!has_capability(data[key], 'rename')) {
+              result += data_protected;
               result += '<span title="' + (data[key]).Filename + '">' +
                 fm_filename + '</span></td>';
             } else {
               result += '<p><input type="text" class="fm_file_rename"/>'+
                         '<span class="'+icon_type+'"></span>' +
+                        data_protected +
                         '<span class="less_text ml-2" title="' + fm_filename + '">' + fm_filename + '</span>' +
                         '</p></td>';
             }

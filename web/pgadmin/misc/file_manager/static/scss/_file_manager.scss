@@ -262,10 +262,10 @@
 }
 
 .file_manager .fileinfo #contents .fa-lock.tbl_lock_icon {
-  color: $color-danger-light;
-  position: absolute;
-  left: 19px;
-  top: 5px;
+  color: $color-danger;
+  position: relative;
+  left: -5px;
+  top: -5px;
   font-size: 10px;
 }
 

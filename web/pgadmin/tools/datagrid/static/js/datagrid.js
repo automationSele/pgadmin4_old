@@ -296,6 +296,7 @@ define('pgadmin.datagrid', [
                   $content = $(this.message),
                   $sql_filter = $content.find('#sql_filter');
 
+                $(this.elements.header).attr('data-title', this.get('title'));
                 $(this.elements.body.childNodes[0]).addClass(
                   'dataview_filter_dialog'
                 );

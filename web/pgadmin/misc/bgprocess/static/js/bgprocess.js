@@ -290,7 +290,7 @@ define('misc.bgprocess', [
                   <div class="my-auto mr-2">
                     <span class="fa fa-clock-o fa-2x"></span>
                   </div>
-                  <div class="pg-bg-etime my-auto"></div>
+                  <div class="pg-bg-etime my-auto mr-2"></div>
                   <div class="ml-auto">
                     <button class="btn btn-secondary pg-bg-more-details"><span class="fa fa-info-circle"></span>&nbsp;${gettext('More details...')}</button>
                     <button class="btn btn-danger bg-process-stop"><span class="fa fa-times-circle"></span>&nbsp;${gettext('Stop Process')}</button>
@@ -595,7 +595,7 @@ define('misc.bgprocess', [
                 '<div class="my-auto mr-2">' +
                   '<span class="fa fa-clock-o fa-2x"></span>' +
                 '</div>' +
-                '<div class="pg-bg-etime my-auto">'+
+                '<div class="pg-bg-etime my-auto mr-2">'+
                   '<span>' + gettext('Start time') + ': <span class="bgprocess-start-time"></span>' +
                   '</span>'+
                 '</div>' +

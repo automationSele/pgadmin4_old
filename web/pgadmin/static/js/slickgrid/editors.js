@@ -39,13 +39,13 @@
       button_type = editable ? 'btn-danger' : 'btn-primary';
 
     if (editable) {
-      $('<button class=\'btn btn-primary long_text_editor\'>'+
+      $('<button class=\'btn btn-primary long_text_editor\' data-label="Save">'+
         '<span class="fa fa-save pg-alertify-button"></span>&nbsp;Save'+
         '</button>')
         .appendTo($buttons);
     }
 
-    $('<button class=\'btn ' + button_type + ' long_text_editor pg-alertify-button\'>' +
+    $('<button class=\'btn ' + button_type + ' long_text_editor pg-alertify-button\' data-label="'+label+'">' +
       '<span class="fa fa-save pg-alertify-button"></span>&nbsp;'+ label +
       '</button>')
       .appendTo($buttons);
