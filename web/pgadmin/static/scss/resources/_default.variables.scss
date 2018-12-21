@@ -5,7 +5,7 @@ $white: #fff;
 $black: #000;
 
 $color-bg: $white !default;
-$color-fg: $black !default;
+$color-fg: #222222 !default;
 
 $color-bg-theme: $white !default;
 $color-fg-theme: #222222 !default;
@@ -36,6 +36,8 @@ $color-gray-light: #ebeef3;
 $color-gray-lighter: #f3f5f9;
 
 $color-brand: $white !default;
+$color-brand-bg: #222222;
+
 $color-editor-bg: $color-bg !default;
 $color-editor-keyword: #908 !default;
 $color-editor-number: #964 !default;
@@ -51,7 +53,7 @@ $font-family-icon: 'FontAwesome' !default;
 $border-width: 1px;
 $border-color: rgba($color-gray, 0.5);
 $border-color-dark: $color-gray;
-$box-shadow: 0 0.125rem 0.5rem rgba($color-gray-dark, .175);
+$box-shadow: 0 0.5rem 3rem $color-gray-dark;
 
 /** Bootstrap Variable Changes **/
 $gray-600: $color-gray-dark;
@@ -76,7 +78,7 @@ $btn-active-box-shadow: none;
 $dropdown-link-hover-color: $white;
 $dropdown-link-hover-bg: $color-primary;
 $dropdown-border-color: $border-color;
-$dropdown-box-shadow: $box-shadow;
+$dropdown-box-shadow: 0 0.125rem 0.5rem rgba($color-gray-dark, .175);
 $dropdown-divider-bg: $dropdown-border-color;
 $dropdown-padding-y: 0.25rem;
 $dropdown-item-padding-x: 1rem;
@@ -93,6 +95,9 @@ $card-border-radius: $border-radius;
 $card-border-color: $border-color;
 $card-cap-bg: $color-bg-theme;
 $card-bg: $color-bg-theme;
+
+
+$navbar-brand-padding-y: 0rem;
 
 $nav-tabs-border-color: $border-color;
 $nav-tabs-border-width: 1px;
@@ -121,6 +126,7 @@ $input-btn-padding-y: .375rem; //no change
 $input-btn-padding-x: .75rem; //no change
 
 $btn-border-radius: $border-radius; //no change
+
 /***************/
 
 $active-border: 3px solid $color-primary;

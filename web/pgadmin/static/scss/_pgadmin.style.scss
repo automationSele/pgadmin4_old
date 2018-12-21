@@ -154,10 +154,21 @@
 .pg-navbar {
   font-size: $navbar-font-size;
   font-weight: bold;
+  padding-left: 0rem;
+  padding-right: 0.5rem;
   & .nav-item .nav-link{
     line-height: 1;
   }
+
+  .pg-navbar-brand-arrow {
+    border: $title-height/2 solid $color-fg;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+  }
 }
+
+
 
 .pg-docker {
   position:absolute;
@@ -215,11 +226,10 @@
 .pg-prop-content {
     position: absolute;
     overflow: auto;
-    min-width: 100%;
-//    padding-bottom: 7px;
-    padding-top: 0;
-    padding-right: 0;
-    padding-left: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     height: 100%;
 }
 
@@ -385,12 +395,11 @@
 }
 
 .obj_properties .set-group {
-  margin: 0.5rem;
+  margin: 0.5rem 0rem;
   padding: 0rem;
   border: $panel-border;
   border-radius: $card-border-radius;
   background-color: $color-bg;
-  max-width: 99% !important;
 }
 
 fieldset.inline-fieldset {

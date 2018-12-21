@@ -82,6 +82,10 @@
   font-weight: bold;
 }
 
+.wcFloating {
+  box-shadow: $box-shadow;
+}
+
 .wcFloating .wcPanelTabActive {
   border-bottom: none;
   color: $color-fg-theme;
