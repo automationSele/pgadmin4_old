@@ -84,6 +84,7 @@
 
 .wcFloating {
   box-shadow: $box-shadow;
+  z-index: 1050 !important;
 }
 
 .wcFloating .wcPanelTabActive {

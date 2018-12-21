@@ -56,9 +56,9 @@ define([
             setup: function() {
               return {
                 buttons: [{
-                  text: '<span class="fa fa-lg fa-question"></span>',
+                  text: '',
                   key: 112,
-                  className: 'btn btn-secondary pull-left',
+                  className: 'btn btn-secondary pull-left fa fa-question pg-alertify-icon-button',
                   attrs: {
                     name: 'dialog_help',
                     type: 'button',
@@ -572,9 +572,9 @@ define([
             setup: function() {
               return {
                 buttons: [{
-                  text: '<span class="fa fa-lg fa-question"></span>',
+                  text: '',
                   key: 112,
-                  className: 'btn btn-secondary pull-left',
+                  className: 'btn btn-secondary pull-left fa fa-question pg-alertify-icon-button',
                   attrs: {
                     name: 'dialog_help',
                     type: 'button',

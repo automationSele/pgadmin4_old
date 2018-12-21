@@ -138,7 +138,12 @@
 
 .alertify .ajs-header,
 .alertify .ajs-body {
-  font-family: $font-family-primary; }
+  font-family: $font-family-primary;
+}
+
+.alertify .ajs-body {
+  min-height: $footer-height-calc*2;
+}
 
 
 @media (min-width: 768px) {

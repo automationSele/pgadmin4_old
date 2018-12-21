@@ -179,6 +179,16 @@
   }
 }
 
+.pg-alertify-icon-button {
+  //refered - $input-btn-padding-y, $input-btn-padding-x
+  padding: 0.275rem $input-btn-padding-x;
+  &:before {
+    font-size: 1.3em !important;
+    line-height: 1.3;
+    font-family: $font-family-icon;
+  }
+}
+
 .ajs-text-smoothing {
   text-shadow: none;
   -webkit-font-smoothing: antialiased;

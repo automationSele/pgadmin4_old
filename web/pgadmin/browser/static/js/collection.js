@@ -66,7 +66,7 @@ define([
           j = panel.$container.find('.obj_properties').first(),
           view = j.data('obj-view'),
           content = $('<div></div>')
-          .addClass('pg-prop-content col-12 p-2'),
+          .addClass('pg-prop-content col-12 has-pg-prop-btn-group'),
           node = pgBrowser.Nodes[that.node],
           // This will be the URL, used for object manipulation.
           urlBase = this.generate_url(item, 'properties', data),

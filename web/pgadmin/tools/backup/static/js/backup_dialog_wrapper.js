@@ -29,8 +29,8 @@ export class BackupDialogWrapper extends DialogWrapper {
   setup() {
     return {
       buttons: [{
-        text: '<span class="fa fa-lg fa-info"></span>',
-        className: 'btn btn-secondary pull-left',
+        text: '',
+        className: 'btn btn-secondary pull-left fa fa-info pg-alertify-icon-button',
         attrs: {
           name: 'object_help',
           type: 'button',
@@ -38,9 +38,9 @@ export class BackupDialogWrapper extends DialogWrapper {
           label: gettext('Backup'),
         },
       }, {
-        text: '<span class="fa fa-lg fa-question"></span>',
+        text: '',
         key: 112,
-        className: 'btn btn-secondary pull-left',
+        className: 'btn btn-secondary pull-left fa fa-question pg-alertify-icon-button',
         attrs: {
           name: 'dialog_help',
           type: 'button',
