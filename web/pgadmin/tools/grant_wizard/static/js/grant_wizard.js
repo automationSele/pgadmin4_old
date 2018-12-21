@@ -666,7 +666,7 @@ define([
                         $(`
                         <div class="db_objects_container pg-el-xs-12">
                           <div class="db_objects_header d-flex py-1">
-                            <div>${_('Please select objects from the list below.')}</div>
+                            <div>${_('Please select the objects to grant privileges to from the list below.')}</div>
                             <div class="db_objects_filter ml-auto">
                               <div class="input-group">
                                 <div class="input-group-prepend">
@@ -753,8 +753,8 @@ define([
               // Wizard for Privelege control
               var privilegePage = self.privilegePage = new pgBrowser.WizardPage({
                 id: 2,
-                page_title: _('Privileges Selection (step 2 of 3)'),
-                show_description: _('Please select privileges for the selected objects.'),
+                page_title: _('Privilege Selection (step 2 of 3)'),
+                show_description: _('Please add the required privileges for the selected objects.'),
                 disable_next: true,
                 model: newModel,
 
